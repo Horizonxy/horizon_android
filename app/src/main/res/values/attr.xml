@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 圆形图片 -->
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="border_overlay" format="boolean" />
+    </declare-styleable>
+    
+    <declare-styleable name="PullToZoomView">
+        <attr name="headerView" format="reference" />
+        <attr name="contentView" format="reference" />
+        <attr name="zoomView" format="reference" />
+        <attr name="isHeaderParallax" format="boolean" />
+    </declare-styleable>
+    
+    <declare-styleable name="ChangeColorIcon">  
+        <attr name="ico_drawable" format="reference" />
+        <attr name="ico_color" format="color" />
+        <attr name="ico_text" format="string" />
+        <attr name="ico_text_size" format="dimension" />
+    </declare-styleable>  
+    
+    <declare-styleable name="HorizontalProgressBarWithNumber">
+        <attr name="progress_unreached_color" format="color" />
+        <attr name="progress_reached_color" format="color" />
+        <attr name="progress_reached_bar_height" format="dimension" />
+        <attr name="progress_unreached_bar_height" format="dimension" />
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_text_color" format="color" />
+        <attr name="progress_text_offset" format="dimension" />
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+        </attr>
+    </declare-styleable>
+    
+    <declare-styleable name="RoundProgressBarWidthNumber">
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+    <!-- loading -->
+    <declare-styleable name="monindicator">
+        <attr name="circleRadius" format="dimension" />
+        <attr name="circleSpacing" format="dimension" />
+        <attr name="cycle" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="InitializeListView">
+        <attr name="list_dividerHeight" format="dimension" />
+    </declare-styleable>
+    
+</resources>

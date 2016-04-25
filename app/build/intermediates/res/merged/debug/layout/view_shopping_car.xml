@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.horizon.android.ui.ShoppingCarView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/title_height"
+	    android:background="@color/main" >
+	    
+	    <ImageView
+	        android:id="@+id/btn_left"
+	        android:layout_width="@dimen/title_height"
+	        android:layout_height="@dimen/title_height"
+	        android:padding="@dimen/top_ico_margin"
+	        android:src="@mipmap/back" />
+	    
+	    <ImageView 
+	        android:id="@+id/btn_right1"
+	        android:layout_width="@dimen/title_height"
+	        android:layout_height="@dimen/title_height"
+	        android:layout_alignParentRight="true"
+	        android:padding="@dimen/top_ico_margin"
+	        android:src="@mipmap/share" />
+	    
+	    <TextView
+	        android:id="@+id/tv_title"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_toRightOf="@id/btn_left"
+	        android:layout_toLeftOf="@id/btn_right1"
+	        android:textColor="@color/white"
+	        android:gravity="center_vertical"
+	        android:text="购物车"
+	        android:textSize="@dimen/large_size" />
+	    
+	</RelativeLayout>
+    
+</com.horizon.android.ui.ShoppingCarView>

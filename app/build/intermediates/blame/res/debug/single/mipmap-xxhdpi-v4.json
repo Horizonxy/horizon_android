@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_launcher.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_img_line_v.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_img_line_v.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\back.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\back.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\message.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\message.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\shopping_car.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\shopping_car.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\home.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\home.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\share.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\share.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\splash01.jpg",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\splash01.jpg"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\scan_line.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\scan_line.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\scan_mask.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\scan_mask.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\image.jpg",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\image.jpg"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\user.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\user.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_img_user_default.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_img_user_default.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\more.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\more.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\welcome.jpg",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\welcome.jpg"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\setting.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\setting.png"
+    }
+]

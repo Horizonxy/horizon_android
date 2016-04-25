@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height"
+            android:orientation="horizontal" >
+
+            <com.horizon.android.widget.ChangeColorIcon
+                android:id="@+id/btn_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="18px"
+                app:ico_drawable="@mipmap/home"
+                app:ico_text="主页"
+                app:ico_text_size="10sp"
+                app:ico_color="@color/red" />
+
+            <com.horizon.android.widget.ChangeColorIcon
+                android:id="@+id/btn_message"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="18px"
+                app:ico_drawable="@mipmap/message"
+                app:ico_text="消息"
+                app:ico_text_size="10sp"
+                app:ico_color="@color/red" />
+
+            <com.horizon.android.widget.ChangeColorIcon
+                android:id="@+id/btn_shopping_car"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="18px"
+                app:ico_drawable="@mipmap/shopping_car"
+                app:ico_text="购物车"
+                app:ico_text_size="10sp"
+                app:ico_color="@color/red" />
+
+            <com.horizon.android.widget.ChangeColorIcon
+                android:id="@+id/btn_user"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="18px"
+                app:ico_drawable="@mipmap/user"
+                app:ico_text="我的"
+                app:ico_text_size="10sp"
+                app:ico_color="@color/red" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_bottom" />
+
+</RelativeLayout>

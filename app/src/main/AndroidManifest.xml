@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.horizon.android"
+    android:installLocation="auto">
+
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 摄像头权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:name=".Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="design_width"
+            android:value="1080" />
+        <meta-data
+            android:name="design_height"
+            android:value="1920" />
+
+        <!-- 启动页 -->
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Start">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 主页 -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!-- 二维码扫描 -->
+        <activity
+            android:name=".activity.CaptureActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 阻尼效果scrollview -->
+        <activity
+            android:name=".activity.PullToZoomScrollActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 阻尼效果listview -->
+        <activity
+            android:name=".activity.PullToZoomListActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- listview滑动到底部自动加载更多 -->
+        <activity
+            android:name=".activity.AutoLoadActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Retrofit RxJava 测试 -->
+        <activity
+            android:name=".activity.RetrofitRxActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- MVP模式登录 测试 -->
+        <activity
+            android:name=".activity.MVPLoginActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- MVP模式获取信息 测试 -->
+        <activity
+            android:name=".activity.MVPUserInfoActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- MVP rxjava retrofit 模式获取信息 测试 -->
+        <activity
+            android:name=".activity.RetrofitRxJavaMvpContentActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 影讯列表 -->
+        <activity
+            android:name=".activity.MovieListActivity"
+            android:screenOrientation="portrait" />
+
+        <!--天气查询-->
+        <activity android:name=".activity.WeatherActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>
