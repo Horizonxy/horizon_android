@@ -39,7 +39,7 @@ public class WeatherActivity extends BaseActivity implements WeatherView {
     }
 
     @OnClick(R.id.btn_query)
-    void weacherClick(){
+    void weacherClick() {
         persenter.getWeather();
     }
 
@@ -52,9 +52,9 @@ public class WeatherActivity extends BaseActivity implements WeatherView {
     @Override
     public void success(WeatherVo weather) {
         WeatherVo.RealTime realTime = weather.getData().getRealtime();
-        tvResult.setText(realTime.getDate()+"\n"
-            +realTime.getWeather().getTemperature()+"\n"
-            +realTime.getWind().getDirect()+" "+realTime.getWind().getPower());
+        tvResult.setText(realTime.getDate() + "\n"
+                + realTime.getWeather().getTemperature() + "\n"
+                + realTime.getWind().getDirect() + " " + realTime.getWind().getPower());
     }
 
     @Override

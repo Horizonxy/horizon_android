@@ -38,8 +38,6 @@ public class WeatherVo implements Serializable {
         private int week;
         private String moon;
         private long dataUptime;
-
-
         private Weather weather;
         private Wind wind;
 

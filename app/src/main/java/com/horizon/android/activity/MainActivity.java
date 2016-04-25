@@ -1,6 +1,7 @@
 package com.horizon.android.activity;
 
 import com.horizon.android.Application;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -8,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.component.ActivityComponent;
@@ -19,9 +21,12 @@ import com.horizon.android.widget.ChangeColorIcon;
 import com.horizon.android.util.SystemStatusManager;
 import com.horizon.android.util.ToastUtils;
 import com.zhy.autolayout.AutoLayoutActivity;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -78,32 +83,32 @@ public class MainActivity extends AutoLayoutActivity implements com.horizon.andr
 
     @Override
     public void showName(UserVo user) {
-        ToastUtils.show(this, "user name: "+user.getName());
+        ToastUtils.show(this, "user name: " + user.getName());
     }
 
     @OnClick(R.id.btn_home)
-    void homeClick(){
+    void homeClick() {
         resetOtherTabs(0);
         mTabIndicator.get(0).setIconAlpha(1.0f);
         vpMain.setCurrentItem(0, false);
     }
 
     @OnClick(R.id.btn_message)
-    void messageClick(){
+    void messageClick() {
         resetOtherTabs(1);
         mTabIndicator.get(1).setIconAlpha(1.0f);
         vpMain.setCurrentItem(1, false);
     }
 
     @OnClick(R.id.btn_shopping_car)
-    void shoppingCarClick(){
+    void shoppingCarClick() {
         resetOtherTabs(2);
         mTabIndicator.get(2).setIconAlpha(1.0f);
         vpMain.setCurrentItem(2, false);
     }
 
     @OnClick(R.id.btn_user)
-    void userClick(){
+    void userClick() {
         resetOtherTabs(3);
         mTabIndicator.get(3).setIconAlpha(1.0f);
         vpMain.setCurrentItem(3, false);
@@ -114,7 +119,7 @@ public class MainActivity extends AutoLayoutActivity implements com.horizon.andr
      */
     private void resetOtherTabs(int pos) {
         for (int i = 0; i < mTabIndicator.size(); i++) {
-            if(i != pos){
+            if (i != pos) {
                 mTabIndicator.get(i).setIconAlpha(0);
             }
         }
@@ -180,9 +185,9 @@ public class MainActivity extends AutoLayoutActivity implements com.horizon.andr
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case Constants.REQ_SCAN:
-                if(resultCode == RESULT_OK && data != null){
+                if (resultCode == RESULT_OK && data != null) {
                     String result = data.getStringExtra(Constants.BUNDLE_SCAN_RESULT);
-                    ToastUtils.show(this, "扫描结果："+result);
+                    ToastUtils.show(this, "扫描结果：" + result);
                 }
                 break;
 
