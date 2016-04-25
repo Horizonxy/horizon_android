@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class WeatherVo implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 8028416936370299967L;
     private WearherData data;
 
     public WearherData getData() {
@@ -16,7 +16,7 @@ public class WeatherVo implements Serializable {
     }
 
     public static class WearherData implements Serializable {
-        private static final long serialVersionUID = 1L;
+        private static final long serialVersionUID = 8194952345725928238L;
         private RealTime realtime;
 
         public RealTime getRealtime() {
@@ -29,8 +29,8 @@ public class WeatherVo implements Serializable {
     }
 
     public static class RealTime implements Serializable {
-        private static final long serialVersionUID = 1L;
 
+        private static final long serialVersionUID = -2654067745472198496L;
         private String city_code;
         private String city_name;
         private String date;
@@ -115,7 +115,8 @@ public class WeatherVo implements Serializable {
     }
 
     public static class Weather implements Serializable {
-        private static final long serialVersionUID = 1L;
+
+        private static final long serialVersionUID = -6277476029948322309L;
         private String temperature;
         private String humidity;
         private String info;
@@ -155,7 +156,8 @@ public class WeatherVo implements Serializable {
     }
 
     public static class Wind implements Serializable {
-        private static final long serialVersionUID = 1L;
+
+        private static final long serialVersionUID = 6524907502506195925L;
         private String direct;
         private String power;
         private String offset;
