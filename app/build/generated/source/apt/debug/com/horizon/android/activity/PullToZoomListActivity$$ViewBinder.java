@@ -9,8 +9,8 @@ public class PullToZoomListActivity$$ViewBinder<T extends com.horizon.android.ac
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558522, "field 'listView'");
-    target.listView = finder.castView(view, 2131558522, "field 'listView'");
+    view = finder.findRequiredView(source, 2131558523, "field 'listView'");
+    target.listView = finder.castView(view, 2131558523, "field 'listView'");
   }
 
   @Override public void unbind(T target) {

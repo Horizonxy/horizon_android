@@ -8,10 +8,10 @@ import butterknife.ButterKnife.ViewBinder;
 public class MessageView$$ViewBinder<T extends com.horizon.android.ui.MessageView> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558598, "field 'lvMessage'");
-    target.lvMessage = finder.castView(view, 2131558598, "field 'lvMessage'");
-    view = finder.findRequiredView(source, 2131558584, "field 'ptrFrame'");
-    target.ptrFrame = finder.castView(view, 2131558584, "field 'ptrFrame'");
+    view = finder.findRequiredView(source, 2131558600, "field 'lvMessage'");
+    target.lvMessage = finder.castView(view, 2131558600, "field 'lvMessage'");
+    view = finder.findRequiredView(source, 2131558585, "field 'ptrFrame'");
+    target.ptrFrame = finder.castView(view, 2131558585, "field 'ptrFrame'");
   }
 
   @Override public void unbind(T target) {

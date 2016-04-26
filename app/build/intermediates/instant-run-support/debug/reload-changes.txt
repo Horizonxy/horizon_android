@@ -1,0 +1,3 @@
+CHANGED,E:\as_workspace\horizon\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\horizon\android\widget\AutoLoadListView$override.class
+CHANGED,E:\as_workspace\horizon\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\horizon\android\widget\ListView$override.class
+CHANGED,E:\as_workspace\horizon\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class

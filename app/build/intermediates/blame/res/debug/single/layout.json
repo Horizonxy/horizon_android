@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_listview.xml",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\layout\\activity_listview.xml"
+    },
+    {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
         "source": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
@@ -212,12 +216,12 @@
         "source": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\profile_head_view.xml",
-        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\layout\\profile_head_view.xml"
-    },
-    {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_welcome.xml",
         "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\profile_head_view.xml",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\layout\\profile_head_view.xml"
     },
     {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_weather.xml",

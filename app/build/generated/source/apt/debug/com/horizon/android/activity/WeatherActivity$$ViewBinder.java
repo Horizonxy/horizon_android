@@ -9,11 +9,11 @@ public class WeatherActivity$$ViewBinder<T extends com.horizon.android.activity.
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558534, "field 'etCityName'");
-    target.etCityName = finder.castView(view, 2131558534, "field 'etCityName'");
-    view = finder.findRequiredView(source, 2131558521, "field 'tvResult'");
-    target.tvResult = finder.castView(view, 2131558521, "field 'tvResult'");
-    view = finder.findRequiredView(source, 2131558535, "method 'weacherClick'");
+    view = finder.findRequiredView(source, 2131558535, "field 'etCityName'");
+    target.etCityName = finder.castView(view, 2131558535, "field 'etCityName'");
+    view = finder.findRequiredView(source, 2131558522, "field 'tvResult'");
+    target.tvResult = finder.castView(view, 2131558522, "field 'tvResult'");
+    view = finder.findRequiredView(source, 2131558536, "method 'weacherClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

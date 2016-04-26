@@ -136,6 +136,13 @@
                     android:layout_height="@dimen/title_height"
                     android:text="天气查询"
                     android:textSize="@dimen/normal_size" />
+
+                <Button
+                    android:id="@+id/btn_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height"
+                    android:text="MyListView"
+                    android:textSize="@dimen/normal_size" />
             </LinearLayout>
         </ScrollView>
     </in.srain.cube.views.ptr.PtrFrameLayout>

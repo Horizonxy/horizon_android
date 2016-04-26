@@ -12,6 +12,7 @@ import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.activity.AutoLoadActivity;
 import com.horizon.android.activity.CaptureActivity;
+import com.horizon.android.activity.ListViewActivity;
 import com.horizon.android.activity.MVPLoginActivity;
 import com.horizon.android.activity.MVPUserInfoActivity;
 import com.horizon.android.activity.MovieListActivity;
@@ -79,6 +80,11 @@ public class HomeView extends AutoLinearLayout {
 				}
 			}, 5000);
 		}
+	}
+
+	@OnClick(R.id.btn_listview)
+	void listviewClick(){
+		mCxt.startActivity(new Intent(mCxt, ListViewActivity.class));
 	}
 
 	@OnClick(R.id.btn_weather)

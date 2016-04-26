@@ -112,6 +112,11 @@
         <activity
             android:name="com.horizon.android.activity.WeatherActivity"
             android:screenOrientation="portrait" />
+
+        <!-- 自定义Listview -->
+        <activity
+            android:name="com.horizon.android.activity.ListViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

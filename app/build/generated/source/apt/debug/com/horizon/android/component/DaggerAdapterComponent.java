@@ -2,6 +2,8 @@ package com.horizon.android.component;
 
 import com.horizon.android.activity.AutoLoadActivity;
 import com.horizon.android.activity.AutoLoadActivity_MembersInjector;
+import com.horizon.android.activity.ListViewActivity;
+import com.horizon.android.activity.ListViewActivity_MembersInjector;
 import com.horizon.android.activity.PullToZoomListActivity;
 import com.horizon.android.activity.PullToZoomListActivity_MembersInjector;
 import com.horizon.android.adapter.MessageAdapter;
@@ -21,6 +23,7 @@ public final class DaggerAdapterComponent implements AdapterComponent {
   private MembersInjector<MessageView> messageViewMembersInjector;
   private MembersInjector<PullToZoomListActivity> pullToZoomListActivityMembersInjector;
   private MembersInjector<AutoLoadActivity> autoLoadActivityMembersInjector;
+  private MembersInjector<ListViewActivity> listViewActivityMembersInjector;
 
   private DaggerAdapterComponent(Builder builder) {  
     assert builder != null;
@@ -36,6 +39,7 @@ public final class DaggerAdapterComponent implements AdapterComponent {
     this.messageViewMembersInjector = MessageView_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), provideMessageAdapterProvider);
     this.pullToZoomListActivityMembersInjector = PullToZoomListActivity_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), provideMessageAdapterProvider);
     this.autoLoadActivityMembersInjector = AutoLoadActivity_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), provideMessageAdapterProvider);
+    this.listViewActivityMembersInjector = ListViewActivity_MembersInjector.create((MembersInjector) MembersInjectors.noOp(), provideMessageAdapterProvider);
   }
 
   @Override
@@ -53,6 +57,12 @@ public final class DaggerAdapterComponent implements AdapterComponent {
   @Override
   public AutoLoadActivity inject(AutoLoadActivity activity) {  
     autoLoadActivityMembersInjector.injectMembers(activity);
+    return activity;
+  }
+
+  @Override
+  public ListViewActivity inject(ListViewActivity activity) {  
+    listViewActivityMembersInjector.injectMembers(activity);
     return activity;
   }
 
