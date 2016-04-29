@@ -15,6 +15,7 @@ import java.util.List;
 import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.OnClick;
+import rx.Subscription;
 
 public class RetrofitRxJavaMvpContentActivity extends BaseActivity implements ContentListView {
 
@@ -67,4 +68,9 @@ public class RetrofitRxJavaMvpContentActivity extends BaseActivity implements Co
 
 	@Override
 	public void onCompleted() {}
+
+	@Override
+	public void addSubscriberToComposite(Subscription subscription) {
+		addSubscription(subscription);
+	}
 }

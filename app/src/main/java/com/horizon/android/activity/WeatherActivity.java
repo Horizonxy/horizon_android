@@ -16,6 +16,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import rx.Subscription;
 
 public class WeatherActivity extends BaseActivity implements WeatherView {
 
@@ -41,6 +42,7 @@ public class WeatherActivity extends BaseActivity implements WeatherView {
     @OnClick(R.id.btn_query)
     void weacherClick() {
         persenter.getWeather();
+        finish();
     }
 
     @Override
@@ -60,5 +62,10 @@ public class WeatherActivity extends BaseActivity implements WeatherView {
     @Override
     public void failure(String error) {
         tvResult.setText(error);
+    }
+
+    @Override
+    public void addSubscriberToComposite(Subscription subscription) {
+        addSubscription(subscription);
     }
 }

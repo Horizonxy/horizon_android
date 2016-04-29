@@ -8,6 +8,7 @@ import com.horizon.android.util.RestResult;
 import java.util.List;
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -15,8 +16,8 @@ import rx.schedulers.Schedulers;
 public class ContentListImpl implements ContentListInterface {
 
 	@Override
-	public void getContentList(String columnId, Subscriber<List<ContentVo>> subscriber) {
-		Application.getInstance().apiService.getContentByColumnId(2, 100, "yooyo_weekend", "circle.content.list",
+	public Subscription getContentList(String columnId, Subscriber<List<ContentVo>> subscriber) {
+		return Application.getInstance().apiService.getContentByColumnId(2, 100, "yooyo_weekend", "circle.content.list",
 				columnId)
 		.flatMap(new Func1<RestResult<Page<ContentVo>>, Observable<List<ContentVo>>>() {
 			@Override

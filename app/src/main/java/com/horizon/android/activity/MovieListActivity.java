@@ -29,6 +29,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
+import rx.Subscription;
 
 public class MovieListActivity extends BaseActivity implements MovieListView {
 
@@ -109,6 +110,11 @@ public class MovieListActivity extends BaseActivity implements MovieListView {
     @Override
     public String getMovieTitle() {
         return "哥斯拉";
+    }
+
+    @Override
+    public void addSubscriptionToComposiote(Subscription subscription) {
+        addSubscription(subscription);
     }
 
     private boolean isNetworkAvailable() {

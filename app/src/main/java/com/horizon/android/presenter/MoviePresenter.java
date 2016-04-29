@@ -8,6 +8,8 @@ import com.horizon.android.view.MovieListView;
 
 import java.util.List;
 
+import rx.Subscription;
+
 public class MoviePresenter {
 
     MovieInterface mMovie;
@@ -19,7 +21,7 @@ public class MoviePresenter {
     }
 
     public void getMovies(int pagesize, int offset){
-        mMovie.getMovies(vMovie.getMovieTitle() ,pagesize, offset, new SimpleSubscriber<JuheResult<List<MovieVo>>>(){
+        Subscription subscription = mMovie.getMovies(vMovie.getMovieTitle() ,pagesize, offset, new SimpleSubscriber<JuheResult<List<MovieVo>>>(){
             @Override
             public void onNext(JuheResult<List<MovieVo>> result) {
                vMovie.movieList(result.getResult());
@@ -30,5 +32,6 @@ public class MoviePresenter {
                 vMovie.error(e.getMessage());
             }
         });
+        vMovie.addSubscriptionToComposiote(subscription);
     }
 }

@@ -6,6 +6,8 @@ import com.horizon.android.util.JuheResult;
 import com.horizon.android.util.SimpleSubscriber;
 import com.horizon.android.view.WeatherView;
 
+import rx.Subscription;
+
 public class WeatherPersenter {
 
     WeatherInterface mWeather;
@@ -17,7 +19,7 @@ public class WeatherPersenter {
     }
 
     public void getWeather(){
-        mWeather.getWeather(vWeather.getCityName(), new SimpleSubscriber<JuheResult<WeatherVo>>(){
+        Subscription subscription = mWeather.getWeather(vWeather.getCityName(), new SimpleSubscriber<JuheResult<WeatherVo>>(){
 
             @Override
             public void onNext(JuheResult<WeatherVo> obj) {
@@ -29,6 +31,7 @@ public class WeatherPersenter {
                 vWeather.failure(e.getMessage());
             }
         });
+        vWeather.addSubscriberToComposite(subscription);
     }
 
 }

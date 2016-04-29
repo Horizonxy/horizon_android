@@ -6,6 +6,8 @@ import com.horizon.android.util.SimpleSubscriber;
 import com.horizon.android.view.ContentListView;
 import java.util.List;
 
+import rx.Subscription;
+
 public class ContentListPresenter {
 
 	private ContentListView vContentList;
@@ -17,7 +19,7 @@ public class ContentListPresenter {
 	}
 	
 	public void getContentList(String columnId) {
-		mContentList.getContentList(columnId, new SimpleSubscriber<List<ContentVo>>(){
+		Subscription subscription = mContentList.getContentList(columnId, new SimpleSubscriber<List<ContentVo>>(){
 			@Override
 			public void onStart() {
 				super.onStart();
@@ -39,5 +41,6 @@ public class ContentListPresenter {
 				vContentList.onCompleted();
 			}
 		});
+		vContentList.addSubscriberToComposite(subscription);
 	}
 }

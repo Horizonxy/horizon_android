@@ -4,9 +4,10 @@ import com.horizon.android.model.bean.WeatherVo;
 import com.horizon.android.util.JuheResult;
 
 import rx.Subscriber;
+import rx.Subscription;
 
 public interface WeatherInterface {
 
-    void getWeather(String cityname, Subscriber<JuheResult<WeatherVo>> subscriber);
+    Subscription getWeather(String cityname, Subscriber<JuheResult<WeatherVo>> subscriber);
 
 }

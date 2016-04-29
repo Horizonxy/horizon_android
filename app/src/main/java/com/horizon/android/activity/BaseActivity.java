@@ -22,6 +22,8 @@ import com.zhy.autolayout.AutoLayoutActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 
 public class BaseActivity extends AutoLayoutActivity {
 
@@ -30,6 +32,7 @@ public class BaseActivity extends AutoLayoutActivity {
     protected LayoutInflater mInflater;
     Resources res;
     ImageLoader imageLoader;
+    private CompositeSubscription mCompositeSubscription;
 
     @Bind(R.id.tv_title)
     TextView tvTitle;
@@ -59,6 +62,8 @@ public class BaseActivity extends AutoLayoutActivity {
         mInflater = getLayoutInflater();
         res = Application.getRes();
         imageLoader = Application.getImageLoader();
+
+        this.mCompositeSubscription = new CompositeSubscription();
     }
 
     public void setContentView(@LayoutRes int layoutResID, boolean isNeedLoadView){
@@ -90,6 +95,10 @@ public class BaseActivity extends AutoLayoutActivity {
         llNoNet.setVisibility(View.GONE);
     }
 
+    public void addSubscription(Subscription subscription) {
+        this.mCompositeSubscription.add(subscription);
+    }
+
     public void initAfter(){
         mInitLoad.setVisibility(View.GONE);
         layoutContent.setVisibility(View.VISIBLE);
@@ -116,8 +125,12 @@ public class BaseActivity extends AutoLayoutActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        //在销毁时统一取消
+        if (this.mCompositeSubscription != null) {
+            this.mCompositeSubscription.unsubscribe();
+        }
         Application.getInstance().removeAty(this);
+        super.onDestroy();
     }
 
     @OnClick(R.id.btn_left)
