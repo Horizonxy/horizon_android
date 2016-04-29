@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
+import com.horizon.android.activity.AnimationFrameActivity;
 import com.horizon.android.activity.AutoLoadActivity;
 import com.horizon.android.activity.CaptureActivity;
 import com.horizon.android.activity.ListViewActivity;
@@ -80,6 +81,11 @@ public class HomeView extends AutoLinearLayout {
 				}
 			}, 5000);
 		}
+	}
+
+	@OnClick(R.id.btn_animation_frame)
+	void frameClick(){
+		mCxt.startActivity(new Intent(mCxt, AnimationFrameActivity.class));
 	}
 
 	@OnClick(R.id.btn_listview)
