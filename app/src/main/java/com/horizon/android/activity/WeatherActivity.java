@@ -42,7 +42,6 @@ public class WeatherActivity extends BaseActivity implements WeatherView {
     @OnClick(R.id.btn_query)
     void weacherClick() {
         persenter.getWeather();
-        finish();
     }
 
     @Override

@@ -21,6 +21,7 @@ import com.horizon.android.activity.PullToZoomListActivity;
 import com.horizon.android.activity.PullToZoomScrollActivity;
 import com.horizon.android.activity.RetrofitRxActivity;
 import com.horizon.android.activity.RetrofitRxJavaMvpContentActivity;
+import com.horizon.android.activity.StatusLayoutActivity;
 import com.horizon.android.activity.WeatherActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 import butterknife.Bind;
@@ -81,6 +82,11 @@ public class HomeView extends AutoLinearLayout {
 				}
 			}, 5000);
 		}
+	}
+
+	@OnClick(R.id.btn_layout_status)
+	void layoutStatusClick(){
+		mCxt.startActivity(new Intent(mCxt, StatusLayoutActivity.class));
 	}
 
 	@OnClick(R.id.btn_animation_frame)
