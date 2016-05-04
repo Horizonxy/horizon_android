@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.horizon.android.Application;
 import com.horizon.android.R;
+import com.horizon.android.exception.CrashHandler;
 import com.horizon.android.util.SystemStatusManager;
 import com.horizon.android.util.log.LogUtils;
 import com.horizon.android.widget.MonIndicator;
@@ -64,6 +65,9 @@ public class BaseActivity extends AutoLayoutActivity {
         imageLoader = Application.getImageLoader();
 
         this.mCompositeSubscription = new CompositeSubscription();
+
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(this);
     }
 
     public void setContentView(@LayoutRes int layoutResID, boolean isNeedLoadView){

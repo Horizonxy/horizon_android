@@ -102,13 +102,16 @@
             android:name=".activity.MovieListActivity"
             android:screenOrientation="portrait" />
 
-        <!--天气查询-->
-        <activity android:name=".activity.WeatherActivity"
-            android:screenOrientation="portrait"/>
+        <!-- 天气查询 -->
+        <activity
+            android:name=".activity.WeatherActivity"
+            android:screenOrientation="portrait" />
 
-        <!--自定义Listview-->
-        <activity android:name=".activity.ListViewActivity"
-            android:screenOrientation="portrait"/>
+        <!-- 自定义Listview -->
+        <activity
+            android:name=".activity.ListViewActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.AnimationFrameActivity"></activity>
     </application>
 
 </manifest>
