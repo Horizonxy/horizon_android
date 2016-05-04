@@ -145,6 +145,13 @@
                     android:textSize="@dimen/normal_size" />
 
                 <Button
+                    android:id="@+id/btn_scroll_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height"
+                    android:text="MyScrollView"
+                    android:textSize="@dimen/normal_size" />
+
+                <Button
                     android:id="@+id/btn_animation_frame"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"

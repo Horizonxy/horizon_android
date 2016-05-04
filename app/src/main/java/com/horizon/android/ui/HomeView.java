@@ -21,6 +21,7 @@ import com.horizon.android.activity.PullToZoomListActivity;
 import com.horizon.android.activity.PullToZoomScrollActivity;
 import com.horizon.android.activity.RetrofitRxActivity;
 import com.horizon.android.activity.RetrofitRxJavaMvpContentActivity;
+import com.horizon.android.activity.ScrollViewActivity;
 import com.horizon.android.activity.StatusLayoutActivity;
 import com.horizon.android.activity.WeatherActivity;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -82,6 +83,11 @@ public class HomeView extends AutoLinearLayout {
 				}
 			}, 5000);
 		}
+	}
+
+	@OnClick(R.id.btn_scroll_view)
+	void scrollviewClick(){
+		mCxt.startActivity(new Intent(mCxt, ScrollViewActivity.class));
 	}
 
 	@OnClick(R.id.btn_layout_status)

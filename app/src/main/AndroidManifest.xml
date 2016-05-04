@@ -117,8 +117,13 @@
             android:name=".activity.AnimationFrameActivity"
             android:screenOrientation="portrait" />
 
-        <!--布局延伸到状态栏-->
-        <activity android:name=".activity.StatusLayoutActivity"
+        <!-- 布局延伸到状态栏 -->
+        <activity
+            android:name=".activity.StatusLayoutActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 自定义阻尼scrollview -->
+        <activity android:name=".activity.ScrollViewActivity"
             android:screenOrientation="portrait" />
     </application>
 
