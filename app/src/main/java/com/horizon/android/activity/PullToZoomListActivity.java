@@ -41,13 +41,6 @@ public class PullToZoomListActivity extends BaseActivity {
         component.inject(this);
 
         listView.setAdapter(adapter);
-        listView.getPullRootView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("zhuwenwu", "position = " + position);
-            }
-        });
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

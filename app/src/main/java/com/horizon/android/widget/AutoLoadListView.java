@@ -2,6 +2,7 @@ package com.horizon.android.widget;
 
 import com.horizon.android.R;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -27,14 +28,9 @@ public class AutoLoadListView extends ListView {
 	/** 底部view */
 	private CreateFooterView mFooterView;
 	
-	public AutoLoadListView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-
-		init(context);
-	}
-
 	public AutoLoadListView(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
+		super(context, attrs);
+		init(context);
 	}
 
 	public AutoLoadListView(Context context) {

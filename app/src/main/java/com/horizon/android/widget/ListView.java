@@ -14,12 +14,7 @@ public class ListView extends android.widget.ListView {
     }
 
     public ListView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public ListView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-
+        super(context, attrs);
         initBounceListView();
     }
 
