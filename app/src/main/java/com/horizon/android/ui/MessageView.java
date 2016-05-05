@@ -16,6 +16,7 @@ import com.zhy.autolayout.AutoLinearLayout;
 import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -72,4 +73,13 @@ public class MessageView extends AutoLinearLayout {
 		}
 	}
 
+	@OnClick(R.id.btn_right1)
+	void right1Click(){
+
+	}
+
+	@OnClick(R.id.btn_left)
+	void leftClick(){
+
+	}
 }

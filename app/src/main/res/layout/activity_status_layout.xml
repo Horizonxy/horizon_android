@@ -27,6 +27,7 @@
                 android:layout_width="@dimen/title_height"
                 android:layout_height="@dimen/title_height"
                 android:padding="@dimen/top_ico_margin"
+                style="@style/repple_out_backguound"
                 android:src="@mipmap/maincolor_back" />
 
             <TextView

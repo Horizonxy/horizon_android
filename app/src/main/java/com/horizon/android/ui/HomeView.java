@@ -152,7 +152,18 @@ public class HomeView extends AutoLinearLayout {
 
 	@OnClick(R.id.btn_left)
 	void leftClick(){
-		Application.getInstance().exit();
+		//Application.getInstance().exit();
+	}
+
+
+	@OnClick(R.id.btn_right1)
+	void right1Click(){
+
+	}
+
+	@OnClick(R.id.btn_right2)
+	void right2Click(){
+
 	}
 
 	@OnClick(R.id.btn_caputer)

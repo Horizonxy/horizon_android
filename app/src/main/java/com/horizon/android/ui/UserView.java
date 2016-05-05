@@ -2,9 +2,12 @@ package com.horizon.android.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
+import com.horizon.android.R;
 import com.zhy.autolayout.AutoLinearLayout;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class UserView extends AutoLinearLayout {
 
@@ -18,4 +21,19 @@ public class UserView extends AutoLinearLayout {
 		
 	}
 
+	@Override
+	protected void onFinishInflate() {
+		super.onFinishInflate();
+		ButterKnife.bind(this);
+	}
+
+	@OnClick(R.id.btn_right1)
+	void right1Click(){
+
+	}
+
+	@OnClick(R.id.btn_left)
+	void leftClick(){
+
+	}
 }
