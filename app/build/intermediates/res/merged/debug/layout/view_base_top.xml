@@ -9,6 +9,7 @@
         android:layout_width="@dimen/title_height"
         android:layout_height="@dimen/title_height"
         android:padding="@dimen/top_ico_margin"
+        style="@style/repple_out_backguound"
         android:src="@mipmap/back" />
     
     <ImageView
@@ -17,6 +18,7 @@
         android:layout_height="@dimen/title_height"
         android:layout_alignParentRight="true"
         android:padding="@dimen/top_ico_margin"
+        style="@style/repple_out_backguound"
         android:visibility="invisible" />
 
     <ImageView
@@ -25,6 +27,7 @@
         android:layout_height="@dimen/title_height"
         android:layout_toLeftOf="@id/btn_right1"
         android:padding="@dimen/top_ico_margin"
+        style="@style/repple_out_backguound"
         android:visibility="invisible" />
 
     <TextView

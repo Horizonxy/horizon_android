@@ -30,6 +30,7 @@
                 android:layout_weight="1"
                 android:padding="18px"
                 app:ico_drawable="@mipmap/home"
+                style="@style/repple_in_backguound"
                 app:ico_text="主页"
                 app:ico_text_size="10sp"
                 app:ico_color="@color/red" />
@@ -41,6 +42,7 @@
                 android:layout_weight="1"
                 android:padding="18px"
                 app:ico_drawable="@mipmap/message"
+                style="@style/repple_in_backguound"
                 app:ico_text="消息"
                 app:ico_text_size="10sp"
                 app:ico_color="@color/red" />
@@ -52,6 +54,7 @@
                 android:layout_weight="1"
                 android:padding="18px"
                 app:ico_drawable="@mipmap/shopping_car"
+                style="@style/repple_in_backguound"
                 app:ico_text="购物车"
                 app:ico_text_size="10sp"
                 app:ico_color="@color/red" />
@@ -63,6 +66,7 @@
                 android:layout_weight="1"
                 android:padding="18px"
                 app:ico_drawable="@mipmap/user"
+                style="@style/repple_in_backguound"
                 app:ico_text="我的"
                 app:ico_text_size="10sp"
                 app:ico_color="@color/red" />

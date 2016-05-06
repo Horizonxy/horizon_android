@@ -37,6 +37,7 @@
 
         <TextView
             android:id="@+id/tv_register"
+            style="@style/repple_out_backguound"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
@@ -49,6 +50,7 @@
 
         <TextView
             android:id="@+id/tv_login"
+            style="@style/repple_out_backguound"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"

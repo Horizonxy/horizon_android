@@ -168,6 +168,13 @@
                     android:text="布局延伸"
                     android:textSize="@dimen/normal_size" />
 
+                <Button
+                    android:id="@+id/btn_collection_lise"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height"
+                    android:text="收藏点赞"
+                    android:textSize="@dimen/normal_size" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height" />

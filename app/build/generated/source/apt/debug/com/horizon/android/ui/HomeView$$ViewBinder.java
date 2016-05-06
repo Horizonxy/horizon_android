@@ -8,9 +8,45 @@ import butterknife.ButterKnife.ViewBinder;
 public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558585, "field 'ptrFrame'");
-    target.ptrFrame = finder.castView(view, 2131558585, "field 'ptrFrame'");
-    view = finder.findRequiredView(source, 2131558596, "method 'listviewClick'");
+    view = finder.findRequiredView(source, 2131558595, "field 'ptrFrame'");
+    target.ptrFrame = finder.castView(view, 2131558595, "field 'ptrFrame'");
+    view = finder.findRequiredView(source, 2131558610, "method 'clipClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.clipClick();
+        }
+      });
+    view = finder.findRequiredView(source, 2131558607, "method 'scrollviewClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.scrollviewClick();
+        }
+      });
+    view = finder.findRequiredView(source, 2131558609, "method 'layoutStatusClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.layoutStatusClick();
+        }
+      });
+    view = finder.findRequiredView(source, 2131558608, "method 'frameClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.frameClick();
+        }
+      });
+    view = finder.findRequiredView(source, 2131558606, "method 'listviewClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -19,7 +55,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.listviewClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558595, "method 'weatherClick'");
+    view = finder.findRequiredView(source, 2131558605, "method 'weatherClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -28,7 +64,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.weatherClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558594, "method 'movieListClick'");
+    view = finder.findRequiredView(source, 2131558604, "method 'movieListClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -37,7 +73,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.movieListClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558593, "method 'retrofitRxjavaMvpClick'");
+    view = finder.findRequiredView(source, 2131558603, "method 'retrofitRxjavaMvpClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -46,7 +82,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.retrofitRxjavaMvpClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558592, "method 'mvpUserInfoClick'");
+    view = finder.findRequiredView(source, 2131558602, "method 'mvpUserInfoClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -55,7 +91,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.mvpUserInfoClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558591, "method 'mvpLoginnClick'");
+    view = finder.findRequiredView(source, 2131558601, "method 'mvpLoginnClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -64,7 +100,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.mvpLoginnClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558590, "method 'retrofitRxjavaClick'");
+    view = finder.findRequiredView(source, 2131558600, "method 'retrofitRxjavaClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -73,7 +109,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.retrofitRxjavaClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558589, "method 'autoLoadClick'");
+    view = finder.findRequiredView(source, 2131558599, "method 'autoLoadClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -82,7 +118,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.autoLoadClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558588, "method 'zoomListClick'");
+    view = finder.findRequiredView(source, 2131558598, "method 'zoomListClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -91,7 +127,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.zoomListClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558587, "method 'zoomScrollClick'");
+    view = finder.findRequiredView(source, 2131558597, "method 'zoomScrollClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -100,7 +136,7 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.zoomScrollClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558582, "method 'leftClick'");
+    view = finder.findRequiredView(source, 2131558544, "method 'leftClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -109,7 +145,25 @@ public class HomeView$$ViewBinder<T extends com.horizon.android.ui.HomeView> imp
           target.leftClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558586, "method 'caputerClick'");
+    view = finder.findRequiredView(source, 2131558593, "method 'right1Click'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.right1Click();
+        }
+      });
+    view = finder.findRequiredView(source, 2131558594, "method 'right2Click'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.right2Click();
+        }
+      });
+    view = finder.findRequiredView(source, 2131558596, "method 'caputerClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

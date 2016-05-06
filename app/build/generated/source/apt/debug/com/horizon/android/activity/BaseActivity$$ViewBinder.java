@@ -10,8 +10,8 @@ public class BaseActivity$$ViewBinder<T extends com.horizon.android.activity.Bas
     View view;
     view = finder.findRequiredView(source, 2131558545, "field 'tvTitle'");
     target.tvTitle = finder.castView(view, 2131558545, "field 'tvTitle'");
-    view = finder.findRequiredView(source, 2131558582, "field 'btnLeft' and method 'leftClick'");
-    target.btnLeft = finder.castView(view, 2131558582, "field 'btnLeft'");
+    view = finder.findRequiredView(source, 2131558544, "field 'btnLeft' and method 'leftClick'");
+    target.btnLeft = finder.castView(view, 2131558544, "field 'btnLeft'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -20,16 +20,16 @@ public class BaseActivity$$ViewBinder<T extends com.horizon.android.activity.Bas
           target.leftClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558583, "field 'btnRight1'");
-    target.btnRight1 = finder.castView(view, 2131558583, "field 'btnRight1'");
-    view = finder.findRequiredView(source, 2131558584, "field 'btnRight2'");
-    target.btnRight2 = finder.castView(view, 2131558584, "field 'btnRight2'");
-    view = finder.findRequiredView(source, 2131558579, "field 'mInitLoad'");
-    target.mInitLoad = finder.castView(view, 2131558579, "field 'mInitLoad'");
-    view = finder.findRequiredView(source, 2131558580, "field 'llNoNet'");
-    target.llNoNet = finder.castView(view, 2131558580, "field 'llNoNet'");
-    view = finder.findRequiredView(source, 2131558581, "field 'btnRetry' and method 'clickRetry'");
-    target.btnRetry = finder.castView(view, 2131558581, "field 'btnRetry'");
+    view = finder.findRequiredView(source, 2131558593, "field 'btnRight1'");
+    target.btnRight1 = finder.castView(view, 2131558593, "field 'btnRight1'");
+    view = finder.findRequiredView(source, 2131558594, "field 'btnRight2'");
+    target.btnRight2 = finder.castView(view, 2131558594, "field 'btnRight2'");
+    view = finder.findRequiredView(source, 2131558590, "field 'mInitLoad'");
+    target.mInitLoad = finder.castView(view, 2131558590, "field 'mInitLoad'");
+    view = finder.findRequiredView(source, 2131558591, "field 'llNoNet'");
+    target.llNoNet = finder.castView(view, 2131558591, "field 'llNoNet'");
+    view = finder.findRequiredView(source, 2131558592, "field 'btnRetry' and method 'clickRetry'");
+    target.btnRetry = finder.castView(view, 2131558592, "field 'btnRetry'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

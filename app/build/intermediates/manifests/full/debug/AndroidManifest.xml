@@ -117,6 +117,26 @@
         <activity
             android:name="com.horizon.android.activity.ListViewActivity"
             android:screenOrientation="portrait" />
+
+        <!-- view带动画渐入渐出 -->
+        <activity
+            android:name="com.horizon.android.activity.AnimationFrameActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 布局延伸到状态栏 -->
+        <activity
+            android:name="com.horizon.android.activity.StatusLayoutActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 自定义阻尼scrollview -->
+        <activity
+            android:name="com.horizon.android.activity.ScrollViewActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 收藏点赞效果 -->
+        <activity
+            android:name="com.horizon.android.activity.ClipChildActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

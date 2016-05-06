@@ -10374,6 +10374,48 @@
                         "endOffset": 703
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 1578,
+                    "startColumn": 4,
+                    "startOffset": 122834,
+                    "endLine": 1580,
+                    "endColumn": 12,
+                    "endOffset": 122968
+                },
+                "from": {
+                    "file": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 959,
+                        "endLine": 24,
+                        "endColumn": 12,
+                        "endOffset": 1095
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 1581,
+                    "startColumn": 4,
+                    "startOffset": 122973,
+                    "endLine": 1583,
+                    "endColumn": 12,
+                    "endOffset": 123107
+                },
+                "from": {
+                    "file": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1124,
+                        "endLine": 29,
+                        "endColumn": 12,
+                        "endOffset": 1260
+                    }
+                }
             }
         ]
     }

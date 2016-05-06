@@ -9,8 +9,8 @@ public class MVPUserInfoActivity$$ViewBinder<T extends com.horizon.android.activ
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558534, "field 'btnGetInfo' and method 'getInfoClick'");
-    target.btnGetInfo = finder.castView(view, 2131558534, "field 'btnGetInfo'");
+    view = finder.findRequiredView(source, 2131558546, "field 'btnGetInfo' and method 'getInfoClick'");
+    target.btnGetInfo = finder.castView(view, 2131558546, "field 'btnGetInfo'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -19,8 +19,8 @@ public class MVPUserInfoActivity$$ViewBinder<T extends com.horizon.android.activ
           target.getInfoClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558522, "field 'tvResult'");
-    target.tvResult = finder.castView(view, 2131558522, "field 'tvResult'");
+    view = finder.findRequiredView(source, 2131558530, "field 'tvResult'");
+    target.tvResult = finder.castView(view, 2131558530, "field 'tvResult'");
   }
 
   @Override public void unbind(T target) {

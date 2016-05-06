@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:2:1-114:12
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:2:1-135:12
 	package
 		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml
@@ -62,7 +62,7 @@ ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:20:5-26:40
 	android:anyDensity
 		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:21:9-34
 application
-ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:28:5-112:19
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:28:5-133:19
 MERGED from [com.android.support:appcompat-v7:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
@@ -185,17 +185,41 @@ ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:101:9-103:52
 	android:name
 		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:102:13-55
 activity#com.horizon.android.activity.WeatherActivity
-ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:106:9-107:51
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:106:9-108:52
 	android:screenOrientation
-		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:107:13-49
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:108:13-49
 	android:name
-		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:106:19-59
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:107:13-53
 activity#com.horizon.android.activity.ListViewActivity
-ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:110:9-111:51
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:111:9-113:52
 	android:screenOrientation
-		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:111:13-49
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:113:13-49
 	android:name
-		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:110:19-60
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:112:13-54
+activity#com.horizon.android.activity.AnimationFrameActivity
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:116:9-118:52
+	android:screenOrientation
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:118:13-49
+	android:name
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:117:13-60
+activity#com.horizon.android.activity.StatusLayoutActivity
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:121:9-123:52
+	android:screenOrientation
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:123:13-49
+	android:name
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:122:13-58
+activity#com.horizon.android.activity.ScrollViewActivity
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:126:9-128:52
+	android:screenOrientation
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:128:13-49
+	android:name
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:127:13-56
+activity#com.horizon.android.activity.ClipChildActivity
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:131:9-132:51
+	android:screenOrientation
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:132:13-49
+	android:name
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:131:19-61
 uses-sdk
 INJECTED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:21:5-23:78

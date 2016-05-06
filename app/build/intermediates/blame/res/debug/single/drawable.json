@@ -48,6 +48,10 @@
         "source": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\round_corner_drawable.xml",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\drawable\\round_corner_drawable.xml"
+    },
+    {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_item_background_holo_dark.xml"
     },

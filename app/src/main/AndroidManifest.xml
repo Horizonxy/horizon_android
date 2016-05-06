@@ -123,8 +123,13 @@
             android:screenOrientation="portrait" />
 
         <!-- 自定义阻尼scrollview -->
-        <activity android:name=".activity.ScrollViewActivity"
+        <activity
+            android:name=".activity.ScrollViewActivity"
             android:screenOrientation="portrait" />
+
+        <!--收藏点赞效果-->
+        <activity android:name=".activity.ClipChildActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
