@@ -4,57 +4,79 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/ll_like"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="@dimen/large_margin"
-        android:background="@drawable/round_corner_drawable"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:layout_gravity="center">
-        <ImageView
-            android:id="@+id/iv_like"
-            android:layout_width="80px"
-            android:layout_height="80px"
-            android:src="@mipmap/like"/>
+        android:background="@drawable/round_corner_drawable">
 
-        <TextView
-            android:id="@+id/tv_like_num"
+        <LinearLayout
+            android:id="@+id/ll_like"
+            style="@style/repple_in_backguound"
             android:layout_width="wrap_content"
+            android:paddingLeft="28dp"
+            android:paddingRight="28dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
             android:layout_height="wrap_content"
-            android:textColor="#d81e06"
-            android:layout_marginLeft="20px"
-            android:gravity="center"
-            android:text="0"
-            android:textSize="76px"/>
-    </LinearLayout>
+            android:clipChildren="false"
+            android:clipToPadding="false">
 
-    <LinearLayout
-        android:id="@+id/ll_collection"
+            <ImageView
+                android:id="@+id/iv_like"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@mipmap/like" />
+
+            <TextView
+                android:id="@+id/tv_like_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#d81e06"
+                android:textSize="76px" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="@dimen/large_margin"
-        android:background="@drawable/round_corner_drawable"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:layout_gravity="center">
-        <ImageView
-            android:id="@+id/iv_collection"
-            android:layout_width="80px"
-            android:layout_height="80px"
-            android:src="@mipmap/collection"/>
+        android:background="@drawable/round_corner_drawable">
 
-        <TextView
-            android:id="@+id/tv_collection_num"
+        <LinearLayout
+            android:id="@+id/ll_collection"
+            style="@style/repple_in_backguound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#d81e06"
-            android:layout_marginLeft="20px"
-            android:gravity="center"
-            android:text="0"
-            android:textSize="76px"/>
-    </LinearLayout>
+            android:paddingLeft="28dp"
+            android:paddingRight="28dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
 
+            <ImageView
+                android:id="@+id/iv_collection"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@mipmap/collection" />
+
+            <TextView
+                android:id="@+id/tv_collection_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#d81e06"
+                android:textSize="76px" />
+        </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

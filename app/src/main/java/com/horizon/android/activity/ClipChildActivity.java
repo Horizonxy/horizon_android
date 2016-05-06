@@ -37,7 +37,7 @@ public class ClipChildActivity extends BaseActivity {
     @OnClick(R.id.ll_like)
     void likeClick(){
         llLike.setClickable(false);
-        ScaleAnimation scale = new ScaleAnimation(1f, 2f, 1f, 2f, Animation.RELATIVE_TO_SELF, 0.5f,  Animation.RELATIVE_TO_SELF, 0.5f);
+        ScaleAnimation scale = new ScaleAnimation(1f, 1.5f, 1f, 1.5f, Animation.RELATIVE_TO_SELF, 0.5f,  Animation.RELATIVE_TO_SELF, 0.5f);
         scale.setDuration(1000);
         scale.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -61,7 +61,7 @@ public class ClipChildActivity extends BaseActivity {
     @OnClick(R.id.ll_collection)
     void collectionClick(){
         llCollection.setClickable(false);
-        ScaleAnimation scale = new ScaleAnimation(1f, 2f, 1f, 2f, Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF, 0.5f);
+        ScaleAnimation scale = new ScaleAnimation(1f, 1.5f, 1f, 1.5f, Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF, 0.5f);
         scale.setDuration(1000);
         scale.setAnimationListener(new Animation.AnimationListener() {
             @Override
