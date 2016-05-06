@@ -82,6 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="阻尼scrollview"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -89,6 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="阻尼listview"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -96,6 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="autoload listview"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -103,6 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="retrofit rxjava"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -110,6 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="mvp login"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -117,6 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="mvp get info"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -124,6 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="mvp retrofit rxjava"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -145,6 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="MyListView"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -152,6 +160,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="MyScrollView"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -159,6 +168,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="animation frame"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <Button
@@ -173,6 +183,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height"
                     android:text="收藏点赞"
+                    android:textSize="@dimen/normal_size" />
+
+                <Button
+                    android:id="@+id/btn_editview"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height"
+                    android:text="EditView"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
                 <View

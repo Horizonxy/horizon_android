@@ -8,10 +8,10 @@ import butterknife.ButterKnife.ViewBinder;
 public class MainActivity$$ViewBinder<T extends com.horizon.android.activity.MainActivity> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558525, "field 'vpMain'");
-    target.vpMain = finder.castView(view, 2131558525, "field 'vpMain'");
-    view = finder.findRequiredView(source, 2131558521, "field 'home' and method 'homeClick'");
-    target.home = finder.castView(view, 2131558521, "field 'home'");
+    view = finder.findRequiredView(source, 2131558526, "field 'vpMain'");
+    target.vpMain = finder.castView(view, 2131558526, "field 'vpMain'");
+    view = finder.findRequiredView(source, 2131558522, "field 'home' and method 'homeClick'");
+    target.home = finder.castView(view, 2131558522, "field 'home'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -20,8 +20,8 @@ public class MainActivity$$ViewBinder<T extends com.horizon.android.activity.Mai
           target.homeClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558522, "field 'message' and method 'messageClick'");
-    target.message = finder.castView(view, 2131558522, "field 'message'");
+    view = finder.findRequiredView(source, 2131558523, "field 'message' and method 'messageClick'");
+    target.message = finder.castView(view, 2131558523, "field 'message'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -30,8 +30,8 @@ public class MainActivity$$ViewBinder<T extends com.horizon.android.activity.Mai
           target.messageClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558523, "field 'shoppingCar' and method 'shoppingCarClick'");
-    target.shoppingCar = finder.castView(view, 2131558523, "field 'shoppingCar'");
+    view = finder.findRequiredView(source, 2131558524, "field 'shoppingCar' and method 'shoppingCarClick'");
+    target.shoppingCar = finder.castView(view, 2131558524, "field 'shoppingCar'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -40,8 +40,8 @@ public class MainActivity$$ViewBinder<T extends com.horizon.android.activity.Mai
           target.shoppingCarClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558524, "field 'user' and method 'userClick'");
-    target.user = finder.castView(view, 2131558524, "field 'user'");
+    view = finder.findRequiredView(source, 2131558525, "field 'user' and method 'userClick'");
+    target.user = finder.castView(view, 2131558525, "field 'user'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

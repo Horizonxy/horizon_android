@@ -9,8 +9,8 @@ public class PullToZoomScrollActivity$$ViewBinder<T extends com.horizon.android.
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558532, "field 'scrollView'");
-    target.scrollView = finder.castView(view, 2131558532, "field 'scrollView'");
+    view = finder.findRequiredView(source, 2131558533, "field 'scrollView'");
+    target.scrollView = finder.castView(view, 2131558533, "field 'scrollView'");
   }
 
   @Override public void unbind(T target) {

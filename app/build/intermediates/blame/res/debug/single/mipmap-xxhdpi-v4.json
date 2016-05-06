@@ -56,12 +56,12 @@
         "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\image.jpg"
     },
     {
-        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_img_user_default.png",
-        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_img_user_default.png"
-    },
-    {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\user.png",
         "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\user.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_img_user_default.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_img_user_default.png"
     },
     {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\more.png",

@@ -138,6 +138,11 @@
         <activity
             android:name="com.horizon.android.activity.ClipChildActivity"
             android:screenOrientation="portrait" />
+
+        <!-- 输入框view -->
+        <activity
+            android:name="com.horizon.android.activity.EditViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

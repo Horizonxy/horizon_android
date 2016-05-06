@@ -9,8 +9,8 @@ public class MovieListActivity$$ViewBinder<T extends com.horizon.android.activit
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558526, "field 'lvMovieList'");
-    target.lvMovieList = finder.castView(view, 2131558526, "field 'lvMovieList'");
+    view = finder.findRequiredView(source, 2131558527, "field 'lvMovieList'");
+    target.lvMovieList = finder.castView(view, 2131558527, "field 'lvMovieList'");
   }
 
   @Override public void unbind(T target) {

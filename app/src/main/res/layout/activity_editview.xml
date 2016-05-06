@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLargeInverse"
+        android:layout_width="@dimen/title_height"
+        android:layout_height="@dimen/title_height" />
+
+    <com.horizon.android.widget.DrawableEditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:layout_margin="@dimen/normal_margin"
+        android:background="@null"
+        android:drawablePadding="32px"
+        android:drawableLeft="@mipmap/user"
+        android:hint="用户名"
+        android:textSize="@dimen/normal_size"/>
+
+</LinearLayout>

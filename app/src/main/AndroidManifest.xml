@@ -130,6 +130,10 @@
         <!--收藏点赞效果-->
         <activity android:name=".activity.ClipChildActivity"
             android:screenOrientation="portrait"/>
+
+        <!--输入框view-->
+        <activity android:name=".activity.EditViewActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

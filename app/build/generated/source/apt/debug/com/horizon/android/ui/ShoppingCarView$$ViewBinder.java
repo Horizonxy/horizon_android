@@ -8,7 +8,7 @@ import butterknife.ButterKnife.ViewBinder;
 public class ShoppingCarView$$ViewBinder<T extends com.horizon.android.ui.ShoppingCarView> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558593, "method 'right1Click'");
+    view = finder.findRequiredView(source, 2131558594, "method 'right1Click'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -17,7 +17,7 @@ public class ShoppingCarView$$ViewBinder<T extends com.horizon.android.ui.Shoppi
           target.right1Click();
         }
       });
-    view = finder.findRequiredView(source, 2131558544, "method 'leftClick'");
+    view = finder.findRequiredView(source, 2131558545, "method 'leftClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

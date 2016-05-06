@@ -4,34 +4,40 @@
     api-level="22"
     density="xxhdpi"
     format="7"
-    timestamp="6027267474655" >
+    timestamp="26247461207585" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1298" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="12" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
 
     <artifact
         location="E:\as_workspace\horizon\app\build\intermediates\res\resources-debug.ap_"
         type="RESOURCES" />
+    <artifact
+        location="E:\as_workspace\horizon\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+        type="DEX" />
 
-    <build timestamp="5796528822291" >
+    <build timestamp="26093505487751" >
         <artifact
             location="E:\as_workspace\horizon\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="6027267474655" >
+    <build timestamp="26247461207585" >
         <artifact
             location="E:\as_workspace\horizon\app\build\intermediates\res\resources-debug.ap_"
             type="RESOURCES" />
+        <artifact
+            location="E:\as_workspace\horizon\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

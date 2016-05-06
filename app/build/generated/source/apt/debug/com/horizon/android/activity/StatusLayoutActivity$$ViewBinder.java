@@ -8,8 +8,8 @@ import butterknife.ButterKnife.ViewBinder;
 public class StatusLayoutActivity$$ViewBinder<T extends com.horizon.android.activity.StatusLayoutActivity> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558544, "field 'btnBack' and method 'backClick'");
-    target.btnBack = finder.castView(view, 2131558544, "field 'btnBack'");
+    view = finder.findRequiredView(source, 2131558545, "field 'btnBack' and method 'backClick'");
+    target.btnBack = finder.castView(view, 2131558545, "field 'btnBack'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -18,12 +18,12 @@ public class StatusLayoutActivity$$ViewBinder<T extends com.horizon.android.acti
           target.backClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558545, "field 'tvTitle'");
-    target.tvTitle = finder.castView(view, 2131558545, "field 'tvTitle'");
-    view = finder.findRequiredView(source, 2131558543, "field 'rlTop'");
-    target.rlTop = finder.castView(view, 2131558543, "field 'rlTop'");
-    view = finder.findRequiredView(source, 2131558542, "field 'ivBanner'");
-    target.ivBanner = finder.castView(view, 2131558542, "field 'ivBanner'");
+    view = finder.findRequiredView(source, 2131558546, "field 'tvTitle'");
+    target.tvTitle = finder.castView(view, 2131558546, "field 'tvTitle'");
+    view = finder.findRequiredView(source, 2131558544, "field 'rlTop'");
+    target.rlTop = finder.castView(view, 2131558544, "field 'rlTop'");
+    view = finder.findRequiredView(source, 2131558543, "field 'ivBanner'");
+    target.ivBanner = finder.castView(view, 2131558543, "field 'ivBanner'");
   }
 
   @Override public void unbind(T target) {

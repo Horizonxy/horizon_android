@@ -104,6 +104,10 @@
         "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\layout\\profile_content_view.xml"
     },
     {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_editview.xml",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\layout\\activity_editview.xml"
+    },
+    {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_shopping_car.xml",
         "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\layout\\view_shopping_car.xml"
     },
