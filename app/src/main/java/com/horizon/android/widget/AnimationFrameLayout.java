@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 public class AnimationFrameLayout extends FrameLayout {
 
     int mHeight;
+    ValueAnimator mValueAnimator;
 
     public AnimationFrameLayout(Context context) {
         this(context, null);
@@ -40,7 +41,7 @@ public class AnimationFrameLayout extends FrameLayout {
     }
 
     private ValueAnimator getGoneAnimation(){
-        ValueAnimator mValueAnimator = new ValueAnimator().ofFloat(1f, 0f);
+        mValueAnimator = new ValueAnimator().ofFloat(1f, 0f);
         mValueAnimator.addUpdateListener(new AnimatorUpdateListener(0));
         mValueAnimator.setDuration(2000);
         return mValueAnimator;
@@ -71,9 +72,18 @@ public class AnimationFrameLayout extends FrameLayout {
     }
 
     private  ValueAnimator getVisibilityAnimation(){
-        ValueAnimator mValueAnimator = new ValueAnimator().ofFloat(0f, 1f);
+        mValueAnimator = new ValueAnimator().ofFloat(0f, 1f);
         mValueAnimator.addUpdateListener(new AnimatorUpdateListener(1));
         mValueAnimator.setDuration(2000);
         return mValueAnimator;
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+
+        if(mValueAnimator != null){
+            mValueAnimator.end();
+        }
     }
 }

@@ -79,4 +79,13 @@
         </LinearLayout>
     </FrameLayout>
 
+    <com.horizon.android.widget.CountdownView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/coutdown_background_drawable"
+        android:textSize="@dimen/large_size"
+        android:textColor="@drawable/countdown_textcolor"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/large_margin"/>
+
 </LinearLayout>
