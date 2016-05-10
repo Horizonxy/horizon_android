@@ -1,6 +1,7 @@
 package com.horizon.android.api;
 
 import com.horizon.android.model.bean.ContentVo;
+import com.horizon.android.model.bean.HistoryVo;
 import com.horizon.android.model.bean.MovieVo;
 import com.horizon.android.model.bean.WeatherVo;
 import com.horizon.android.util.JuheResult;
@@ -42,4 +43,12 @@ public interface ApiService {
 	Observable<JuheResult<WeatherVo>> getWeather(
 			@Query("cityname") String cityname,
 			@Query("key") String key);
+
+	@GET("japi/toh")
+	Observable<JuheResult<List<HistoryVo>>> getHistoryToday(
+		@Query("key") String key,
+		@Query("v") String v,
+		@Query("month") int month,
+		@Query("day") int day
+	);
 }  

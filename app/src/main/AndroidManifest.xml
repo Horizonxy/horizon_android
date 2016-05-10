@@ -127,13 +127,19 @@
             android:name=".activity.ScrollViewActivity"
             android:screenOrientation="portrait" />
 
-        <!--收藏点赞效果-->
-        <activity android:name=".activity.ClipChildActivity"
-            android:screenOrientation="portrait"/>
+        <!-- 收藏点赞效果 -->
+        <activity
+            android:name=".activity.ClipChildActivity"
+            android:screenOrientation="portrait" />
 
-        <!--输入框view-->
-        <activity android:name=".activity.EditViewActivity"
-            android:screenOrientation="portrait"/>
+        <!-- 输入框view -->
+        <activity
+            android:name=".activity.EditViewActivity"
+            android:screenOrientation="portrait" />
+
+        <!--历史上的今天-->
+        <activity android:name=".activity.HistoryTodayActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

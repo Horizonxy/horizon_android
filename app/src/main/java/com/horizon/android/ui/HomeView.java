@@ -15,6 +15,7 @@ import com.horizon.android.activity.AutoLoadActivity;
 import com.horizon.android.activity.CaptureActivity;
 import com.horizon.android.activity.ClipChildActivity;
 import com.horizon.android.activity.EditViewActivity;
+import com.horizon.android.activity.HistoryTodayActivity;
 import com.horizon.android.activity.ListViewActivity;
 import com.horizon.android.activity.MVPLoginActivity;
 import com.horizon.android.activity.MVPUserInfoActivity;
@@ -85,6 +86,11 @@ public class HomeView extends AutoLinearLayout {
 				}
 			}, 5000);
 		}
+	}
+
+	@OnClick(R.id.btn_history_today)
+	void historyTodayClick(){
+		mCxt.startActivity(new Intent(mCxt, HistoryTodayActivity.class));
 	}
 
 	@OnClick(R.id.btn_editview)
