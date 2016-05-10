@@ -13,6 +13,7 @@ public interface HistoryTodayView {
     void empty();
     int getMonth();
     int getDay();
+    void goneInit();
 
     void addSubscriberToComposite(Subscription subscription);
 }

@@ -52,10 +52,7 @@ public class HistoryTodayActivity extends BaseActivity implements HistoryTodayVi
 
     @Override
     public void success(List<HistoryVo> list) {
-        if(monIndicator.isShown()){
-            lvHistory.setVisibility(View.VISIBLE);
-            monIndicator.setVisibility(View.GONE);
-        }
+
         data.addAll(list);
         adapter.notifyDataSetChanged();
     }
@@ -78,6 +75,14 @@ public class HistoryTodayActivity extends BaseActivity implements HistoryTodayVi
     @Override
     public int getDay() {
         return 10;
+    }
+
+    @Override
+    public void goneInit() {
+        if(monIndicator.isShown()){
+            lvHistory.setVisibility(View.VISIBLE);
+            monIndicator.setVisibility(View.GONE);
+        }
     }
 
     @Override

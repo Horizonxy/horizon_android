@@ -1,11 +1,9 @@
 package com.horizon.android.activity;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -16,7 +14,6 @@ import com.horizon.android.Application;
 import com.horizon.android.R;
 import com.horizon.android.exception.CrashHandler;
 import com.horizon.android.util.SystemStatusManager;
-import com.horizon.android.util.log.LogUtils;
 import com.horizon.android.widget.MonIndicator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhy.autolayout.AutoLayoutActivity;
@@ -28,11 +25,6 @@ import rx.subscriptions.CompositeSubscription;
 
 public class BaseActivity extends AutoLayoutActivity {
 
-    protected Application app;
-    protected Context mCxt;
-    protected LayoutInflater mInflater;
-    Resources res;
-    ImageLoader imageLoader;
     private CompositeSubscription mCompositeSubscription;
 
     @Bind(R.id.tv_title)
@@ -56,18 +48,20 @@ public class BaseActivity extends AutoLayoutActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        app = Application.getInstance();
-        app.addAty(this);
-
-        mCxt = this;
-        mInflater = getLayoutInflater();
-        res = Application.getRes();
-        imageLoader = Application.getImageLoader();
+        Application.getInstance().addAty(this);
 
         this.mCompositeSubscription = new CompositeSubscription();
 
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(this);
+    }
+
+    private Resources getRes(){
+        return Application.getRes();
+    }
+
+    private ImageLoader getImageLoader(){
+        return Application.getImageLoader();
     }
 
     public void setContentView(@LayoutRes int layoutResID, boolean isNeedLoadView){
@@ -80,8 +74,8 @@ public class BaseActivity extends AutoLayoutActivity {
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
-        View layout = mInflater.inflate(R.layout.view_base, null);
-        View vContent = mInflater.inflate(layoutResID, null);
+        View layout = getLayoutInflater().inflate(R.layout.view_base, null);
+        View vContent = getLayoutInflater().inflate(layoutResID, null);
 
         layoutContent = (FrameLayout) layout.findViewById(R.id.base_layout_content);
         layoutContent.addView(vContent);

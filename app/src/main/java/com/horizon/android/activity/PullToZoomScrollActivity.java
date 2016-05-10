@@ -2,6 +2,7 @@ package com.horizon.android.activity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.horizon.android.Application;
@@ -47,9 +48,10 @@ public class PullToZoomScrollActivity extends BaseActivity {
     }
 
     private void loadViewForCode() {
-        View headView = mInflater.inflate(R.layout.profile_head_view, null, false);
-        View zoomView = mInflater.inflate(R.layout.profile_zoom_view, null, false);
-        View contentView = mInflater.inflate(R.layout.profile_content_view, null, false);
+        LayoutInflater inflater = getLayoutInflater();
+        View headView = inflater.inflate(R.layout.profile_head_view, null, false);
+        View zoomView = inflater.inflate(R.layout.profile_zoom_view, null, false);
+        View contentView = inflater.inflate(R.layout.profile_content_view, null, false);
         scrollView.setHeaderView(headView);
         scrollView.setZoomView(zoomView);
         scrollView.setScrollContentView(contentView);
