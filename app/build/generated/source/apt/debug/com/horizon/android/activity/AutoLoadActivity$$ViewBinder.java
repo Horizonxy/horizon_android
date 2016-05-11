@@ -9,8 +9,8 @@ public class AutoLoadActivity$$ViewBinder<T extends com.horizon.android.activity
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558512, "field 'mListView'");
-    target.mListView = finder.castView(view, 2131558512, "field 'mListView'");
+    view = finder.findRequiredView(source, 2131558513, "field 'mListView'");
+    target.mListView = finder.castView(view, 2131558513, "field 'mListView'");
   }
 
   @Override public void unbind(T target) {

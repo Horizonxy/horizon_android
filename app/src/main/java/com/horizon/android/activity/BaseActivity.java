@@ -52,8 +52,8 @@ public class BaseActivity extends AutoLayoutActivity {
 
         this.mCompositeSubscription = new CompositeSubscription();
 
-        CrashHandler crashHandler = CrashHandler.getInstance();
-        crashHandler.init(this);
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(this);
     }
 
     private Resources getRes(){

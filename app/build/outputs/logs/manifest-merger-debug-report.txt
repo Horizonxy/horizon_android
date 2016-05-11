@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:2:1-139:12
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:2:1-150:12
 	package
 		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml
@@ -62,7 +62,7 @@ ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:20:5-26:40
 	android:anyDensity
 		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:21:9-34
 application
-ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:28:5-137:19
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:28:5-148:19
 MERGED from [com.android.support:appcompat-v7:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
@@ -80,6 +80,13 @@ MERGED from [com.android.support:support-vector-drawable:23.3.0] E:\as_workspace
 MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
 MERGED from [in.srain.cube:ultra-ptr:1.0.11] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\in.srain.cube\ultra-ptr\1.0.11\AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:appcompat-v7:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:32:9-41
 	android:supportsRtl
@@ -215,17 +222,29 @@ ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:126:9-128:52
 	android:name
 		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:127:13-56
 activity#com.horizon.android.activity.ClipChildActivity
-ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:131:9-132:51
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:131:9-133:52
 	android:screenOrientation
-		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:132:13-49
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:133:13-49
 	android:name
-		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:131:19-61
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:132:13-55
 activity#com.horizon.android.activity.EditViewActivity
-ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:135:9-136:51
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:136:9-138:52
 	android:screenOrientation
-		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:136:13-49
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:138:13-49
 	android:name
-		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:135:19-60
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:137:13-54
+activity#com.horizon.android.activity.HistoryTodayActivity
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:141:9-143:52
+	android:screenOrientation
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:143:13-49
+	android:name
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:142:13-58
+activity#com.horizon.android.activity.ConvenientBannerActivity
+ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:146:9-147:51
+	android:screenOrientation
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:147:13-49
+	android:name
+		ADDED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml:146:19-68
 uses-sdk
 INJECTED from E:\as_workspace\horizon\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:21:5-23:78
@@ -247,6 +266,15 @@ MERGED from [com.android.support:support-vector-drawable:23.3.0] E:\as_workspace
 MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:20:5-43
 MERGED from [in.srain.cube:ultra-ptr:1.0.11] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\in.srain.cube\ultra-ptr\1.0.11\AndroidManifest.xml:7:5-9:41
+MERGED from [com.bigkoo:convenientbanner:2.0.5] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.bigkoo\convenientbanner\2.0.5\AndroidManifest.xml:7:5-44
+MERGED from [com.android.support:appcompat-v7:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-vector-drawable:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:animated-vector-drawable:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:20:5-43
+MERGED from [com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.ToxicBakery.viewpager.transforms\view-pager-transforms\1.2.32\AndroidManifest.xml:23:5-25:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:23.3.0] E:\as_workspace\horizon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion

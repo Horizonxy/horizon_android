@@ -36,6 +36,10 @@
         "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\share.png"
     },
     {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_page_indicator_focused.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_page_indicator_focused.png"
+    },
+    {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\splash01.jpg",
         "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\splash01.jpg"
     },
@@ -74,5 +78,9 @@
     {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\setting.png",
         "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\setting.png"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_page_indicator.png",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_page_indicator.png"
     }
 ]

@@ -9,12 +9,12 @@ public class MVPLoginActivity$$ViewBinder<T extends com.horizon.android.activity
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558528, "field 'etName'");
-    target.etName = finder.castView(view, 2131558528, "field 'etName'");
-    view = finder.findRequiredView(source, 2131558529, "field 'etPwd'");
-    target.etPwd = finder.castView(view, 2131558529, "field 'etPwd'");
-    view = finder.findRequiredView(source, 2131558530, "field 'btnLogin' and method 'loginClick'");
-    target.btnLogin = finder.castView(view, 2131558530, "field 'btnLogin'");
+    view = finder.findRequiredView(source, 2131558533, "field 'etName'");
+    target.etName = finder.castView(view, 2131558533, "field 'etName'");
+    view = finder.findRequiredView(source, 2131558534, "field 'etPwd'");
+    target.etPwd = finder.castView(view, 2131558534, "field 'etPwd'");
+    view = finder.findRequiredView(source, 2131558535, "field 'btnLogin' and method 'loginClick'");
+    target.btnLogin = finder.castView(view, 2131558535, "field 'btnLogin'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -23,8 +23,8 @@ public class MVPLoginActivity$$ViewBinder<T extends com.horizon.android.activity
           target.loginClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558531, "field 'tvResult'");
-    target.tvResult = finder.castView(view, 2131558531, "field 'tvResult'");
+    view = finder.findRequiredView(source, 2131558536, "field 'tvResult'");
+    target.tvResult = finder.castView(view, 2131558536, "field 'tvResult'");
   }
 
   @Override public void unbind(T target) {

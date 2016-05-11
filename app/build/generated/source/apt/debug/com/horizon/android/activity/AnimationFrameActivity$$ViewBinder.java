@@ -9,9 +9,9 @@ public class AnimationFrameActivity$$ViewBinder<T extends com.horizon.android.ac
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558510, "field 'aflLayout'");
-    target.aflLayout = finder.castView(view, 2131558510, "field 'aflLayout'");
-    view = finder.findRequiredView(source, 2131558511, "method 'functionClick'");
+    view = finder.findRequiredView(source, 2131558511, "field 'aflLayout'");
+    target.aflLayout = finder.castView(view, 2131558511, "field 'aflLayout'");
+    view = finder.findRequiredView(source, 2131558512, "method 'functionClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

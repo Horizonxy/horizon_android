@@ -145,6 +145,8 @@ public class PullToZoomScrollViewEx extends PullToZoomBase<ScrollView> {
     @Override
     protected ScrollView createRootView(Context context, AttributeSet attrs) {
         ScrollView scrollView = new InternalScrollView(context, attrs);
+        scrollView.setVerticalScrollBarEnabled(false);
+        scrollView.setHorizontalScrollBarEnabled(false);
         scrollView.setId(R.id.scrollview_zoom);
         return scrollView;
     }

@@ -68,8 +68,16 @@
         "source": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_ratingbar_full_material.xml"
     },
     {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\countdown_textcolor.xml",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\drawable\\countdown_textcolor.xml"
+    },
+    {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
         "source": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\coutdown_background_drawable.xml",
+        "source": "E:\\as_workspace\\horizon\\app\\src\\main\\res\\drawable\\coutdown_background_drawable.xml"
     },
     {
         "merged": "E:\\as_workspace\\horizon\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",

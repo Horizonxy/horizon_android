@@ -9,10 +9,10 @@ public class CaptureActivity$$ViewBinder<T extends com.horizon.android.activity.
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558534, "field 'mContainer'");
-    target.mContainer = finder.castView(view, 2131558534, "field 'mContainer'");
-    view = finder.findRequiredView(source, 2131558537, "field 'mCropLayout'");
-    target.mCropLayout = finder.castView(view, 2131558537, "field 'mCropLayout'");
+    view = finder.findRequiredView(source, 2131558539, "field 'mContainer'");
+    target.mContainer = finder.castView(view, 2131558539, "field 'mContainer'");
+    view = finder.findRequiredView(source, 2131558542, "field 'mCropLayout'");
+    target.mCropLayout = finder.castView(view, 2131558542, "field 'mCropLayout'");
   }
 
   @Override public void unbind(T target) {

@@ -1,43 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="22"
-    density="xxhdpi"
+    abi="armeabi-v7a,armeabi"
+    api-level="16"
+    density="hdpi"
     format="7"
-    timestamp="26247461207585" >
+    timestamp="8700739200165" >
 
     <task
         name="javac"
-        duration="1298" />
+        duration="1715" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="12" />
+        duration="321" />
     <task
         name="verifier"
-        duration="1" />
+        duration="18" />
 
     <artifact
-        location="E:\as_workspace\horizon\app\build\intermediates\res\resources-debug.ap_"
-        type="RESOURCES" />
-    <artifact
-        location="E:\as_workspace\horizon\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-        type="DEX" />
+        location="E:\as_workspace\horizon\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
-    <build timestamp="26093505487751" >
+    <build timestamp="8700739200165" >
         <artifact
             location="E:\as_workspace\horizon\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
-    </build>
-    <build timestamp="26247461207585" >
-        <artifact
-            location="E:\as_workspace\horizon\app\build\intermediates\res\resources-debug.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="E:\as_workspace\horizon\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

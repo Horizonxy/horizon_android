@@ -201,6 +201,14 @@
                     android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
+                <Button
+                    android:id="@+id/btn_convenient"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height"
+                    android:text="轮播"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/normal_size" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height" />

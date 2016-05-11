@@ -9,8 +9,8 @@ public class ListViewActivity$$ViewBinder<T extends com.horizon.android.activity
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558520, "field 'lvListView'");
-    target.lvListView = finder.castView(view, 2131558520, "field 'lvListView'");
+    view = finder.findRequiredView(source, 2131558525, "field 'lvListView'");
+    target.lvListView = finder.castView(view, 2131558525, "field 'lvListView'");
   }
 
   @Override public void unbind(T target) {

@@ -9,16 +9,16 @@ public class ClipChildActivity$$ViewBinder<T extends com.horizon.android.activit
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558514, "field 'ivLike'");
-    target.ivLike = finder.castView(view, 2131558514, "field 'ivLike'");
-    view = finder.findRequiredView(source, 2131558517, "field 'ivCollection'");
-    target.ivCollection = finder.castView(view, 2131558517, "field 'ivCollection'");
-    view = finder.findRequiredView(source, 2131558515, "field 'tvLikeNum'");
-    target.tvLikeNum = finder.castView(view, 2131558515, "field 'tvLikeNum'");
-    view = finder.findRequiredView(source, 2131558518, "field 'tvCollectionNum'");
-    target.tvCollectionNum = finder.castView(view, 2131558518, "field 'tvCollectionNum'");
-    view = finder.findRequiredView(source, 2131558513, "field 'llLike' and method 'likeClick'");
-    target.llLike = finder.castView(view, 2131558513, "field 'llLike'");
+    view = finder.findRequiredView(source, 2131558515, "field 'ivLike'");
+    target.ivLike = finder.castView(view, 2131558515, "field 'ivLike'");
+    view = finder.findRequiredView(source, 2131558518, "field 'ivCollection'");
+    target.ivCollection = finder.castView(view, 2131558518, "field 'ivCollection'");
+    view = finder.findRequiredView(source, 2131558516, "field 'tvLikeNum'");
+    target.tvLikeNum = finder.castView(view, 2131558516, "field 'tvLikeNum'");
+    view = finder.findRequiredView(source, 2131558519, "field 'tvCollectionNum'");
+    target.tvCollectionNum = finder.castView(view, 2131558519, "field 'tvCollectionNum'");
+    view = finder.findRequiredView(source, 2131558514, "field 'llLike' and method 'likeClick'");
+    target.llLike = finder.castView(view, 2131558514, "field 'llLike'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -27,8 +27,8 @@ public class ClipChildActivity$$ViewBinder<T extends com.horizon.android.activit
           target.likeClick();
         }
       });
-    view = finder.findRequiredView(source, 2131558516, "field 'llCollection' and method 'collectionClick'");
-    target.llCollection = finder.castView(view, 2131558516, "field 'llCollection'");
+    view = finder.findRequiredView(source, 2131558517, "field 'llCollection' and method 'collectionClick'");
+    target.llCollection = finder.castView(view, 2131558517, "field 'llCollection'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

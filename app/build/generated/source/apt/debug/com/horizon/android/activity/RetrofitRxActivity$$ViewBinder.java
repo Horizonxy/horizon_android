@@ -9,8 +9,8 @@ public class RetrofitRxActivity$$ViewBinder<T extends com.horizon.android.activi
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558542, "field 'btnReq' and method 'reqClick'");
-    target.btnReq = finder.castView(view, 2131558542, "field 'btnReq'");
+    view = finder.findRequiredView(source, 2131558547, "field 'btnReq' and method 'reqClick'");
+    target.btnReq = finder.castView(view, 2131558547, "field 'btnReq'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

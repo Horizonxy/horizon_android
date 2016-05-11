@@ -6,7 +6,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="13"
         android:targetSdkVersion="23" />
 
     <!-- 允许程序打开网络套接字 -->
@@ -141,6 +141,16 @@
         <!-- 输入框view -->
         <activity
             android:name="com.horizon.android.activity.EditViewActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 历史上的今天 -->
+        <activity
+            android:name="com.horizon.android.activity.HistoryTodayActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 轮播 -->
+        <activity
+            android:name="com.horizon.android.activity.ConvenientBannerActivity"
             android:screenOrientation="portrait" />
     </application>
 
