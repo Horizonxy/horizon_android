@@ -9,16 +9,13 @@ public class HistoryTodayActivity$$ViewBinder<T extends com.horizon.android.acti
     super.bind(finder, target, source);
 
     View view;
-    view = finder.findRequiredView(source, 2131558524, "field 'lvHistory'");
-    target.lvHistory = finder.castView(view, 2131558524, "field 'lvHistory'");
-    view = finder.findRequiredView(source, 2131558523, "field 'monIndicator'");
-    target.monIndicator = finder.castView(view, 2131558523, "field 'monIndicator'");
+    view = finder.findRequiredView(source, 2131558523, "field 'lvHistory'");
+    target.lvHistory = finder.castView(view, 2131558523, "field 'lvHistory'");
   }
 
   @Override public void unbind(T target) {
     super.unbind(target);
 
     target.lvHistory = null;
-    target.monIndicator = null;
   }
 }

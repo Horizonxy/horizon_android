@@ -22,11 +22,11 @@ public final class R {
 		public static final int ptr_rotate_arrow = 0x7f02004f;
 	}
 	public static final class id {
-		public static final int ptr_classic_header_rotate_view = 0x7f0d009f;
-		public static final int ptr_classic_header_rotate_view_header_last_update = 0x7f0d009e;
-		public static final int ptr_classic_header_rotate_view_header_text = 0x7f0d009c;
-		public static final int ptr_classic_header_rotate_view_header_title = 0x7f0d009d;
-		public static final int ptr_classic_header_rotate_view_progressbar = 0x7f0d00a0;
+		public static final int ptr_classic_header_rotate_view = 0x7f0d009e;
+		public static final int ptr_classic_header_rotate_view_header_last_update = 0x7f0d009d;
+		public static final int ptr_classic_header_rotate_view_header_text = 0x7f0d009b;
+		public static final int ptr_classic_header_rotate_view_header_title = 0x7f0d009c;
+		public static final int ptr_classic_header_rotate_view_progressbar = 0x7f0d009f;
 	}
 	public static final class layout {
 		public static final int cube_ptr_classic_default_header = 0x7f04002c;

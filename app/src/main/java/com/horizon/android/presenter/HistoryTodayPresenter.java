@@ -24,13 +24,11 @@ public class HistoryTodayPresenter {
         Subscription subscription = mHistoryToday.getHistoryToday(vHistoryToday.getMonth(), vHistoryToday.getDay(), new SimpleSubscriber<JuheResult<List<HistoryVo>>>(){
             @Override
             public void onError(Throwable e) {
-                vHistoryToday.goneInit();
                 vHistoryToday.failure();
             }
 
             @Override
             public void onNext(JuheResult<List<HistoryVo>> obj) {
-                vHistoryToday.goneInit();
                 List<HistoryVo> histories = obj.getResult();
                 if(histories != null && histories.size() > 0){
                     vHistoryToday.success(histories);
