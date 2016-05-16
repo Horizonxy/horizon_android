@@ -47,6 +47,7 @@ public class HistoryTodayActivity extends BaseActivity implements HistoryTodayVi
 
     private void firstLoad(){
         if(isNetworkAvailable()) {
+            data.clear();
             presenter.getHistoryToday();
         } else {
             noNet();

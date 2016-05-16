@@ -130,7 +130,7 @@ public class ConvenientBannerActivity extends BaseActivity implements AdapterVie
 
         @Override
         public void UpdateUI(Context context, int position, String data) {
-            Application.getImageLoader().displayImage(data, imageView);
+            Application.getImageLoader().displayImage(data, imageView, Application.getInstance().getDefaultOptions());
         }
     }
 
