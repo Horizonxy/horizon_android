@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import com.horizon.android.Application;
+
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.activity.AnimationFrameActivity;
@@ -27,8 +25,10 @@ import com.horizon.android.activity.RetrofitRxActivity;
 import com.horizon.android.activity.RetrofitRxJavaMvpContentActivity;
 import com.horizon.android.activity.ScrollViewActivity;
 import com.horizon.android.activity.StatusLayoutActivity;
+import com.horizon.android.activity.TriangleViewPagerIndicatorActivity;
 import com.horizon.android.activity.WeatherActivity;
 import com.zhy.autolayout.AutoLinearLayout;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -87,6 +87,11 @@ public class HomeView extends AutoLinearLayout {
 				}
 			}, 5000);
 		}
+	}
+
+	@OnClick(R.id.btn_triangle)
+	void triangleClick(){
+		mCxt.startActivity(new Intent(mCxt, TriangleViewPagerIndicatorActivity.class));
 	}
 
 	@OnClick(R.id.btn_convenient)

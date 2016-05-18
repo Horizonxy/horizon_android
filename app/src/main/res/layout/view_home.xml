@@ -209,6 +209,14 @@
                     android:textAllCaps="false"
                     android:textSize="@dimen/normal_size" />
 
+                <Button
+                    android:id="@+id/btn_triangle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height"
+                    android:text="ViewPager三角时指示器"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/normal_size" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/title_height" />
