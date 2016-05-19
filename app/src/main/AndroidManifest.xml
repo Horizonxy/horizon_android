@@ -147,8 +147,13 @@
             android:name=".activity.ConvenientBannerActivity"
             android:screenOrientation="portrait" />
 
-        <!--viewpager三角指示器-->
-        <activity android:name=".activity.TriangleViewPagerIndicatorActivity"
+        <!-- viewpager三角指示器 -->
+        <activity
+            android:name=".activity.TriangleViewPagerIndicatorActivity"
+            android:screenOrientation="portrait" />
+
+        <!--矩形指示器-->
+        <activity android:name=".activity.RectViewPagerIndicatorActivity"
             android:screenOrientation="portrait" />
     </application>
 

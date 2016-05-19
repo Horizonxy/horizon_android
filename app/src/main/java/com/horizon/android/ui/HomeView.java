@@ -21,6 +21,7 @@ import com.horizon.android.activity.MVPUserInfoActivity;
 import com.horizon.android.activity.MovieListActivity;
 import com.horizon.android.activity.PullToZoomListActivity;
 import com.horizon.android.activity.PullToZoomScrollActivity;
+import com.horizon.android.activity.RectViewPagerIndicatorActivity;
 import com.horizon.android.activity.RetrofitRxActivity;
 import com.horizon.android.activity.RetrofitRxJavaMvpContentActivity;
 import com.horizon.android.activity.ScrollViewActivity;
@@ -92,6 +93,11 @@ public class HomeView extends AutoLinearLayout {
 	@OnClick(R.id.btn_triangle)
 	void triangleClick(){
 		mCxt.startActivity(new Intent(mCxt, TriangleViewPagerIndicatorActivity.class));
+	}
+
+	@OnClick(R.id.btn_rect)
+	void rectClick(){
+		mCxt.startActivity(new Intent(mCxt, RectViewPagerIndicatorActivity.class));
 	}
 
 	@OnClick(R.id.btn_convenient)

@@ -1,12 +1,10 @@
 package com.horizon.android.widget;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
-import android.graphics.Path;
+import android.graphics.Rect;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -15,62 +13,48 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.horizon.android.Application;
-import com.horizon.android.R;
 
 import java.util.List;
 
-/**
- * 带三角形的viewpager指示器
- */
-public class TriangleViewPagerIndicator extends LinearLayout {
+public class RectViewPagerIndicator extends LinearLayout {
 
-    /** 三角画笔 */
-    private Paint mTrianglePaint;
-    /** 构成三角的线条 */
-    private Path mTrianglePath;
-    /** 三角指示器宽 */
-    private int mTriangleWidth;
-    /** 三角指示器高 */
-    private int mTriangleHeight;
-    /** 三角形的宽度为单个Tab的1/6 */
-    private static final float RADIO_TRIANGEL = 1.0f / 8;
-    /**  三角形的最大宽度  */
-    private final int DIMENSION_TRIANGEL_WIDTH = (int) (Application.SCREENWIDTH / 3 * RADIO_TRIANGEL);
-    /** 初始时，三角形指示器的偏移量 */
-    private int mInitTranslationX;
-    /** 手指滑动时的偏移量 */
-    private float mTranslationX;
-    /** TAB数量 */
-    private static final int DEFAULT_TAB_COUNT = 4;
+    private Paint mRectPaint;
+    private Rect mRect;
+    private int mRectWidth;
+    private int mRectHeight;
+    private int mRectInitTop;
+
     private int mTabVisibleCount;
-    /** TAB上的内容 */
-    private List<String> mTabTitles;
 
-    public ViewPager mViewPager;
+    private float mTranslationX;
+
+    private ViewPager mViewPager;
+
+    private List<String> mTabTitles;
 
     /** 标题正常颜色 */
     private int mNormalColor = 0x77FFFFFF;
     /** 标题高亮颜色 */
     private int mHighLightCoiolor = 0xFFFFFFFF;
 
-    public TriangleViewPagerIndicator(Context context) {
+    private int mRectColor;
+
+    public RectViewPagerIndicator(Context context) {
         this(context, null);
     }
 
-    public TriangleViewPagerIndicator(Context context, AttributeSet attrs) {
+    public RectViewPagerIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TriangleViewPagerIndicator);
-        mTabVisibleCount = a.getInt(R.styleable.TriangleViewPagerIndicator_visible_tab_count, DEFAULT_TAB_COUNT);
-        if(mTabVisibleCount < 0){
-            mTabVisibleCount = DEFAULT_TAB_COUNT;
-        }
-        a.recycle();
+        mTabVisibleCount = 4;
+        mRectColor = Color.RED;
+        mRectHeight = 3;
 
-        mTrianglePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mTrianglePaint.setColor(Color.WHITE);
-        mTrianglePaint.setStyle(Paint.Style.FILL);
-        mTrianglePaint.setPathEffect(new CornerPathEffect(3));//画的线的连接处，有点圆角
+        mRect = new Rect();
+
+        mRectPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mRectPaint.setStyle(Paint.Style.FILL);
+        mRectPaint.setColor(mRectColor);
     }
 
     @Override
@@ -105,36 +89,25 @@ public class TriangleViewPagerIndicator extends LinearLayout {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        mTriangleWidth = (int) (w / mTabVisibleCount * RADIO_TRIANGEL);
-        mTriangleWidth = Math.min(mTriangleWidth, DIMENSION_TRIANGEL_WIDTH);
-        mTriangleHeight = (int) (Math.sqrt(2) * (mTriangleWidth / 2));
 
-        initTriangle();
-
-        mInitTranslationX = getWidth() / mTabVisibleCount / 2 - mTriangleWidth / 2;
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        setMeasuredDimension(getMeasuredWidth(), getMeasuredHeight()+mTriangleHeight);
-    }
+        int width = getMeasuredWidth();
+        mRectWidth = width / mTabVisibleCount;
+        mRectInitTop = getMeasuredHeight();
 
-    private void initTriangle(){
-        mTrianglePath = new Path();
-        mTrianglePath.moveTo(0, 0);
-        mTrianglePath.lineTo(mTriangleWidth, 0);
-        mTrianglePath.lineTo(mTriangleWidth / 2, -mTriangleHeight);
-        mTrianglePath.close();
+        setMeasuredDimension(width, mRectInitTop + mRectHeight);
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
 
-        canvas.translate(mInitTranslationX + mTranslationX, getHeight());
-        canvas.drawPath(mTrianglePath, mTrianglePaint);
+        canvas.drawRect(mTranslationX, mRectInitTop, mTranslationX + mRectWidth, mRectInitTop + mRectHeight, mRectPaint);
 
         canvas.restore();
 
@@ -177,23 +150,26 @@ public class TriangleViewPagerIndicator extends LinearLayout {
     }
 
     private void scroll(int position, float offset) {
-        // 不断改变偏移量，invalidate
         mTranslationX = getWidth() / mTabVisibleCount * (position + offset);
-        int tabWidth = Application.SCREENWIDTH / mTabVisibleCount;
         // 容器滚动，当移动到倒数最后一个的时候，开始滚动
         if (offset > 0 && position >= (mTabVisibleCount - 2) && getChildCount() > mTabVisibleCount && position < (getChildCount() - 2)) {
             if (mTabVisibleCount != 1) {
-                this.scrollTo((position - (mTabVisibleCount - 2)) * tabWidth + (int) (tabWidth * offset), 0);
+                this.scrollTo((position - (mTabVisibleCount - 2)) * mRectWidth + (int) (mRectWidth * offset), 0);
             } else {// 为count为1时 的特殊处理
-                this.scrollTo(position * tabWidth + (int) (tabWidth * offset), 0);
+                this.scrollTo(position * mRectWidth + (int) (mRectWidth * offset), 0);
             }
         }
-
         invalidate();
     }
 
-    public void setVisibleTabCount(int count) {
-        this.mTabVisibleCount = count;
+    public interface OnPageChangeListener {
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
+        public void onPageSelected(int position);
+        public void onPageScrollStateChanged(int state);
+    }
+
+    public void setOnPageChangeListener(OnPageChangeListener pageChangeListener){
+        this.mPageChangeListener = pageChangeListener;
     }
 
     public void setTabItemTitles(List<String> datas) {
@@ -228,14 +204,8 @@ public class TriangleViewPagerIndicator extends LinearLayout {
         }
     }
 
-    public interface OnPageChangeListener {
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
-        public void onPageSelected(int position);
-        public void onPageScrollStateChanged(int state);
-    }
-
-    public void setOnPageChangeListener(OnPageChangeListener pageChangeListener){
-        this.mPageChangeListener = pageChangeListener;
+    public void setVisibleTabCount(int count) {
+        this.mTabVisibleCount = count;
     }
 
     private void resetTextViewColor() {
