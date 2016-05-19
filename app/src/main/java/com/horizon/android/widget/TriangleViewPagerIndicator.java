@@ -33,7 +33,7 @@ public class TriangleViewPagerIndicator extends LinearLayout {
     /** 三角指示器高 */
     private int mTriangleHeight;
     /** 三角形的宽度为单个Tab的1/6 */
-    private static final float RADIO_TRIANGEL = 1.0f / 6;
+    private static final float RADIO_TRIANGEL = 1.0f / 8;
     /**  三角形的最大宽度  */
     private final int DIMENSION_TRIANGEL_WIDTH = (int) (Application.SCREENWIDTH / 3 * RADIO_TRIANGEL);
     /** 初始时，三角形指示器的偏移量 */
@@ -181,7 +181,7 @@ public class TriangleViewPagerIndicator extends LinearLayout {
         mTranslationX = getWidth() / mTabVisibleCount * (position + offset);
         int tabWidth = Application.SCREENWIDTH / mTabVisibleCount;
         // 容器滚动，当移动到倒数最后一个的时候，开始滚动
-        if (offset > 0 && position >= (mTabVisibleCount - 2) && getChildCount() > mTabVisibleCount) {
+        if (offset > 0 && position >= (mTabVisibleCount - 2) && getChildCount() > mTabVisibleCount && position < (getChildCount() - 2)) {
             if (mTabVisibleCount != 1) {
                 this.scrollTo((position - (mTabVisibleCount - 2)) * tabWidth + (int) (tabWidth * offset), 0);
             } else {// 为count为1时 的特殊处理

@@ -15,6 +15,7 @@ import com.horizon.android.view.HistoryTodayView;
 import com.horizon.android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -88,12 +89,12 @@ public class HistoryTodayActivity extends BaseActivity implements HistoryTodayVi
 
     @Override
     public int getMonth() {
-        return 5;
+        return Calendar.getInstance().get(Calendar.MONTH);
     }
 
     @Override
     public int getDay() {
-        return 10;
+        return Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
     }
 
     @Override
