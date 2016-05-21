@@ -1,4 +1,4 @@
-package com.horizon.android.widget;
+package com.horizon.android.widget.indicator;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -35,7 +35,7 @@ public class TriangleViewPagerIndicator extends LinearLayout {
     /** 三角形的宽度为单个Tab的1/6 */
     private static final float RADIO_TRIANGEL = 1.0f / 8;
     /**  三角形的最大宽度  */
-    private final int DIMENSION_TRIANGEL_WIDTH = (int) (Application.SCREENWIDTH / 3 * RADIO_TRIANGEL);
+    private final int DIMENSION_TRIANGEL_WIDTH = (int) (Application.getInstance().SCREENWIDTH / 3 * RADIO_TRIANGEL);
     /** 初始时，三角形指示器的偏移量 */
     private int mInitTranslationX;
     /** 手指滑动时的偏移量 */
@@ -86,7 +86,7 @@ public class TriangleViewPagerIndicator extends LinearLayout {
             View child = getChildAt(i);
             LinearLayout.LayoutParams lp = (LayoutParams) child.getLayoutParams();
             lp.weight = 0;
-            lp.width = Application.SCREENWIDTH / mTabVisibleCount;
+            lp.width = Application.getInstance().SCREENWIDTH / mTabVisibleCount;
             child.setLayoutParams(lp);
 
             if(mViewPager != null) {
@@ -179,7 +179,7 @@ public class TriangleViewPagerIndicator extends LinearLayout {
     private void scroll(int position, float offset) {
         // 不断改变偏移量，invalidate
         mTranslationX = getWidth() / mTabVisibleCount * (position + offset);
-        int tabWidth = Application.SCREENWIDTH / mTabVisibleCount;
+        int tabWidth = Application.getInstance().SCREENWIDTH / mTabVisibleCount;
         // 容器滚动，当移动到倒数最后一个的时候，开始滚动
         if (offset > 0 && position >= (mTabVisibleCount - 2) && getChildCount() > mTabVisibleCount && position < (getChildCount() - 2)) {
             if (mTabVisibleCount != 1) {
@@ -207,7 +207,7 @@ public class TriangleViewPagerIndicator extends LinearLayout {
                 TextView child = new TextView(getContext());
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -1);
                 lp.weight = 0;
-                lp.width = Application.SCREENWIDTH / mTabVisibleCount;
+                lp.width = Application.getInstance().SCREENWIDTH / mTabVisibleCount;
                 child.setLayoutParams(lp);
                 child.setGravity(Gravity.CENTER);
                 child.setText(mTabTitles.get(i));
@@ -226,12 +226,6 @@ public class TriangleViewPagerIndicator extends LinearLayout {
                 }
             }
         }
-    }
-
-    public interface OnPageChangeListener {
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
-        public void onPageSelected(int position);
-        public void onPageScrollStateChanged(int state);
     }
 
     public void setOnPageChangeListener(OnPageChangeListener pageChangeListener){

@@ -273,7 +273,7 @@ public class BaseAdapterHelper
 	public BaseAdapterHelper setImageUrl(int viewId, String imageUrl)
 	{
 		ImageView view = retrieveView(viewId);
-		Application.getImageLoader().displayImage(imageUrl, view);
+		Application.getInstance().getImageLoader().displayImage(imageUrl, view);
 		return this;
 	}
 
@@ -282,7 +282,7 @@ public class BaseAdapterHelper
 	{
 		ImageView view;
 		view = retrieveView(viewId);
-		Application.getImageLoader().displayImage(imageUrl, view, options);
+		Application.getInstance().getImageLoader().displayImage(imageUrl, view, options);
 		return this;
 	}
 
