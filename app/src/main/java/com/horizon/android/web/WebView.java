@@ -25,6 +25,13 @@ public class WebView extends android.webkit.WebView {
         // 打开本地缓存提供JS调用
         getSettings().setDomStorageEnabled(true);
         getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        //开启 database storage API 功能
+        getSettings().setDatabaseEnabled(true);
+        String cacheDirPath = getContext().getCacheDir().getAbsolutePath()+"/web_cache";
+        getSettings().setDatabasePath(cacheDirPath);
+        getSettings().setAppCacheEnabled(true);
+        getSettings().setAppCachePath(cacheDirPath);
 
         setWebChromeClient(new WebChromeClient());
         setWebViewClient(new WebViewClient());

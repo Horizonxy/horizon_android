@@ -152,9 +152,11 @@
             android:name=".activity.TriangleViewPagerIndicatorActivity"
             android:screenOrientation="portrait" />
 
-        <!--矩形指示器-->
-        <activity android:name=".activity.RectViewPagerIndicatorActivity"
+        <!-- 矩形指示器 -->
+        <activity
+            android:name=".activity.RectViewPagerIndicatorActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.WebViewActivity"></activity>
     </application>
 
 </manifest>
