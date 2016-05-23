@@ -43,7 +43,8 @@ public class PullToZoomScrollActivity extends BaseActivity {
             }
         });
 
-        LinearLayout.LayoutParams localObject = new LinearLayout.LayoutParams(Application.SCREENWIDTH, (int) (9.0F * (Application.SCREENWIDTH / 16.0F)));
+        LinearLayout.LayoutParams localObject = new LinearLayout.LayoutParams(Application.getInstance().SCREENWIDTH,
+                (int) (9.0F * (Application.getInstance().SCREENWIDTH / 16.0F)));
         scrollView.setHeaderLayoutParams(localObject);
     }
 

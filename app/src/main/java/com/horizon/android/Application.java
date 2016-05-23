@@ -15,16 +15,18 @@ import java.util.List;
 public class Application extends android.app.Application {
 
     private static Application application;
-    private static ImageLoader imageLoader;
+    private ImageLoader imageLoader;
     private List<Activity> atyList;
-    private static AppComponent component;
-    private static Resources res;
+    private AppComponent component;
+    private Resources res;
 
-    public static int SCREENWIDTH, SCREENHEIGHT;
+    public int SCREENWIDTH, SCREENHEIGHT;
 
     public ApiService apiService;
 
     private DisplayImageOptions defaultOptions;
+
+    private List<String> resultOfRefresh;
 
     @Override
     public void onCreate() {
@@ -75,15 +77,33 @@ public class Application extends android.app.Application {
         return atyList;
     }
 
-    public static ImageLoader getImageLoader() {
+    public ImageLoader getImageLoader() {
         return imageLoader;
     }
 
-    public static AppComponent getAppComponent(){
+    public AppComponent getAppComponent(){
         return component;
     }
 
-    public static Resources getRes(){
+    public Resources getRes(){
         return  res;
+    }
+
+    public void addRefresh(String action){
+        if(resultOfRefresh == null){
+            resultOfRefresh = new ArrayList<String>();
+        }
+        resultOfRefresh.add(action);
+    }
+
+    public void removeRefresh(String action){
+        if(resultOfRefresh == null){
+            return;
+        } else {
+            resultOfRefresh.remove(action);
+        }
+        if(resultOfRefresh.size() == 0){
+            resultOfRefresh = null;
+        }
     }
 }

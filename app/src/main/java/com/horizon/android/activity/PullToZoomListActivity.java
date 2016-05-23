@@ -48,7 +48,8 @@ public class PullToZoomListActivity extends BaseActivity {
             }
         });
 
-        AbsListView.LayoutParams localObject = new AbsListView.LayoutParams(Application.SCREENWIDTH, (int) (9.0F * (Application.SCREENWIDTH / 16.0F)));
+        AbsListView.LayoutParams localObject = new AbsListView.LayoutParams(Application.getInstance().SCREENWIDTH,
+                (int) (9.0F * (Application.getInstance().SCREENWIDTH / 16.0F)));
         listView.setHeaderLayoutParams(localObject);
     }
 

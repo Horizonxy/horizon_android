@@ -1,4 +1,4 @@
-package com.horizon.android.widget;
+package com.horizon.android.widget.indicator;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -70,7 +70,7 @@ public class RectViewPagerIndicator extends LinearLayout {
             View child = getChildAt(i);
             LinearLayout.LayoutParams lp = (LayoutParams) child.getLayoutParams();
             lp.weight = 0;
-            lp.width = Application.SCREENWIDTH / mTabVisibleCount;
+            lp.width = Application.getInstance().SCREENWIDTH / mTabVisibleCount;
             child.setLayoutParams(lp);
 
             if(mViewPager != null) {
@@ -162,12 +162,6 @@ public class RectViewPagerIndicator extends LinearLayout {
         invalidate();
     }
 
-    public interface OnPageChangeListener {
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
-        public void onPageSelected(int position);
-        public void onPageScrollStateChanged(int state);
-    }
-
     public void setOnPageChangeListener(OnPageChangeListener pageChangeListener){
         this.mPageChangeListener = pageChangeListener;
     }
@@ -183,7 +177,7 @@ public class RectViewPagerIndicator extends LinearLayout {
                 TextView child = new TextView(getContext());
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -1);
                 lp.weight = 0;
-                lp.width = Application.SCREENWIDTH / mTabVisibleCount;
+                lp.width = Application.getInstance().SCREENWIDTH / mTabVisibleCount;
                 child.setLayoutParams(lp);
                 child.setGravity(Gravity.CENTER);
                 child.setText(mTabTitles.get(i));

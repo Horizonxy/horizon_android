@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.horizon.android.R;
-import com.horizon.android.widget.RectViewPagerIndicator;
+import com.horizon.android.widget.indicator.RectViewPagerIndicator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +30,8 @@ public class RectViewPagerIndicatorActivity extends BaseActivity {
         setContentView(R.layout.activity_rect_view_pager_indicator);
         setTitle("ViewPager矩形指示器");
 
+        //设置关联的ViewPager
+        vpIndicator.setViewPager(vpPager, 0);
         vpIndicator.setTabItemTitles(mDatas);
         vpPager.setAdapter(new PagerAdapter() {
 
@@ -56,7 +58,6 @@ public class RectViewPagerIndicatorActivity extends BaseActivity {
                 return view == object;
             }
         });
-        //设置关联的ViewPager
-        vpIndicator.setViewPager(vpPager, 0);
+
     }
 }
