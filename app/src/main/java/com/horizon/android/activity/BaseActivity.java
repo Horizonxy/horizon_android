@@ -49,12 +49,12 @@ public class BaseActivity extends AutoLayoutActivity {
         crashHandler.init(this);
     }
 
-    private Resources getRes() {
-        return Application.getRes();
+    public Resources getRes() {
+        return Application.getInstance().getRes();
     }
 
-    private ImageLoader getImageLoader() {
-        return Application.getImageLoader();
+    public ImageLoader getImageLoader() {
+        return Application.getInstance().getImageLoader();
     }
 
     @Override
