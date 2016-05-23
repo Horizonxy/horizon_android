@@ -1,8 +1,5 @@
 package com.horizon.android.widget;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.horizon.android.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -12,6 +9,11 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
+
+import com.horizon.android.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MonIndicator extends View{
 	private ParamsCreator paramsCreator = new ParamsCreator(this.getContext());
@@ -141,15 +143,17 @@ public class MonIndicator extends View{
     @Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		paint.setAntiAlias(true);
-		paint.setStyle(Paint.Style.FILL);
-		//canvas.drawColor(0xFF00FF33);
-		drawCircle01(canvas);
-		drawCircle02(canvas);
-		drawCircle03(canvas);
-		drawCircle04(canvas);
-		drawCircle05(canvas);
-		this.invalidate();
+		if(isShown()) {
+			paint.setAntiAlias(true);
+			paint.setStyle(Paint.Style.FILL);
+			//canvas.drawColor(0xFF00FF33);
+			drawCircle01(canvas);
+			drawCircle02(canvas);
+			drawCircle03(canvas);
+			drawCircle04(canvas);
+			drawCircle05(canvas);
+			this.invalidate();
+		}
 	}
     /**
      * 画圆1

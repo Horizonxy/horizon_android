@@ -27,7 +27,6 @@ public class BaseLoadActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         View layout = getLayoutInflater().inflate(R.layout.view_base_load, null);

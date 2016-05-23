@@ -33,9 +33,6 @@ public class WebView extends android.webkit.WebView {
         getSettings().setAppCacheEnabled(true);
         getSettings().setAppCachePath(cacheDirPath);
 
-        setWebChromeClient(new WebChromeClient());
-        setWebViewClient(new WebViewClient());
-
         clearHistory();
     }
 }

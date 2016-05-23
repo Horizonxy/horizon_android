@@ -10,6 +10,24 @@ import android.widget.EditText;
 
 public class WebChromeClient extends android.webkit.WebChromeClient {
 
+    WebViewView mWebView;
+
+    public WebChromeClient(WebViewView mWebView){
+        this.mWebView = mWebView;
+    }
+
+    @Override
+    public void onReceivedTitle(WebView view, String title) {
+        super.onReceivedTitle(view, title);
+        mWebView.onReceivedTitle(title);
+    }
+
+    @Override
+    public void onProgressChanged(WebView view, int newProgress) {
+        super.onProgressChanged(view, newProgress);
+        mWebView.onProgressChanged(newProgress);
+    }
+
     @Override
     public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());

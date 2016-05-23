@@ -20,6 +20,11 @@ import java.net.URL;
 public class WebViewClient extends android.webkit.WebViewClient {
 
     private static String IMG_CACHE = FileUtils.getEnvPath(Application.getInstance(), true, Constants.IMG_CACHE_DIR);
+    WebViewView mWebView;
+
+    public WebViewClient(WebViewView mWebView){
+        this.mWebView = mWebView;
+    }
 
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
@@ -44,11 +49,18 @@ public class WebViewClient extends android.webkit.WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        if(url.startsWith("http")){
-            view.loadUrl(url);
-        }
+//        if(url.startsWith("http")){
+//            view.loadUrl(url);
+//        }
+//
+//        return true;
+        return super.shouldOverrideUrlLoading(view, url);
+    }
 
-        return true;
+    @Override
+    public void onPageFinished(WebView view, String url) {
+        super.onPageFinished(view, url);
+        mWebView.firstLoadAfter();
     }
 
     private InputStream downloadImage2Cache(String url) {

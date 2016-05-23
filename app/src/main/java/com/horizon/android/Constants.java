@@ -11,4 +11,6 @@ public class Constants {
 	/** 二维码扫描结果. */
 	public final static String BUNDLE_SCAN_RESULT = "bundle_scan_result";
 
+	public final static String BUNDLE_WEBVIEW_URL = "bundle_webview_url";
+
 }

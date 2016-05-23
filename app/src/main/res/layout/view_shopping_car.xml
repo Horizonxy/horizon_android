@@ -38,5 +38,24 @@
 	        android:textSize="@dimen/large_size" />
 	    
 	</RelativeLayout>
+
+	<com.horizon.android.widget.ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:scrollbars="none"
+		android:fillViewport="true">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="@dimen/min_margin"
+			android:orientation="vertical">
+			<Button
+				android:id="@+id/btn_webview"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/title_height"
+				android:text="WebView"
+				android:textSize="@dimen/normal_size" />
+		</LinearLayout>
+	</com.horizon.android.widget.ScrollView>
     
 </com.horizon.android.ui.ShoppingCarView>
