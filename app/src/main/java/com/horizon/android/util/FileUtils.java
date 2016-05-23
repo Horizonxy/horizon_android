@@ -1,5 +1,11 @@
 package com.horizon.android.util;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
+
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -15,11 +21,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
 
 public class FileUtils {
 
@@ -54,7 +55,30 @@ public class FileUtils {
 	public final static String FILE_TYPE_PDB = "pdb";
 	public final static String FILE_TYPE_PDF = "pdf";
 	public final static String FILE_TYPE_ZIP = "zip";
-	
+
+	/**
+	 * 根据路径和文件名查找文件
+	 * @author 蒋先明
+	 * @param path
+	 * @param imageName
+	 * @return
+	 */
+	public static File findFile(String path, String imageName) {
+		File dir = new File(path);
+		if (dir.exists()) {
+			File filses[] = dir.listFiles();
+			for (int i = 0; i < filses.length; i++) {
+				String fileName = filses[i].getName();
+				if (fileName.equals(imageName)) {
+					return filses[i];
+				}
+			}
+		} else {
+			dir.mkdirs();
+		}
+		return null;
+	}
+
 	/**
 	 * 路径设置
 	 * 

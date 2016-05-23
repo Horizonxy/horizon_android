@@ -1,7 +1,6 @@
 package com.horizon.android.activity;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.os.Bundle;
 
 import com.horizon.android.R;
 import com.horizon.android.adapter.MessageAdapter;
@@ -11,7 +10,8 @@ import com.horizon.android.module.AdapterModule;
 import com.horizon.android.widget.AutoLoadListView;
 import com.horizon.android.widget.InitializeListView;
 
-import android.os.Bundle;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -31,7 +31,7 @@ public class AutoLoadActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
-        setContentView(R.layout.activity_autoload_listview, false);
+        setContentView(R.layout.activity_autoload_listview);
         component = DaggerAdapterComponent.builder().adapterModule(new AdapterModule(this, R.layout.item_message, data)).build();
         component.inject(this);
         setTitle("autoload listview");

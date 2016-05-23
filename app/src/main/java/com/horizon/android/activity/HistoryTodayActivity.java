@@ -23,7 +23,7 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import rx.Subscription;
 
-public class HistoryTodayActivity extends BaseActivity implements HistoryTodayView {
+public class HistoryTodayActivity extends BaseLoadActivity implements HistoryTodayView {
 
     @Bind(R.id.lv_history)
     ListView lvHistory;
@@ -37,7 +37,7 @@ public class HistoryTodayActivity extends BaseActivity implements HistoryTodayVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history_today, true);
+        setContentView(R.layout.activity_history_today);
         DaggerHistoryTodayComponent.builder().historyTodayMoudle(new HistoryTodayMoudle(this, R.layout.item_history_today,data )).build().inject(this);
         setTitle("历史上的今天");
 

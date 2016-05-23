@@ -3,22 +3,13 @@ package com.horizon.android.activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import com.horizon.android.R;
 import com.horizon.android.adapter.MovieListAdapter;
-import com.horizon.android.component.ActivityComponent;
-import com.horizon.android.component.AdapterComponent;
-import com.horizon.android.component.DaggerActivityComponent;
-import com.horizon.android.component.DaggerAdapterComponent;
 import com.horizon.android.component.DaggerMovieListActivityComponent;
-import com.horizon.android.component.MovieListActivityComponent;
 import com.horizon.android.model.bean.MovieVo;
-import com.horizon.android.module.ActivityModule;
-import com.horizon.android.module.AdapterModule;
 import com.horizon.android.module.MovieListModule;
 import com.horizon.android.presenter.MoviePresenter;
-import com.horizon.android.util.log.LogUtils;
 import com.horizon.android.view.MovieListView;
 import com.horizon.android.widget.AutoLoadListView;
 import com.horizon.android.widget.InitializeListView;
@@ -31,7 +22,7 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import rx.Subscription;
 
-public class MovieListActivity extends BaseActivity implements MovieListView {
+public class MovieListActivity extends BaseLoadActivity implements MovieListView {
 
     @Bind(R.id.lv_movie_list)
     InitializeListView lvMovieList;
@@ -47,7 +38,7 @@ public class MovieListActivity extends BaseActivity implements MovieListView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_list, true);
+        setContentView(R.layout.activity_movie_list);
         DaggerMovieListActivityComponent.builder().movieListModule(new MovieListModule(this, R.layout.item_movie, data)).build().inject(this);
         setTitle("影讯");
 

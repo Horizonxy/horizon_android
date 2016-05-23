@@ -5,18 +5,17 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.horizon.android.Application;
 import com.horizon.android.R;
 import com.horizon.android.exception.CrashHandler;
 import com.horizon.android.util.SystemStatusManager;
-import com.horizon.android.widget.MonIndicator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhy.autolayout.AutoLayoutActivity;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,7 +24,7 @@ import rx.subscriptions.CompositeSubscription;
 
 public class BaseActivity extends AutoLayoutActivity {
 
-    private CompositeSubscription mCompositeSubscription;
+    CompositeSubscription mCompositeSubscription;
 
     @Bind(R.id.tv_title)
     TextView tvTitle;
@@ -35,12 +34,6 @@ public class BaseActivity extends AutoLayoutActivity {
     ImageView btnRight1;
     @Bind(R.id.btn_right2)
     ImageView btnRight2;
-    @Bind(R.id.base_init_load)
-    MonIndicator mInitLoad;
-    @Bind(R.id.base_no_net)
-    LinearLayout llNoNet;
-    @Bind(R.id.base_btn_retry)
-    Button btnRetry;
 
     FrameLayout layoutContent;
 
@@ -52,24 +45,16 @@ public class BaseActivity extends AutoLayoutActivity {
 
         this.mCompositeSubscription = new CompositeSubscription();
 
-//        CrashHandler crashHandler = CrashHandler.getInstance();
-//        crashHandler.init(this);
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(this);
     }
 
-    private Resources getRes(){
+    private Resources getRes() {
         return Application.getRes();
     }
 
-    private ImageLoader getImageLoader(){
+    private ImageLoader getImageLoader() {
         return Application.getImageLoader();
-    }
-
-    public void setContentView(@LayoutRes int layoutResID, boolean isNeedLoadView){
-        setContentView(layoutResID);
-
-        if(isNeedLoadView) {
-            initBody();
-        }
     }
 
     @Override
@@ -87,38 +72,15 @@ public class BaseActivity extends AutoLayoutActivity {
         ButterKnife.bind(this);
     }
 
-    public void initBody(){
-        mInitLoad.setVisibility(View.VISIBLE);
-        layoutContent.setVisibility(View.GONE);
-        llNoNet.setVisibility(View.GONE);
-    }
-
     public void addSubscription(Subscription subscription) {
         this.mCompositeSubscription.add(subscription);
     }
 
-    public void initAfter(){
-        mInitLoad.setVisibility(View.GONE);
-        layoutContent.setVisibility(View.VISIBLE);
-        llNoNet.setVisibility(View.GONE);
-    }
-
-    public void noNet(){
-        mInitLoad.setVisibility(View.GONE);
-        layoutContent.setVisibility(View.GONE);
-        llNoNet.setVisibility(View.VISIBLE);
-    }
-
     public void setTitle(String title) {
-        if(title == null){
+        if (title == null) {
             title = "";
         }
         tvTitle.setText(title);
-    }
-
-    @OnClick(R.id.base_btn_retry)
-    void clickRetry(){
-
     }
 
     @Override
@@ -132,7 +94,7 @@ public class BaseActivity extends AutoLayoutActivity {
     }
 
     @OnClick(R.id.btn_left)
-    public void leftClick(){
+    public void leftClick() {
         finish();
     }
 
