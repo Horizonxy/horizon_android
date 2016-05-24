@@ -16,18 +16,12 @@ import com.horizon.android.activity.ConvenientBannerActivity;
 import com.horizon.android.activity.EditViewActivity;
 import com.horizon.android.activity.HistoryTodayActivity;
 import com.horizon.android.activity.ListViewActivity;
-import com.horizon.android.activity.MVPLoginActivity;
-import com.horizon.android.activity.MVPUserInfoActivity;
-import com.horizon.android.activity.MovieListActivity;
 import com.horizon.android.activity.PullToZoomListActivity;
 import com.horizon.android.activity.PullToZoomScrollActivity;
 import com.horizon.android.activity.RectViewPagerIndicatorActivity;
-import com.horizon.android.activity.RetrofitRxActivity;
-import com.horizon.android.activity.RetrofitRxJavaMvpContentActivity;
 import com.horizon.android.activity.ScrollViewActivity;
 import com.horizon.android.activity.StatusLayoutActivity;
 import com.horizon.android.activity.TriangleViewPagerIndicatorActivity;
-import com.horizon.android.activity.WeatherActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import butterknife.Bind;
@@ -138,36 +132,6 @@ public class HomeView extends AutoLinearLayout {
 	@OnClick(R.id.btn_listview)
 	void listviewClick(){
 		mCxt.startActivity(new Intent(mCxt, ListViewActivity.class));
-	}
-
-	@OnClick(R.id.btn_weather)
-	void weatherClick(){
-		mCxt.startActivity(new Intent(mCxt, WeatherActivity.class));
-	}
-
-	@OnClick(R.id.btn_movie_list)
-	void movieListClick(){
-		mCxt.startActivity(new Intent(mCxt, MovieListActivity.class));
-	}
-
-	@OnClick(R.id.btn_mvp_retrofit_rxjava)
-	void retrofitRxjavaMvpClick(){
-		mCxt.startActivity(new Intent(mCxt, RetrofitRxJavaMvpContentActivity.class));
-	}
-
-	@OnClick(R.id.btn_mvp_get_info)
-	void mvpUserInfoClick(){
-		mCxt.startActivity(new Intent(mCxt, MVPUserInfoActivity.class));
-	}
-
-	@OnClick(R.id.btn_mvp_login)
-	void mvpLoginnClick(){
-		mCxt.startActivity(new Intent(mCxt, MVPLoginActivity.class));
-	}
-
-	@OnClick(R.id.btn_retrofit_rx)
-	void retrofitRxjavaClick(){
-		mCxt.startActivity(new Intent(mCxt, RetrofitRxActivity.class));
 	}
 
 	@OnClick(R.id.btn_autoload_list)

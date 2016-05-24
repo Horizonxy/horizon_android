@@ -1,7 +1,5 @@
 package com.horizon.android.activity;
 
-import com.horizon.android.Application;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -10,28 +8,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.component.ActivityComponent;
 import com.horizon.android.component.DaggerActivityComponent;
-import com.horizon.android.model.bean.UserVo;
 import com.horizon.android.module.ActivityModule;
-import com.horizon.android.presenter.HomePresenter;
-import com.horizon.android.widget.ChangeColorIcon;
 import com.horizon.android.util.SystemStatusManager;
 import com.horizon.android.util.ToastUtils;
+import com.horizon.android.widget.ChangeColorIcon;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AutoLayoutActivity implements com.horizon.android.view.HomeView {
+public class MainActivity extends AutoLayoutActivity {
 
     @Bind(R.id.vp_main)
     ViewPager vpMain;
@@ -49,8 +44,6 @@ public class MainActivity extends AutoLayoutActivity implements com.horizon.andr
     ChangeColorIcon user;
 
     private ActivityComponent component;
-    @Inject
-    HomePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,13 +70,6 @@ public class MainActivity extends AutoLayoutActivity implements com.horizon.andr
         vpMain.setOnPageChangeListener(new MainVPChangeListener());
 
         home.performClick();
-
-        presenter.showName();
-    }
-
-    @Override
-    public void showName(UserVo user) {
-        ToastUtils.show(this, "user name: " + user.getName());
     }
 
     @OnClick(R.id.btn_home)

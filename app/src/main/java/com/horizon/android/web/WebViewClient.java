@@ -77,10 +77,6 @@ public class WebViewClient extends android.webkit.WebViewClient {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if(conn != null){
-                conn.disconnect();
-            }
         }
         return null;
     }
