@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.activity.ClickableSpanActivity;
+import com.horizon.android.activity.RecyclerViewActivity;
 import com.horizon.android.activity.WebViewActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 
@@ -24,6 +25,11 @@ public class ShoppingCarView extends AutoLinearLayout {
 	protected void onFinishInflate() {
 		super.onFinishInflate();
 		ButterKnife.bind(this);
+	}
+
+	@OnClick(R.id.btn_recycler_view)
+	void recyclerviewClick(){
+		getContext().startActivity(new Intent(getContext(), RecyclerViewActivity.class));
 	}
 
 	@OnClick(R.id.btn_clickablespan)

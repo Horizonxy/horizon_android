@@ -28,4 +28,9 @@
     <style name="repple_out_backguound">
         <item name="android:background">?android:attr/actionBarItemBackground</item>
     </style>
+    
+    <style name="RecyclerDivider" parent="AppTheme" >
+        <item name="android:listDivider">@drawable/recycler_divider</item>
+    </style>
+    
 </resources>

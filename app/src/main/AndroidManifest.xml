@@ -42,15 +42,16 @@
         <!-- 启动页 -->
         <activity
             android:name=".activity.MainActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       <!-- <activity
+        <!--
+        <activity
             android:name=".activity.WelcomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Start">
@@ -65,7 +66,9 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />-->
+            android:screenOrientation="portrait" />
+        -->
+
 
         <!-- 二维码扫描 -->
         <activity
@@ -136,12 +139,16 @@
         <activity
             android:name=".activity.RectViewPagerIndicatorActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.WebViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ClickableSpanActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.ClickableSpanActivity"
+        <!--RecyclerView-->
+        <activity android:name=".activity.RecyclerViewActivity"
+            android:theme="@style/RecyclerDivider"
             android:screenOrientation="portrait" />
     </application>
 
