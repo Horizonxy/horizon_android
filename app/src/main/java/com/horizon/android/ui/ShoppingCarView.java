@@ -9,6 +9,7 @@ import com.horizon.android.R;
 import com.horizon.android.activity.ClickableSpanActivity;
 import com.horizon.android.activity.RecyclerViewActivity;
 import com.horizon.android.activity.WebViewActivity;
+import com.horizon.android.activity.XCRoundImageViewActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import butterknife.ButterKnife;
@@ -25,6 +26,11 @@ public class ShoppingCarView extends AutoLinearLayout {
 	protected void onFinishInflate() {
 		super.onFinishInflate();
 		ButterKnife.bind(this);
+	}
+
+	@OnClick(R.id.btn_xcround_imageview)
+	void xcroundImageviewClick(){
+		getContext().startActivity(new Intent(getContext(), XCRoundImageViewActivity.class));
 	}
 
 	@OnClick(R.id.btn_recycler_view)

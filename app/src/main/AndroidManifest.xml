@@ -152,10 +152,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/RecyclerDivider" />
 
-        <!--查看图片-->
-        <activity android:name=".activity.PictureDetailActivity"
-            android:theme="@style/activity_translucent"
-            android:screenOrientation="portrait"/>
+        <!-- 查看图片 -->
+        <activity
+            android:name=".activity.PictureDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/activity_translucent" />
+
+        <activity android:name=".activity.XCRoundImageViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
