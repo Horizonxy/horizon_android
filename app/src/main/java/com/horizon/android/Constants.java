@@ -13,4 +13,9 @@ public class Constants {
 
 	public final static String BUNDLE_WEBVIEW_URL = "bundle_webview_url";
 
+	public final static String BUNDLE_PIC_LEFT = "bundle_picture_left";
+	public final static String BUNDLE_PIC_TOP = "bundle_picture_right";
+	public final static String BUNDLE_PIC_WIDTH = "bundle_picture_width";
+	public final static String BUNDLE_PIC_HEIGHT = "bundle_picture_height";
+	public final static String BUNDLE_PIC_URL = "bundle_picture_url";
 }

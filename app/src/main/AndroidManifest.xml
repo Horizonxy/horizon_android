@@ -146,10 +146,16 @@
             android:name=".activity.ClickableSpanActivity"
             android:screenOrientation="portrait" />
 
-        <!--RecyclerView-->
-        <activity android:name=".activity.RecyclerViewActivity"
-            android:theme="@style/RecyclerDivider"
-            android:screenOrientation="portrait" />
+        <!-- RecyclerView -->
+        <activity
+            android:name=".activity.RecyclerViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/RecyclerDivider" />
+
+        <!--查看图片-->
+        <activity android:name=".activity.PictureDetailActivity"
+            android:theme="@style/activity_translucent"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

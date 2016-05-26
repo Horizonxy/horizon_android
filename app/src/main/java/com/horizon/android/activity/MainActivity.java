@@ -1,6 +1,7 @@
 package com.horizon.android.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -54,6 +55,13 @@ public class MainActivity extends AutoLayoutActivity {
         Application.getInstance().addAty(this);
         component = DaggerActivityComponent.builder().activityModule(new ActivityModule(this)).build();
         component.inject(this);
+
+        if(Build.VERSION.SDK_INT < 21){
+            home.setBackgroundColor(getResources().getColor(R.color.transparent));
+            message.setBackgroundColor(getResources().getColor(R.color.transparent));
+            shoppingCar.setBackgroundColor(getResources().getColor(R.color.transparent));
+            user.setBackgroundColor(getResources().getColor(R.color.transparent));
+        }
 
         mTabIndicator.add(home);
         mTabIndicator.add(message);
