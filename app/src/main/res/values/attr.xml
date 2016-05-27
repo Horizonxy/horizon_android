@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- 圆形图片 -->
-    <declare-styleable name="CircleImageView">
-        <attr name="border_width" format="dimension" />
-        <attr name="border_color" format="color" />
-        <attr name="border_overlay" format="boolean" />
-    </declare-styleable>
     
     <declare-styleable name="PullToZoomView">
         <attr name="headerView" format="reference" />
@@ -54,5 +47,15 @@
     <declare-styleable name="TriangleViewPagerIndicator">
         <attr name="visible_tab_count" format="integer" />
     </declare-styleable>
-    
+
+    <declare-styleable name="XCRoundImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        <attr name="type" format="enum">
+            <enum name="circle" value="0"/>
+            <enum name="round" value="1"/>
+            <enum name="oval" value="2"/>
+        </attr>
+        <attr name="round_radius" format="dimension"/>
+    </declare-styleable>
 </resources>

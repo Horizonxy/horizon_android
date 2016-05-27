@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.horizon.android.Application;
 import com.horizon.android.R;
-import com.horizon.android.exception.CrashHandler;
 import com.horizon.android.util.SystemStatusManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhy.autolayout.AutoLayoutActivity;
@@ -45,8 +44,8 @@ public class BaseActivity extends AutoLayoutActivity {
 
         this.mCompositeSubscription = new CompositeSubscription();
 
-        CrashHandler crashHandler = CrashHandler.getInstance();
-        crashHandler.init(this);
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(this);
     }
 
     public Resources getRes() {

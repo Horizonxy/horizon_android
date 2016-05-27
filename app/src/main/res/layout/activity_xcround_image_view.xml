@@ -1,15 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<com.horizon.android.widget.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
 
-    <com.horizon.android.widget.XCRoundImageView
-        android:src="@mipmap/image"
-        android:layout_width="wrap_content"
-        android:layout_margin="@dimen/normal_margin"
-        android:layout_height="wrap_content" />
+    <LinearLayout xmlns:xcround="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <com.horizon.android.widget.XCRoundImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:src="@mipmap/image"
+            xcround:border_color="@color/main"
+            xcround:border_width="4px"
+            xcround:type="circle" />
 
+        <com.horizon.android.widget.XCRoundImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:src="@mipmap/image"
+            xcround:round_radius="40px"
+            xcround:border_width="4px"
+            xcround:border_color="@color/main"
+            xcround:type="round" />
 
-</LinearLayout>
+        <com.horizon.android.widget.XCRoundImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:src="@mipmap/image"
+            xcround:border_width="4px"
+            xcround:border_color="@color/main"
+            xcround:type="oval" />
+
+        <com.horizon.android.widget.XCRoundImageView
+            android:id="@+id/circle_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            xcround:border_width="4px"
+            xcround:border_color="@color/main"
+            xcround:type="circle" />
+
+    </LinearLayout>
+</com.horizon.android.widget.ScrollView>
