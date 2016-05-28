@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.activity.ClickableSpanActivity;
+import com.horizon.android.activity.RadarActivity;
 import com.horizon.android.activity.RecyclerViewActivity;
 import com.horizon.android.activity.WebViewActivity;
 import com.horizon.android.activity.XCRoundImageViewActivity;
@@ -26,6 +27,11 @@ public class ShoppingCarView extends AutoLinearLayout {
 	protected void onFinishInflate() {
 		super.onFinishInflate();
 		ButterKnife.bind(this);
+	}
+
+	@OnClick(R.id.btn_radar)
+	void radarClick(){
+		getContext().startActivity(new Intent(getContext(), RadarActivity.class));
 	}
 
 	@OnClick(R.id.btn_xcround_imageview)
