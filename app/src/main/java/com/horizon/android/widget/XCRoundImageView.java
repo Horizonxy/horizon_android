@@ -129,7 +129,7 @@ public class XCRoundImageView extends ImageView {
         if(mType == CIRCLE) {
             int radius = getWidth() / 2;
             if(mBorderWidth > 0){
-                radius -= 2 * mBorderWidth;
+                radius -= mBorderWidth;
             }
             canvas.drawCircle(getWidth() / 2, getWidth() / 2, radius, paint);
         } else if(mType == ROUND) {

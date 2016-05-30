@@ -47,5 +47,11 @@
             xcround:border_color="@color/main"
             xcround:type="circle" />
 
+        <com.horizon.android.widget.ReflectionImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image"
+            android:layout_margin="@dimen/normal_margin"/>
+
     </LinearLayout>
 </com.horizon.android.widget.ScrollView>

@@ -72,7 +72,7 @@ public class RadarView extends View {
         scaleMatrix.setScale(scale, scale);
         int x = (mBmp.getWidth() - wh) / 2;
         int y = (mBmp.getHeight() - wh) / 2;
-        mBmp = Bitmap.createBitmap(mBmp, x, y, wh, wh, scaleMatrix, true);
+        mBmp = Bitmap.createBitmap(mBmp, x, y, wh, wh, scaleMatrix, false);
 
         mHandler.postDelayed(new SweepRun(), 800);
     }
