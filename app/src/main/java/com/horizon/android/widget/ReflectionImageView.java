@@ -14,6 +14,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import java.lang.ref.WeakReference;
+
 /**
 * 带1/2倒影ImageView
 * @author 蒋先明
@@ -21,7 +23,8 @@ import android.widget.ImageView;
 */
 public class ReflectionImageView extends ImageView {
 
-    private static final int SPACE = 2;
+    private static final int SPACE = 1;
+    private WeakReference<Bitmap> mBuffer;
 
     public ReflectionImageView(Context context) {
         this(context, null);
@@ -29,6 +32,7 @@ public class ReflectionImageView extends ImageView {
 
     public ReflectionImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setAdjustViewBounds(false);
     }
 
     @Override
@@ -37,44 +41,76 @@ public class ReflectionImageView extends ImageView {
 
         if(getDrawable() != null){
             Bitmap bmp = ((BitmapDrawable)getDrawable()).getBitmap();
+
+            if(bmp.getWidth() * 1f / getMeasuredWidth() > 1){
+                float scale = getMeasuredWidth() * 1f / bmp.getWidth();
+                Matrix matrix = new Matrix();
+                matrix.setScale(scale, scale);
+                bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, false);
+                setImageBitmap(bmp);
+                return;
+            }
+
             int height = bmp.getHeight() / 2 * 3 + SPACE;
             if(getMeasuredHeight() < height){
-                setMeasuredDimension(getMeasuredWidth(), height);
+                setMeasuredDimension(bmp.getWidth(), height);
             }
         }
+    }
+
+    @Override
+    public void setImageBitmap(Bitmap bm) {
+        mBuffer = null;
+        super.setImageBitmap(bm);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         BitmapDrawable drawable = (BitmapDrawable)getDrawable();
         if(drawable != null){
-            Bitmap bmp = drawable.getBitmap();
-            int width = bmp.getWidth();
-            int height = bmp.getHeight();
+            Bitmap out = mBuffer == null ? null : mBuffer.get();
+            if(out == null) {
+                Bitmap bmp = drawable.getBitmap();
 
-            Bitmap out = Bitmap.createBitmap(width, height / 2 * 3 + SPACE, Bitmap.Config.ARGB_8888);
-            Canvas reflectionCanvas = new Canvas(out);
+                int width = bmp.getWidth();
+                int height = bmp.getHeight();
 
-            reflectionCanvas.drawBitmap(bmp, 0, 0, null);
+                out = Bitmap.createBitmap(width, height / 2 * 3 + SPACE, Bitmap.Config.ARGB_8888);
 
-            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            paint.setColor(Color.TRANSPARENT);
-            reflectionCanvas.drawRect(0, height, width, height + SPACE, paint);
+                Canvas reflectionCanvas = new Canvas(out);
 
-            Matrix matrix = new Matrix();
-            matrix.preScale(1f, -1f);
-            Bitmap reflectionBmp = Bitmap.createBitmap(bmp, 0, height/2, width, height/2, matrix, false);
-            reflectionCanvas.drawBitmap(reflectionBmp, 0, height+SPACE, null);
+                reflectionCanvas.drawBitmap(bmp, 0, 0, null);
 
-            LinearGradient gradient = new LinearGradient(0, height+SPACE, 0, height+SPACE+height/2, 0xbbffffff, 0x00ffffff, Shader.TileMode.CLAMP);
-            paint.reset();
-            paint.setShader(gradient);
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-            reflectionCanvas.drawRect(0, height+SPACE, width, height+SPACE+height/2, paint);
+                Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                paint.setColor(Color.TRANSPARENT);
+                reflectionCanvas.drawRect(0, height, width, height + SPACE, paint);
 
-            canvas.drawBitmap(out, 0, 0, null);
+                Matrix matrix = new Matrix();
+                matrix.preScale(1f, -1f);
+                Bitmap reflectionBmp = Bitmap.createBitmap(bmp, 0, height / 2, width, height / 2, matrix, false);
+                reflectionCanvas.drawBitmap(reflectionBmp, 0, height + SPACE, null);
+
+                LinearGradient gradient = new LinearGradient(0, height + SPACE, 0, height + SPACE + height / 2, 0xffffffff, 0x00ffffff, Shader.TileMode.CLAMP);
+                paint.reset();
+                paint.setShader(gradient);
+                paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+                reflectionCanvas.drawRect(0, height + SPACE, width, height + SPACE + height / 2, paint);
+
+                canvas.drawBitmap(out, 0, 0, null);
+
+                mBuffer = new WeakReference<Bitmap>(out);
+            } else {
+                canvas.drawBitmap(out, 0, 0, null);
+            }
         } else {
             super.onDraw(canvas);
         }
+    }
+
+    @Override
+    public void invalidate() {
+        mBuffer = null;
+
+        super.invalidate();
     }
 }

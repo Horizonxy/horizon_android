@@ -94,27 +94,28 @@ public class XCRoundImageView extends ImageView {
                 mPaint.setXfermode(mXfermode);
                 drawCanvas.drawBitmap(mBmp, 0, 0, mPaint);
                 mPaint.setXfermode(null);
+
+                if(mBorderWidth > 0) {
+                    mPaint.setAntiAlias(true);
+                    mPaint.setStrokeWidth(mBorderWidth);
+                    mPaint.setStyle(Paint.Style.STROKE);
+                    mPaint.setColor(mBorderColor);
+                    int borderOffset = mBorderWidth/2;
+                    if(mType == CIRCLE) {
+                        drawCanvas.drawCircle(getWidth() / 2, getWidth() / 2, getWidth() / 2 - borderOffset, mPaint);
+                    } else if(mType == ROUND){
+                        drawCanvas.drawRoundRect(new RectF(borderOffset,borderOffset, getWidth() - borderOffset, getHeight() - borderOffset), mRoundRadius, mRoundRadius, mPaint);
+                    } else if(mType == OVAL){
+                        drawCanvas.drawOval(new RectF(borderOffset, borderOffset, getWidth() - borderOffset, getHeight() - borderOffset), mPaint);
+                    }
+                }
+
                 canvas.drawBitmap(bmp, 0, 0, null);
 
                 mBuffer = new WeakReference<Bitmap>(bmp);
             }
         } else {
             canvas.drawBitmap(bmp, 0, 0, null);
-        }
-
-        if(mBorderWidth > 0) {
-            mPaint.setAntiAlias(true);
-            mPaint.setStrokeWidth(mBorderWidth);
-            mPaint.setStyle(Paint.Style.STROKE);
-            mPaint.setColor(mBorderColor);
-            int borderOffset = mBorderWidth/2;
-            if(mType == CIRCLE) {
-                canvas.drawCircle(getWidth() / 2, getWidth() / 2, getWidth() / 2 - mBorderWidth, mPaint);
-            } else if(mType == ROUND){
-                canvas.drawRoundRect(new RectF(borderOffset,borderOffset, getWidth() - borderOffset, getHeight() - borderOffset), mRoundRadius, mRoundRadius, mPaint);
-            } else if(mType == OVAL){
-                canvas.drawOval(new RectF(borderOffset, borderOffset, getWidth() - borderOffset, getHeight() - borderOffset), mPaint);
-            }
         }
 
     }

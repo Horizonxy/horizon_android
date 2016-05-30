@@ -70,7 +70,7 @@ public class TriangleViewPagerIndicator extends LinearLayout {
         mTrianglePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTrianglePaint.setColor(Color.WHITE);
         mTrianglePaint.setStyle(Paint.Style.FILL);
-        mTrianglePaint.setPathEffect(new CornerPathEffect(3));//画的线的连接处，有点圆角
+        mTrianglePaint.setPathEffect(new CornerPathEffect(1));//画的线的连接处，有点圆角
     }
 
     @Override
