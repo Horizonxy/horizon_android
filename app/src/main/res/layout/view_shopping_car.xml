@@ -89,6 +89,14 @@
 				android:textAllCaps="false"
 				android:textSize="@dimen/normal_size" />
 
+			<Button
+				android:id="@+id/btn_native_image"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/title_height"
+				android:text="本地图片加载"
+				android:textAllCaps="false"
+				android:textSize="@dimen/normal_size" />
+
 		</LinearLayout>
 	</com.horizon.android.widget.ScrollView>
     
