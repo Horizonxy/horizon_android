@@ -15,11 +15,13 @@ import android.widget.RelativeLayout;
 import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
+import com.horizon.android.util.SimpleAnimatorListener;
 import com.horizon.android.util.SystemStatusManager;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class PictureDetailActivity extends Activity {
 
@@ -28,7 +30,9 @@ public class PictureDetailActivity extends Activity {
     @Bind(R.id.image_detail)
     ImageView imageDetail;
 
-    private final static long DURATION = 500;
+    PhotoViewAttacher attacher;
+
+    private final static long DURATION = 1500;
 
     private ColorMatrix colorMatrix;
     private ColorMatrixColorFilter colorFilter;
@@ -37,6 +41,7 @@ public class PictureDetailActivity extends Activity {
     private float scaleX, scaleY;
     private int left;
     private int top;
+    RelativeLayout.LayoutParams lp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,8 @@ public class PictureDetailActivity extends Activity {
         final int width = extra.getIntExtra(Constants.BUNDLE_PIC_WIDTH, 0);
         final int height = extra.getIntExtra(Constants.BUNDLE_PIC_HEIGHT, 0);
 
+        attacher = new PhotoViewAttacher(imageDetail);
+
         colorMatrix = new ColorMatrix();
         colorMatrix.setSaturation(0);
         colorFilter = new ColorMatrixColorFilter(colorMatrix);
@@ -73,10 +80,12 @@ public class PictureDetailActivity extends Activity {
                 lp.width = Application.getInstance().SCREENWIDTH;
                 imageDetail.setLayoutParams(lp);
 
+                attacher.update();
+
                 scaleX = width * 1.0f / lp.width;
                 scaleY = height * 1.0f / lp.height;
 
-                offsetY = (Application.getInstance().SCREENHEIGHT - lp.height) / 2;
+                offsetY = top - (Application.getInstance().SCREENHEIGHT - lp.height) / 2;
 
                 imageDetail.setPivotX(0);
                 imageDetail.setPivotY(0);
@@ -84,7 +93,7 @@ public class PictureDetailActivity extends Activity {
                 imageDetail.setScaleY(scaleY);
 
                 imageDetail.setTranslationX(left);
-                imageDetail.setTranslationY(top - offsetY);
+                imageDetail.setTranslationY(offsetY);
 
                 imageDetail.setAlpha(0f);
 
@@ -92,7 +101,15 @@ public class PictureDetailActivity extends Activity {
                         .alpha(1f)
                         .scaleX(1f).scaleY(1f)
                         .translationX(0).translationY(0)
-                        .setDuration(DURATION);
+                        .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) imageDetail.getLayoutParams();
+                        lp.height = Application.getInstance().SCREENHEIGHT;
+                        lp.width = Application.getInstance().SCREENWIDTH;
+                        imageDetail.setLayoutParams(lp);
+                    }
+                });
 
                 ObjectAnimator saturation = ObjectAnimator.ofFloat(PictureDetailActivity.this, "saturation", 0f, 1f);
                 saturation.setDuration(DURATION);
@@ -131,21 +148,12 @@ public class PictureDetailActivity extends Activity {
         imageDetail.animate()
                 .alpha(0f)
                 .scaleX(scaleX).scaleY(scaleY)
-                .translationX(left).translationY(top - offsetY)
-                .setDuration(DURATION).setListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {}
-
+                .translationX(left).translationY(offsetY)
+                .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
             @Override
             public void onAnimationEnd(Animator animation) {
                 finish();
             }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {}
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {}
         });
 
     }

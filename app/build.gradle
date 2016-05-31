@@ -57,5 +57,7 @@ dependencies {
 
     compile 'com.bigkoo:convenientbanner:2.0.5' //convenientbanner轮播
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar' //convenientbanner轮播动画支持
+
+    compile 'com.github.chrisbanes.photoview:library:1.2.4'
 }
 
