@@ -1,7 +1,6 @@
 package com.horizon.android.activity;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 
 import com.horizon.android.Application;
 import com.horizon.android.R;
@@ -17,8 +16,6 @@ public class XCRoundImageViewActivity extends BaseActivity {
 
     @Bind(R.id.relection_image)
     ReflectionImageView reflectionImageView;
-    @Bind(R.id.iv)
-    ImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +27,5 @@ public class XCRoundImageViewActivity extends BaseActivity {
 
         getImageLoader().displayImage("http://www.8kmm.com/UploadFiles/2012/8/201208140920132659.jpg", reflectionImageView, Application.getInstance().getDefaultOptions());
 
-        getImageLoader().displayImage("http://www.8kmm.com/UploadFiles/2012/8/201208140920132659.jpg", iv, Application.getInstance().getDefaultOptions());
     }
 }

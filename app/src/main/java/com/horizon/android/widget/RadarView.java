@@ -34,6 +34,7 @@ public class RadarView extends View {
     private int speed = 10;
 
     private Handler mHandler = new Handler();
+    private SweepRun mSweepRun;
 
     public RadarView(Context context) {
         this(context, null);
@@ -73,8 +74,6 @@ public class RadarView extends View {
         int x = (mBmp.getWidth() - wh) / 2;
         int y = (mBmp.getHeight() - wh) / 2;
         mBmp = Bitmap.createBitmap(mBmp, x, y, wh, wh, scaleMatrix, false);
-
-        mHandler.postDelayed(new SweepRun(), 800);
     }
 
     class SweepRun implements Runnable {
@@ -90,7 +89,20 @@ public class RadarView extends View {
         }
     }
 
-    ;
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        mHandler.postDelayed(mSweepRun = new SweepRun(), 800);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        if(mSweepRun != null) {
+            mHandler.removeCallbacks(mSweepRun);
+        }
+
+        super.onDetachedFromWindow();
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {

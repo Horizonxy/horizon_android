@@ -61,13 +61,5 @@
             android:layout_marginBottom="@dimen/normal_margin"
             android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/normal_margin"
-            android:layout_marginBottom="@dimen/normal_margin"
-            android:adjustViewBounds="true" />
-
     </LinearLayout>
 </ScrollView>
