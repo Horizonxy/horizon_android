@@ -37,7 +37,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:cacheColorHint="@android:color/transparent"
-        android:fastScrollEnabled="true"
         android:scrollbars="none"
         android:visibility="gone" />
 

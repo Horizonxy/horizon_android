@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -33,9 +34,9 @@ public class RectViewPagerIndicator extends LinearLayout {
     private List<String> mTabTitles;
 
     /** 标题正常颜色 */
-    private int mNormalColor = 0x77FFFFFF;
+    private int mNormalColor = Color.BLACK;
     /** 标题高亮颜色 */
-    private int mHighLightCoiolor = 0xFFFFFFFF;
+    private int mHighLightCoiolor = 0xff1196db;
 
     private int mRectColor;
 
@@ -147,6 +148,9 @@ public class RectViewPagerIndicator extends LinearLayout {
                 }
             }
         });
+        mViewPager.setCurrentItem(pos);
+        resetTextViewColor();
+        highLightTextView(pos);
     }
 
     private void scroll(int position, float offset) {
@@ -182,6 +186,7 @@ public class RectViewPagerIndicator extends LinearLayout {
                 child.setGravity(Gravity.CENTER);
                 child.setText(mTabTitles.get(i));
                 child.setTextColor(mNormalColor);
+                child.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
 
                 addView(child);
 

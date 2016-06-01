@@ -1,6 +1,7 @@
 package com.horizon.android.api;
 
 import com.horizon.android.model.bean.HistoryVo;
+import com.horizon.android.model.bean.NewsVo;
 import com.horizon.android.util.JuheResult;
 
 import java.util.List;
@@ -17,5 +18,11 @@ public interface ApiService {
 		@Query("v") String v,
 		@Query("month") int month,
 		@Query("day") int day
+	);
+
+	@GET("onebox/news/query")
+	Observable<JuheResult<List<NewsVo>>> getNews(
+			@Query("key") String key,
+			@Query("q") String q
 	);
 }  

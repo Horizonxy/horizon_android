@@ -97,6 +97,14 @@
 				android:textAllCaps="false"
 				android:textSize="@dimen/normal_size" />
 
+			<Button
+				android:id="@+id/btn_news"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/title_height"
+				android:text="新闻"
+				android:textAllCaps="false"
+				android:textSize="@dimen/normal_size" />
+
 		</LinearLayout>
 	</com.horizon.android.widget.ScrollView>
     

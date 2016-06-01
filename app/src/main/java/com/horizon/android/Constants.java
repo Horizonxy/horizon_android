@@ -2,7 +2,7 @@ package com.horizon.android;
 
 public class Constants {
 
-	public static final String END_POIND = "http://api.juheapi.com";
+	public static final String END_POIND = /*"http://op.juhe.cn"*/"http://api.juheapi.com";
 
 	public static final String BASE_DIR = "horizon";
 	public static final String IMG_CACHE_DIR = BASE_DIR.concat("/image_cache");

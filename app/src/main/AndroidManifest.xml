@@ -51,7 +51,7 @@
             </intent-filter>
         </activity>
 
-        <!--主页-->
+        <!-- 主页 -->
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask"
@@ -144,18 +144,18 @@
             android:name=".activity.PictureDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/activity_translucent" />
-
         <activity
             android:name=".activity.XCRoundImageViewActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.RadarActivity"
             android:screenOrientation="portrait" />
 
-        <!--本地图片加载-->
-        <activity android:name=".activity.NativeImageActivity"
+        <!-- 本地图片加载 -->
+        <activity
+            android:name=".activity.NativeImageActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.NewsActivity"></activity>
     </application>
 
 </manifest>
