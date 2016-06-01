@@ -105,6 +105,14 @@
 				android:textAllCaps="false"
 				android:textSize="@dimen/normal_size" />
 
+			<Button
+				android:id="@+id/btn_joke"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/title_height"
+				android:text="笑一笑"
+				android:textAllCaps="false"
+				android:textSize="@dimen/normal_size" />
+
 		</LinearLayout>
 	</com.horizon.android.widget.ScrollView>
     

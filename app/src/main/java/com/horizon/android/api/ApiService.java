@@ -1,6 +1,7 @@
 package com.horizon.android.api;
 
 import com.horizon.android.model.bean.HistoryVo;
+import com.horizon.android.model.bean.JokeVo;
 import com.horizon.android.model.bean.NewsVo;
 import com.horizon.android.util.JuheResult;
 
@@ -24,5 +25,14 @@ public interface ApiService {
 	Observable<JuheResult<List<NewsVo>>> getNews(
 			@Query("key") String key,
 			@Query("q") String q
+	);
+
+	@GET("joke/content/list.from")
+	Observable<JuheResult<JokeVo>> getJokeList(
+			@Query("sort") String sort,
+			@Query("page") int page,
+			@Query("pagesize") int pagesize,
+			@Query("time") String time,
+			@Query("key") String key
 	);
 }  

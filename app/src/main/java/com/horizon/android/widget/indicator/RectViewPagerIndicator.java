@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -186,7 +185,7 @@ public class RectViewPagerIndicator extends LinearLayout {
                 child.setGravity(Gravity.CENTER);
                 child.setText(mTabTitles.get(i));
                 child.setTextColor(mNormalColor);
-                child.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
+                child.setTextSize(14);
 
                 addView(child);
 

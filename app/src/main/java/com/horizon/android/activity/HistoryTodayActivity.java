@@ -8,7 +8,7 @@ import com.horizon.android.R;
 import com.horizon.android.adapter.HistoryTodayAdapter;
 import com.horizon.android.component.DaggerHistoryTodayComponent;
 import com.horizon.android.model.bean.HistoryVo;
-import com.horizon.android.module.HistoryTodayMoudle;
+import com.horizon.android.module.HistoryTodayModule;
 import com.horizon.android.presenter.HistoryTodayPresenter;
 import com.horizon.android.util.ToastUtils;
 import com.horizon.android.view.HistoryTodayView;
@@ -38,7 +38,7 @@ public class HistoryTodayActivity extends BaseLoadActivity implements HistoryTod
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_today);
-        DaggerHistoryTodayComponent.builder().historyTodayMoudle(new HistoryTodayMoudle(this, R.layout.item_history_today,data )).build().inject(this);
+        DaggerHistoryTodayComponent.builder().historyTodayModule(new HistoryTodayModule(this, R.layout.item_history_today,data )).build().inject(this);
         setTitle("历史上的今天");
 
         lvHistory.setAdapter(adapter);

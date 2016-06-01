@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.activity.ClickableSpanActivity;
+import com.horizon.android.activity.JokeActivity;
 import com.horizon.android.activity.NativeImageActivity;
 import com.horizon.android.activity.NewsActivity;
 import com.horizon.android.activity.RadarActivity;
@@ -30,6 +31,12 @@ public class ShoppingCarView extends AutoLinearLayout {
 		super.onFinishInflate();
 		ButterKnife.bind(this);
 	}
+
+	@OnClick(R.id.btn_joke)
+	void jokeClick(){
+		getContext().startActivity(new Intent(getContext(), JokeActivity.class));
+	}
+
 
 	@OnClick(R.id.btn_news)
 	void newsClick(){

@@ -1,14 +1,16 @@
 package com.horizon.android.widget;
 
-import com.horizon.android.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
+
+import com.horizon.android.R;
 
 /**
  * 自动加载listview  包含初始加载动画、没数据时view
@@ -187,6 +189,11 @@ public class InitializeListView extends FrameLayout {
 		} else {
 			showListView();
 		}
+	}
+
+	public void setDivider(int color, int height){
+		mAutoListView.setDivider(new ColorDrawable(color));
+		mAutoListView.setDividerHeight(height);
 	}
 	
 	/**

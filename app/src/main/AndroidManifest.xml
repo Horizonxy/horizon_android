@@ -155,7 +155,8 @@
         <activity
             android:name=".activity.NativeImageActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.NewsActivity"></activity>
+        <activity android:name=".activity.NewsActivity" />
+        <activity android:name=".activity.JokeActivity"></activity>
     </application>
 
 </manifest>
