@@ -2,7 +2,6 @@ package com.horizon.android.activity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.ColorMatrix;
@@ -11,20 +10,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.util.SimpleAnimatorListener;
 import com.horizon.android.util.SystemStatusManager;
-import com.horizon.android.util.log.LogUtils;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
-
+import com.zhy.autolayout.AutoLayoutActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class PictureDetailActivity extends Activity {
+public class PictureDetailActivity extends AutoLayoutActivity {
 
     @Bind(R.id.rl_pic_detail)
     RelativeLayout rlImageDetail;
@@ -38,13 +35,9 @@ public class PictureDetailActivity extends Activity {
     private ColorMatrix colorMatrix;
     private ColorMatrixColorFilter colorFilter;
 
-    private int offsetY;
-//    private int[] location = new int[2];
     private float scaleX, scaleY;
-    private int left;
-    private int top;
     private int initWidth, initHeight;
-
+    private int deltaX, deltaY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +52,8 @@ public class PictureDetailActivity extends Activity {
 
         Intent extra = getIntent();
         String url = extra.getStringExtra(Constants.BUNDLE_PIC_URL);
-        left = extra.getIntExtra(Constants.BUNDLE_PIC_LEFT, 0);
-        top = extra.getIntExtra(Constants.BUNDLE_PIC_TOP, 0);
-        LogUtils.e("left: "+left+" top: "+top);
+        final int left = extra.getIntExtra(Constants.BUNDLE_PIC_LEFT, 0);
+        final int top = extra.getIntExtra(Constants.BUNDLE_PIC_TOP, 0);
         final int width = extra.getIntExtra(Constants.BUNDLE_PIC_WIDTH, 0);
         final int height = extra.getIntExtra(Constants.BUNDLE_PIC_HEIGHT, 0);
 
@@ -84,26 +76,26 @@ public class PictureDetailActivity extends Activity {
                 lp.width = initWidth = Application.getInstance().SCREENWIDTH;
                 imageDetail.setLayoutParams(lp);
 
-                attacher.update();
+                scaleX = width * 1.0f / initWidth;
+                scaleY = height * 1.0f / initHeight;
 
-                scaleX = width * 1.0f / lp.width;
-                scaleY = height * 1.0f / lp.height;
-
-                offsetY = top - (Application.getInstance().SCREENHEIGHT - lp.height) / 2;
-//                imageDetail.getLocationInWindow(location);
+                int[] location = new int[2];
+                imageDetail.getLocationOnScreen(location);
+                deltaX = left - location[0];
+                deltaY = top - location[1] + (initHeight) / 2;
 
                 imageDetail.setPivotX(0);
                 imageDetail.setPivotY(0);
                 imageDetail.setScaleX(scaleX);
                 imageDetail.setScaleY(scaleY);
 
-                imageDetail.setTranslationX(left);
-                imageDetail.setTranslationY(offsetY);
+                imageDetail.setTranslationX(deltaX);
+                imageDetail.setTranslationY(deltaY);
 
-//                imageDetail.setAlpha(0.6f);
+                imageDetail.setAlpha(0.6f);
 
                 imageDetail.animate()
-//                        .alpha(1f)
+                        .alpha(1f)
                         .scaleX(1f).scaleY(1f)
                         .translationX(0).translationY(0)
                         .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
@@ -113,6 +105,8 @@ public class PictureDetailActivity extends Activity {
                         lp.height = Application.getInstance().SCREENHEIGHT;
                         lp.width = Application.getInstance().SCREENWIDTH;
                         imageDetail.setLayoutParams(lp);
+
+                        attacher.update();
                     }
                 });
 
@@ -150,12 +144,12 @@ public class PictureDetailActivity extends Activity {
         imageDetail.setScaleX(1);
         imageDetail.setScaleY(1);
 
-//        imageDetail.setAlpha(1f);
+        imageDetail.setAlpha(1f);
 
         imageDetail.animate()
-//                .alpha(0.6f)
+                .alpha(0.6f)
                 .scaleX(scaleX).scaleY(scaleY)
-                .translationX(left).translationY(offsetY)
+                .translationX(deltaX).translationY(deltaY)
                 .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
             @Override
             public void onAnimationEnd(Animator animation) {

@@ -63,6 +63,7 @@ public class UserView extends AutoLinearLayout implements View.OnClickListener {
 		colorFilter = new ColorMatrixColorFilter(colorMatrix);
 
 		picList.setLayoutManager(new GridLayoutManager(getContext(), 2));
+//		picList.addItemDecoration(new DividerGridItemDecoration(getContext()));
 		picList.setAdapter(new QuickAdapter<String>(getContext(), R.layout.item_iamge, data = Arrays.asList(images)) {
 			@Override
 			public void onBindData(BaseAdapterHelper holder, int position) {
@@ -90,7 +91,7 @@ public class UserView extends AutoLinearLayout implements View.OnClickListener {
 	@Override
 	public void onClick(View v) {
 		int[] screenLocation = new int[2];
-		v.getLocationInWindow(screenLocation);
+		v.getLocationOnScreen(screenLocation);
 
 		String url = (String) v.getTag();
 

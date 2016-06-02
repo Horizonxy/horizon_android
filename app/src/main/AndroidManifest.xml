@@ -144,9 +144,11 @@
             android:name=".activity.PictureDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/activity_translucent" />
+
         <activity
             android:name=".activity.XCRoundImageViewActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".activity.RadarActivity"
             android:screenOrientation="portrait" />
@@ -155,8 +157,12 @@
         <activity
             android:name=".activity.NativeImageActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.NewsActivity" />
-        <activity android:name=".activity.JokeActivity"></activity>
+
+        <activity android:name=".activity.NewsActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.JokeActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

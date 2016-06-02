@@ -5,8 +5,8 @@
 
     <ImageView
         android:id="@+id/item_image"
-        android:layout_width="500px"
-        android:layout_height="600px"
+        android:layout_width="540px"
+        android:layout_height="400px"
         android:layout_margin="@dimen/min_margin"
         android:scaleType="centerCrop">
 
