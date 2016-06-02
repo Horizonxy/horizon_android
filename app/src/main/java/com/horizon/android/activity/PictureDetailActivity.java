@@ -17,6 +17,7 @@ import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.util.SimpleAnimatorListener;
 import com.horizon.android.util.SystemStatusManager;
+import com.horizon.android.util.log.LogUtils;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import butterknife.Bind;
@@ -38,10 +39,12 @@ public class PictureDetailActivity extends Activity {
     private ColorMatrixColorFilter colorFilter;
 
     private int offsetY;
+//    private int[] location = new int[2];
     private float scaleX, scaleY;
     private int left;
     private int top;
-    RelativeLayout.LayoutParams lp;
+    private int initWidth, initHeight;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,7 @@ public class PictureDetailActivity extends Activity {
         setContentView(R.layout.activity_picture_detail);
         ButterKnife.bind(this);
 
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 0f, 1.0f);
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 0.4f, 1.0f);
         alpha.setDuration(DURATION);
         alpha.start();
 
@@ -58,6 +61,7 @@ public class PictureDetailActivity extends Activity {
         String url = extra.getStringExtra(Constants.BUNDLE_PIC_URL);
         left = extra.getIntExtra(Constants.BUNDLE_PIC_LEFT, 0);
         top = extra.getIntExtra(Constants.BUNDLE_PIC_TOP, 0);
+        LogUtils.e("left: "+left+" top: "+top);
         final int width = extra.getIntExtra(Constants.BUNDLE_PIC_WIDTH, 0);
         final int height = extra.getIntExtra(Constants.BUNDLE_PIC_HEIGHT, 0);
 
@@ -76,8 +80,8 @@ public class PictureDetailActivity extends Activity {
                 float scale = Application.getInstance().SCREENWIDTH * 1.0f / w;
 
                 RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) imageDetail.getLayoutParams();
-                lp.height = (int) (scale * h);
-                lp.width = Application.getInstance().SCREENWIDTH;
+                lp.height = initHeight = (int) (scale * h);
+                lp.width = initWidth = Application.getInstance().SCREENWIDTH;
                 imageDetail.setLayoutParams(lp);
 
                 attacher.update();
@@ -86,6 +90,7 @@ public class PictureDetailActivity extends Activity {
                 scaleY = height * 1.0f / lp.height;
 
                 offsetY = top - (Application.getInstance().SCREENHEIGHT - lp.height) / 2;
+//                imageDetail.getLocationInWindow(location);
 
                 imageDetail.setPivotX(0);
                 imageDetail.setPivotY(0);
@@ -95,10 +100,10 @@ public class PictureDetailActivity extends Activity {
                 imageDetail.setTranslationX(left);
                 imageDetail.setTranslationY(offsetY);
 
-                imageDetail.setAlpha(0f);
+//                imageDetail.setAlpha(0.6f);
 
                 imageDetail.animate()
-                        .alpha(1f)
+//                        .alpha(1f)
                         .scaleX(1f).scaleY(1f)
                         .translationX(0).translationY(0)
                         .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
@@ -127,7 +132,12 @@ public class PictureDetailActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 1f, 0f);
+        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) imageDetail.getLayoutParams();
+        lp.width = initWidth;
+        lp.height = initHeight;
+        imageDetail.setLayoutParams(lp);
+
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 1f, 0.4f);
         alpha.setDuration(DURATION);
         alpha.start();
 
@@ -140,13 +150,10 @@ public class PictureDetailActivity extends Activity {
         imageDetail.setScaleX(1);
         imageDetail.setScaleY(1);
 
-        imageDetail.setTranslationX(0);
-        imageDetail.setTranslationY(0);
-
-        imageDetail.setAlpha(1f);
+//        imageDetail.setAlpha(1f);
 
         imageDetail.animate()
-                .alpha(0f)
+//                .alpha(0.6f)
                 .scaleX(scaleX).scaleY(scaleY)
                 .translationX(left).translationY(offsetY)
                 .setDuration(DURATION).setListener(new SimpleAnimatorListener(){

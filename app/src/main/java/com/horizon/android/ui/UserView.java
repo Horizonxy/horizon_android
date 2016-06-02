@@ -89,19 +89,17 @@ public class UserView extends AutoLinearLayout implements View.OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		ImageView image = (ImageView) v;
-
 		int[] screenLocation = new int[2];
-		image.getLocationOnScreen(screenLocation);
+		v.getLocationInWindow(screenLocation);
 
-		String url = (String) image.getTag();
+		String url = (String) v.getTag();
 
 		Intent intent = new Intent(getContext(), PictureDetailActivity.class);
 		intent.putExtra(Constants.BUNDLE_PIC_URL, url);
 		intent.putExtra(Constants.BUNDLE_PIC_LEFT, screenLocation[0]);
 		intent.putExtra(Constants.BUNDLE_PIC_TOP, screenLocation[1]);
-		intent.putExtra(Constants.BUNDLE_PIC_WIDTH, image.getWidth());
-		intent.putExtra(Constants.BUNDLE_PIC_HEIGHT, image.getHeight());
+		intent.putExtra(Constants.BUNDLE_PIC_WIDTH, v.getWidth());
+		intent.putExtra(Constants.BUNDLE_PIC_HEIGHT, v.getHeight());
 		getContext().startActivity(intent);
 		((Activity)getContext()).overridePendingTransition(0, 0);
 	}
