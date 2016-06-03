@@ -12,6 +12,7 @@ import com.horizon.android.activity.NativeImageActivity;
 import com.horizon.android.activity.NewsActivity;
 import com.horizon.android.activity.RadarActivity;
 import com.horizon.android.activity.RecyclerViewActivity;
+import com.horizon.android.activity.TranglePopupActivity;
 import com.horizon.android.activity.WebViewActivity;
 import com.horizon.android.activity.XCRoundImageViewActivity;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -30,6 +31,11 @@ public class ShoppingCarView extends AutoLinearLayout {
 	protected void onFinishInflate() {
 		super.onFinishInflate();
 		ButterKnife.bind(this);
+	}
+
+	@OnClick(R.id.btn_popup)
+	void popupClick(){
+		getContext().startActivity(new Intent(getContext(), TranglePopupActivity.class));
 	}
 
 	@OnClick(R.id.btn_joke)

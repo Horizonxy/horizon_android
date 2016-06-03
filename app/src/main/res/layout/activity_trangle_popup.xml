@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.horizon.android.widget.TrianglePopupLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_margin">
+
+        <Button
+            android:layout_width="400px"
+            android:layout_height="150px"
+            android:text="内容"
+            android:textSize="@dimen/normal_size"/>
+
+    </com.horizon.android.widget.TrianglePopupLayout>
+
+    <Button
+        android:id="@+id/btn_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:text="弹出"
+        android:textSize="@dimen/normal_size"/>
+
+</LinearLayout>

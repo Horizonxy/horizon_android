@@ -6,7 +6,7 @@
     <!-- 允许程序打开网络套接字 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <!-- 摄像头权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
@@ -145,11 +145,9 @@
             android:name=".activity.PictureDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/activity_translucent" />
-
         <activity
             android:name=".activity.XCRoundImageViewActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.RadarActivity"
             android:screenOrientation="portrait" />
@@ -158,12 +156,13 @@
         <activity
             android:name=".activity.NativeImageActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".activity.NewsActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".activity.JokeActivity"
+        <activity
+            android:name=".activity.NewsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.JokeActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.TranglePopupActivity"></activity>
     </application>
 
 </manifest>
