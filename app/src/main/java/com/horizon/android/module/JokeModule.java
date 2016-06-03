@@ -5,7 +5,9 @@ import android.content.Context;
 
 import com.horizon.android.ActivityScope;
 import com.horizon.android.adapter.JokeAdapter;
+import com.horizon.android.db.CommonDaoImpl;
 import com.horizon.android.model.JokeImpl;
+import com.horizon.android.model.bean.CommonCacheVo;
 import com.horizon.android.presenter.JokePresenter;
 import com.horizon.android.view.JokeView;
 
@@ -37,5 +39,11 @@ public class JokeModule {
     @Provides
     public JokePresenter provideJokePresenter(){
         return  new JokePresenter(new JokeImpl(), (JokeView) context);
+    }
+
+    @ActivityScope
+    @Provides
+    public CommonDaoImpl provideCommonDaoImpl(){
+        return new CommonDaoImpl(context, CommonCacheVo.class);
     }
 }

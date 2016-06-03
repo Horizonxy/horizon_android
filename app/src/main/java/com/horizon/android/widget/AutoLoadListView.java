@@ -1,8 +1,6 @@
 package com.horizon.android.widget;
 
-import com.horizon.android.R;
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -11,6 +9,8 @@ import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.horizon.android.R;
 
 /**
  * 滑动到底部自动加载更多
@@ -245,6 +245,7 @@ public class AutoLoadListView extends ListView {
 		private LinearLayout view;
 		private MonIndicator indicator;
 		private TextView tvFooter;
+		private int height;
 		
 		public FooterView(Context cxt, int resId) {
 			inflaterView(cxt, resId);
@@ -253,11 +254,13 @@ public class AutoLoadListView extends ListView {
 		
 		@Override
 		public void init() {
+			view.setPadding(0, -height, 0, 0);
 			view.setVisibility(View.GONE);
 		}
 
 		@Override
 		public void loading() {
+			view.setPadding(0, 0, 0, 0);
 			view.setVisibility(View.VISIBLE);
 			tvFooter.setText("正在加载...");
 			view.setClickable(false);
@@ -267,6 +270,7 @@ public class AutoLoadListView extends ListView {
 
 		@Override
 		public void complete() {
+			view.setPadding(0, -height, 0, 0);
 			view.setVisibility(View.GONE);
 			tvFooter.setText("");
 			view.setClickable(false);
@@ -274,6 +278,7 @@ public class AutoLoadListView extends ListView {
 
 		@Override
 		public void failure() {
+			view.setPadding(0, 0, 0, 0);
 			view.setVisibility(View.VISIBLE);
 			tvFooter.setText("加载失败，点击重试");
 			indicator.setVisibility(View.GONE);
@@ -283,6 +288,7 @@ public class AutoLoadListView extends ListView {
 
 		@Override
 		public void finish() {
+			view.setPadding(0, 0, 0, 0);
 			view.setVisibility(View.VISIBLE);
 			tvFooter.setText("没有更多数据");
 			view.setClickable(false);
@@ -293,7 +299,7 @@ public class AutoLoadListView extends ListView {
 		@Override
 		public View inflaterView(Context cxt, int resId) {
 			view = (LinearLayout) LayoutInflater.from(cxt).inflate(resId, null);
-			LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, dp2px(40));
+			LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, height = dp2px(40));
 			view.setLayoutParams(lp);
 			
 			indicator = (MonIndicator) view.findViewById(R.id.indicator);
