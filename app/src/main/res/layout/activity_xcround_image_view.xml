@@ -57,8 +57,7 @@
         <com.horizon.android.widget.ReflectionImageView
             android:id="@+id/relection_image"
             android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/normal_margin"
-            android:layout_marginBottom="@dimen/normal_margin"
+            android:layout_margin="@dimen/normal_margin"
             android:layout_height="wrap_content" />
 
     </LinearLayout>

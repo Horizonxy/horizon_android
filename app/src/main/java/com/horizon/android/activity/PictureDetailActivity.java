@@ -30,7 +30,7 @@ public class PictureDetailActivity extends AutoLayoutActivity {
 
     PhotoViewAttacher attacher;
 
-    private final static long DURATION = 1500;
+    private final static long DURATION = 400;
 
     private ColorMatrix colorMatrix;
     private ColorMatrixColorFilter colorFilter;
@@ -46,7 +46,7 @@ public class PictureDetailActivity extends AutoLayoutActivity {
         setContentView(R.layout.activity_picture_detail);
         ButterKnife.bind(this);
 
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 0.4f, 1.0f);
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 0.2f, 1.0f);
         alpha.setDuration(DURATION);
         alpha.start();
 
@@ -92,10 +92,10 @@ public class PictureDetailActivity extends AutoLayoutActivity {
                 imageDetail.setTranslationX(deltaX);
                 imageDetail.setTranslationY(deltaY);
 
-                imageDetail.setAlpha(0.6f);
+                //imageDetail.setAlpha(0.6f);
 
                 imageDetail.animate()
-                        .alpha(1f)
+                        //.alpha(1f)
                         .scaleX(1f).scaleY(1f)
                         .translationX(0).translationY(0)
                         .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
@@ -131,7 +131,7 @@ public class PictureDetailActivity extends AutoLayoutActivity {
         lp.height = initHeight;
         imageDetail.setLayoutParams(lp);
 
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 1f, 0.4f);
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 1f, 0.2f);
         alpha.setDuration(DURATION);
         alpha.start();
 
@@ -144,10 +144,10 @@ public class PictureDetailActivity extends AutoLayoutActivity {
         imageDetail.setScaleX(1);
         imageDetail.setScaleY(1);
 
-        imageDetail.setAlpha(1f);
+        //imageDetail.setAlpha(1f);
 
         imageDetail.animate()
-                .alpha(0.6f)
+                //.alpha(0.6f)
                 .scaleX(scaleX).scaleY(scaleY)
                 .translationX(deltaX).translationY(deltaY)
                 .setDuration(DURATION).setListener(new SimpleAnimatorListener(){

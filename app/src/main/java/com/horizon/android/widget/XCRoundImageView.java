@@ -7,8 +7,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Xfermode;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
@@ -77,14 +79,16 @@ public class XCRoundImageView extends ImageView {
                 bmp = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
                 Canvas drawCanvas = new Canvas(bmp);
 
-                float scale = 1.0f;
+
                 if (mType == CIRCLE) {
-                    scale = getWidth() * 1.0f / Math.min(dWidth, dHeight);
+                    int radius = Math.min(dWidth, dHeight);
+                    Rect dbmpRect = new Rect((dWidth - radius)/2, (dHeight - radius)/2, (dWidth - radius)/2+radius, (dHeight - radius)/2+radius);
+                    drawCanvas.drawBitmap(((BitmapDrawable)drawable).getBitmap(), dbmpRect, new Rect(0, 0, getWidth(), getHeight()), null);
                 } else if (mType == ROUND || mType == OVAL) {
-                    scale = Math.max(getWidth() * 1.0f / dWidth, getHeight() * 1.0f / dHeight);
+                    float scale = Math.max(getWidth() * 1.0f / dWidth, getHeight() * 1.0f / dHeight);
+                    drawable.setBounds(0, 0, (int) (scale * dWidth), (int) (scale * dHeight));
+                    drawable.draw(drawCanvas);
                 }
-                drawable.setBounds(0, 0, (int) (scale * dWidth), (int) (scale * dHeight));
-                drawable.draw(drawCanvas);
 
                 if (mBmp == null || mBmp.isRecycled()) {
                     mBmp = getDrawBitmap();
