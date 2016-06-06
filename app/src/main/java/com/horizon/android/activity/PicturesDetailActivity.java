@@ -15,8 +15,8 @@ import android.widget.ImageView;
 import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
-import com.horizon.android.ui.UserView;
 import com.horizon.android.util.SimpleAnimatorListener;
+import com.horizon.android.util.SmallPicInfo;
 import com.horizon.android.util.SystemStatusManager;
 import com.horizon.android.util.log.LogUtils;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
@@ -56,7 +56,7 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
         alpha.setDuration(DURATION);
         alpha.start();
 
-        final List<UserView.SmallPicInfo> picInfos = (List<UserView.SmallPicInfo>) getIntent().getSerializableExtra(Constants.BUNDLE_PIC_INFOS);
+        final List<SmallPicInfo> picInfos = (List<SmallPicInfo>) getIntent().getSerializableExtra(Constants.BUNDLE_PIC_INFOS);
         pos = getIntent().getIntExtra(Constants.BUNDLE_PIC_POS, 0);
 
         LogUtils.e("size: " + picInfos.size() + " pos:" + pos);
@@ -102,10 +102,10 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
 
     class PictureAdapter extends PagerAdapter {
 
-        private List<UserView.SmallPicInfo> picInfos;
+        private List<SmallPicInfo> picInfos;
         private SparseArray<ImageView> itemViews;
 
-        public PictureAdapter(List<UserView.SmallPicInfo> picInfos) {
+        public PictureAdapter(List<SmallPicInfo> picInfos) {
             this.picInfos = picInfos;
             this.itemViews = new SparseArray<ImageView>();
         }
@@ -123,7 +123,7 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
 
                 final PhotoViewAttacher attacher = new PhotoViewAttacher(item);
 
-                final UserView.SmallPicInfo smallPicInfo = picInfos.get(position);
+                final SmallPicInfo smallPicInfo = picInfos.get(position);
 
                 Application.getInstance().getImageLoader().displayImage(smallPicInfo.url, (ImageView) item, Application.getInstance().getDefaultOptions(), new SimpleImageLoadingListener(){
                     @Override
@@ -146,7 +146,7 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
                                     lp.width = initWidth = Application.getInstance().SCREENWIDTH;
                                     imageView.setLayoutParams(lp);
 
-                                    UserView.SmallPicInfo smallPicInfo1 = picInfos.get(position);
+                                    SmallPicInfo smallPicInfo1 = picInfos.get(position);
 
                                     scaleX = smallPicInfo1.width * 1.0f / initWidth;
                                     scaleY = smallPicInfo1.height * 1.0f / initHeight;

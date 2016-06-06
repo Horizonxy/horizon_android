@@ -145,11 +145,9 @@
             android:name=".activity.PictureDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/activity_translucent" />
-
         <activity
             android:name=".activity.XCRoundImageViewActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.RadarActivity"
             android:screenOrientation="portrait" />
@@ -158,22 +156,26 @@
         <activity
             android:name=".activity.NativeImageActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.NewsActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.JokeActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".activity.TranglePopupActivity"
+        <activity
+            android:name=".activity.TranglePopupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PicturesDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/activity_translucent" />
+        <activity
+            android:name=".activity.GridImageForDetailActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.PicturesDetailActivity"
+        <activity android:name=".activity.PictureDetail2Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/activity_translucent"/>
-
+            android:theme="@style/activity_translucent" />
     </application>
 
 </manifest>

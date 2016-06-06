@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.activity.ClickableSpanActivity;
+import com.horizon.android.activity.GridImageForDetailActivity;
 import com.horizon.android.activity.JokeActivity;
 import com.horizon.android.activity.NativeImageActivity;
 import com.horizon.android.activity.NewsActivity;
@@ -31,6 +32,11 @@ public class ShoppingCarView extends AutoLinearLayout {
 	protected void onFinishInflate() {
 		super.onFinishInflate();
 		ButterKnife.bind(this);
+	}
+
+	@OnClick(R.id.btn_grid_image)
+	void gridImageClick(){
+		getContext().startActivity(new Intent(getContext(), GridImageForDetailActivity.class));
 	}
 
 	@OnClick(R.id.btn_popup)

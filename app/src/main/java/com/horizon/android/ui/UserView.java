@@ -18,6 +18,7 @@ import com.horizon.android.R;
 import com.horizon.android.activity.PicturesDetailActivity;
 import com.horizon.android.adapter.recyclerview.BaseAdapterHelper;
 import com.horizon.android.adapter.recyclerview.QuickAdapter;
+import com.horizon.android.util.SmallPicInfo;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.io.Serializable;
@@ -87,7 +88,7 @@ public class UserView extends AutoLinearLayout /*implements View.OnClickListener
 
 						int[] screenLocation = new int[2];
 						image.getLocationOnScreen(screenLocation);
-						SmallPicInfo info = new SmallPicInfo(data.get(position), screenLocation[0], screenLocation[1], image.getWidth(), image.getHeight(), position);
+						SmallPicInfo info = new SmallPicInfo(data.get(position), screenLocation[0], screenLocation[1], image.getWidth(), image.getHeight(), position, null);
 						picInfos.add(info);
 					}
 				});
@@ -140,25 +141,5 @@ public class UserView extends AutoLinearLayout /*implements View.OnClickListener
 			getContext().startActivity(intent);
 			((Activity)getContext()).overridePendingTransition(0, 0);
 		}
-	}
-
-	public static class SmallPicInfo implements Serializable{
-		public String url;
-		public int left;
-		public int top;
-		public int width;
-		public int height;
-		public int position;
-
-		public SmallPicInfo(String url, int left, int top, int width, int height, int position) {
-			this.url = url;
-			this.left = left;
-			this.top = top;
-			this.width = width;
-			this.height = height;
-			this.position = position;
-		}
-
-
 	}
 }
