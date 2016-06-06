@@ -55,7 +55,7 @@ public class GridImageForDetailActivity extends BaseActivity {
 
                         SmallPicInfo info = new SmallPicInfo(item, screenLocation[0], screenLocation[1], v.getWidth(), v.getHeight(), 0, Bitmap.createBitmap(bitmap));
 
-                        Intent intent = new Intent(GridImageForDetailActivity.this, PictureDetail2Activity.class);
+                        Intent intent = new Intent(GridImageForDetailActivity.this, PictureDetailActivity.class);
                         intent.putExtra(Constants.BUNDLE_PIC_INFOS, info);
                         GridImageForDetailActivity.this.startActivity(intent);
                         overridePendingTransition(0, 0);

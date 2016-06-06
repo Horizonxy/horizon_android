@@ -1,6 +1,7 @@
 package com.horizon.android.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
+import com.horizon.android.util.SmallPicInfo;
 import com.horizon.android.widget.ReflectionImageView;
 import com.horizon.android.widget.XCRoundImageView;
 
@@ -45,13 +47,17 @@ public class XCRoundImageViewActivity extends BaseActivity {
 
 		String url = "http://www.8kmm.com/UploadFiles/2012/8/201208140920132659.jpg";
 
-		Intent intent = new Intent(XCRoundImageViewActivity.this, PictureDetailActivity.class);
-		intent.putExtra(Constants.BUNDLE_PIC_URL, url);
-		intent.putExtra(Constants.BUNDLE_PIC_LEFT, screenLocation[0]);
-		intent.putExtra(Constants.BUNDLE_PIC_TOP, screenLocation[1]);
-		intent.putExtra(Constants.BUNDLE_PIC_WIDTH, v.getWidth());
-		intent.putExtra(Constants.BUNDLE_PIC_HEIGHT, v.getHeight());
-		startActivity(intent);
-		overridePendingTransition(0, 0);
+        ImageView imageView = (ImageView) v;
+        imageView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = imageView.getDrawingCache();
+
+        SmallPicInfo info = new SmallPicInfo(url, screenLocation[0], screenLocation[1], v.getWidth(), v.getHeight(), 0, Bitmap.createBitmap(bitmap));
+
+        Intent intent = new Intent(XCRoundImageViewActivity.this, PictureDetailActivity.class);
+        intent.putExtra(Constants.BUNDLE_PIC_INFOS, info);
+        startActivity(intent);
+        overridePendingTransition(0, 0);
+
+        imageView.setDrawingCacheEnabled(false);
     }
 }

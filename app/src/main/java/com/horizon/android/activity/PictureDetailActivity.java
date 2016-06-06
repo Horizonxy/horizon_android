@@ -1,47 +1,50 @@
 package com.horizon.android.activity;
 
 import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.content.Intent;
+import android.app.Activity;
 import android.graphics.Bitmap;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
 import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
+import com.horizon.android.util.DisplayUtils;
 import com.horizon.android.util.SimpleAnimatorListener;
+import com.horizon.android.util.SmallPicInfo;
 import com.horizon.android.util.SystemStatusManager;
+import com.horizon.android.util.log.LogUtils;
+import com.nostra13.universalimageloader.cache.disc.DiskCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
-import com.zhy.autolayout.AutoLayoutActivity;
+import com.zhy.autolayout.AutoRelativeLayout;
+
+import java.io.File;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class PictureDetailActivity extends AutoLayoutActivity {
+public class PictureDetailActivity extends Activity {
 
-    @Bind(R.id.rl_pic_detail)
-    RelativeLayout rlImageDetail;
+    @Bind(R.id.rl_root)
+    AutoRelativeLayout rlRoot;
     @Bind(R.id.image_detail)
-    ImageView imageDetail;
+    ImageView ivDetail;
     @Bind(R.id.progress_load)
     ProgressBar progressLoad;
 
-    PhotoViewAttacher attacher;
+    SmallPicInfo smallPicInfo;
 
-    private final static long DURATION = 400;
+    private static final int DURATION = 250;
+    private int screenWidth, screenHeight;
 
-    private ColorMatrix colorMatrix;
-    private ColorMatrixColorFilter colorFilter;
-
-    private float scaleX, scaleY;
-    private int initWidth, initHeight;
-    private int deltaX, deltaY;
+    private static boolean userCache;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,119 +53,153 @@ public class PictureDetailActivity extends AutoLayoutActivity {
         setContentView(R.layout.activity_picture_detail);
         ButterKnife.bind(this);
 
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 0.2f, 1.0f);
-        alpha.setDuration(DURATION);
-        alpha.start();
+        rlRoot.setAlpha(0f);
+        rlRoot.animate().alpha(1f).setDuration(DURATION);
 
-        Intent extra = getIntent();
-        String url = extra.getStringExtra(Constants.BUNDLE_PIC_URL);
-        final int left = extra.getIntExtra(Constants.BUNDLE_PIC_LEFT, 0);
-        final int top = extra.getIntExtra(Constants.BUNDLE_PIC_TOP, 0);
-        final int width = extra.getIntExtra(Constants.BUNDLE_PIC_WIDTH, 0);
-        final int height = extra.getIntExtra(Constants.BUNDLE_PIC_HEIGHT, 0);
+        screenWidth = Application.getInstance().SCREENWIDTH;
+        screenHeight = Application.getInstance().SCREENHEIGHT;
 
-        attacher = new PhotoViewAttacher(imageDetail);
+        smallPicInfo = (SmallPicInfo) getIntent().getSerializableExtra(Constants.BUNDLE_PIC_INFOS);
 
-        colorMatrix = new ColorMatrix();
-        colorMatrix.setSaturation(0);
-        colorFilter = new ColorMatrixColorFilter(colorMatrix);
-        imageDetail.setColorFilter(colorFilter);
+        final PhotoViewAttacher attacher = new PhotoViewAttacher(ivDetail);
 
-        Application.getInstance().getImageLoader().displayImage(url, imageDetail, Application.getInstance().getDefaultOptions(), new SimpleImageLoadingListener() {
-            @Override
-            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                super.onLoadingFailed(imageUri, view, failReason);
-                progressLoad.setVisibility(View.GONE);
-            }
+        DiskCache diskCache = Application.getInstance().getImageLoader().getDiskCache();
+        File file = diskCache.get(smallPicInfo.url);
+        if (userCache && file != null && file.exists()) {
+            userCache = false;
+            LogUtils.e("有缓存");
+            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+            LogUtils.e("bitmap is null? " + (bitmap == null));
 
-            @Override
-            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                progressLoad.setVisibility(View.GONE);
+            int w = bitmap.getWidth();
+            int h = bitmap.getHeight();
+            float scale = screenWidth * 1.0f / w;
 
-                int w = loadedImage.getWidth();
-                int h = loadedImage.getHeight();
-                float scale = Application.getInstance().SCREENWIDTH * 1.0f / w;
+            RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) ivDetail.getLayoutParams();
+            lp.height = (int) (scale * h);
+            lp.width = screenWidth;
+            ivDetail.setLayoutParams(lp);
+            ivDetail.setImageBitmap(bitmap);
+            attacher.update();
 
-                RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) imageDetail.getLayoutParams();
-                lp.height = initHeight = (int) (scale * h);
-                lp.width = initWidth = Application.getInstance().SCREENWIDTH;
-                imageDetail.setLayoutParams(lp);
+            float scaleX = smallPicInfo.width * 1.0f / lp.width;
+            float scaleY = smallPicInfo.height * 1.0f / lp.height;
 
-                scaleX = width * 1.0f / initWidth;
-                scaleY = height * 1.0f / initHeight;
+            int deltaX = smallPicInfo.left - (screenWidth - lp.width) / 2;
+            int deltaY = smallPicInfo.top - (screenHeight - lp.height) / 2;
 
-                int[] location = new int[2];
-                imageDetail.getLocationOnScreen(location);
-                deltaX = left - location[0];
-                deltaY = top - location[1] + initHeight / 2;
+            ivDetail.setPivotX(0);
+            ivDetail.setPivotY(0);
+            ivDetail.setScaleX(scaleX);
+            ivDetail.setScaleY(scaleY);
 
-                imageDetail.setPivotX(0);
-                imageDetail.setPivotY(0);
-                imageDetail.setScaleX(scaleX);
-                imageDetail.setScaleY(scaleY);
+            ivDetail.setTranslationX(deltaX);
+            ivDetail.setTranslationY(deltaY);
 
-                imageDetail.setTranslationX(deltaX);
-                imageDetail.setTranslationY(deltaY);
+            ivDetail.animate()
+                    .scaleX(1f).scaleY(1f)
+                    .translationX(0).translationY(0)
+                    .setDuration(DURATION).setListener(new SimpleAnimatorListener() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) ivDetail.getLayoutParams();
+                    lp.height = Application.getInstance().SCREENHEIGHT;
+                    lp.width = Application.getInstance().SCREENWIDTH;
+                    ivDetail.setLayoutParams(lp);
+                }
+            });
 
-                imageDetail.animate()
-                        .scaleX(1f).scaleY(1f)
-                        .translationX(0).translationY(0)
-                        .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) imageDetail.getLayoutParams();
-                        lp.height = Application.getInstance().SCREENHEIGHT;
-                        lp.width = Application.getInstance().SCREENWIDTH;
-                        imageDetail.setLayoutParams(lp);
+        } else {
+            userCache = true;
+            LogUtils.e("无缓存");
+            RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) ivDetail.getLayoutParams();
+            lp.width = smallPicInfo.width;
+            lp.height = smallPicInfo.height;
+            ivDetail.setLayoutParams(lp);
 
-                        attacher.update();
-                    }
-                });
+            Bitmap small = BitmapFactory.decodeByteArray(smallPicInfo.bmp, 0, smallPicInfo.bmp.length);
+            ivDetail.setImageBitmap(small);
 
-                ObjectAnimator saturation = ObjectAnimator.ofFloat(PictureDetailActivity.this, "saturation", 0f, 1f);
-                saturation.setDuration(DURATION);
-                saturation.start();
-            }
-        });
+            int smallDeltaX = smallPicInfo.left - (screenWidth - smallPicInfo.width) / 2;
+            int smallDeltaY = smallPicInfo.top - (screenHeight - smallPicInfo.height + DisplayUtils.getStatusBarHeight(PictureDetailActivity.this)) / 2;
 
-    }
+            ivDetail.setPivotX(0);
+            ivDetail.setPivotY(0);
+            ivDetail.setTranslationX(smallDeltaX);
+            ivDetail.setTranslationY(smallDeltaY);
 
-    public void setSaturation(float sat) {
-        colorMatrix.setSaturation(sat);
-        colorFilter = new ColorMatrixColorFilter(colorMatrix);
-        imageDetail.setColorFilter(colorFilter);
+            ivDetail.animate().translationX(0).translationY(0).setDuration(DURATION).setListener(new SimpleAnimatorListener() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    progressLoad.setVisibility(View.VISIBLE);
+
+                    DisplayImageOptions options = new DisplayImageOptions.Builder()
+                            .cacheOnDisk(true)
+                            .bitmapConfig(Bitmap.Config.RGB_565)
+                            .build();
+
+                    Application.getInstance().getImageLoader().displayImage(smallPicInfo.url, ivDetail, options, new SimpleImageLoadingListener() {
+
+                        @Override
+                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                            progressLoad.setVisibility(View.GONE);
+                            attacher.update();
+
+                            float scaleX = screenWidth * 1f / smallPicInfo.width;
+                            float scaleY = screenHeight * 1f / smallPicInfo.height;
+                            float scale = Math.min(scaleX, scaleY);
+
+                            ivDetail.setPivotX(smallPicInfo.width / 2);
+                            ivDetail.setPivotY(smallPicInfo.height / 2);
+
+                            ivDetail.animate().scaleX(scale).scaleY(scale).setDuration(DURATION).setListener(new SimpleAnimatorListener() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    ivDetail.setScaleX(1f);
+                                    ivDetail.setScaleY(1f);
+                                    RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) ivDetail.getLayoutParams();
+                                    lp.height = screenHeight;
+                                    lp.width = screenWidth;
+                                    ivDetail.setLayoutParams(lp);
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                            progressLoad.setVisibility(View.GONE);
+                        }
+                    });
+                }
+            });
+        }
     }
 
     @Override
     public void onBackPressed() {
-        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) imageDetail.getLayoutParams();
-        lp.width = initWidth;
-        lp.height = initHeight;
-        imageDetail.setLayoutParams(lp);
+        rlRoot.animate().alpha(0f).setDuration(DURATION);
 
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(rlImageDetail, "alpha", 1f, 0.2f);
-        alpha.setDuration(DURATION);
-        alpha.start();
+        float scaleX = smallPicInfo.width * 1f / ivDetail.getWidth();
+        float scaleY = smallPicInfo.height * 1f / ivDetail.getHeight();
 
-        ObjectAnimator saturation = ObjectAnimator.ofFloat(PictureDetailActivity.this, "saturation", 1f, 0f);
-        saturation.setDuration(DURATION);
-        saturation.start();
+        int[] location = new int[2];
+        ivDetail.getLocationOnScreen(location);
+        int deltaX = smallPicInfo.left - location[0];
+        int deltaY = smallPicInfo.top - location[1];
 
-        imageDetail.setPivotX(0);
-        imageDetail.setPivotY(0);
-        imageDetail.setScaleX(1);
-        imageDetail.setScaleY(1);;
+        ivDetail.setPivotX(0);
+        ivDetail.setPivotY(0);
+        ivDetail.setScaleX(1f);
+        ivDetail.setScaleY(1f);
+        ivDetail.setTranslationX(0);
+        ivDetail.setTranslationY(0);
 
-        imageDetail.animate()
-                .scaleX(scaleX).scaleY(scaleY)
-                .translationX(deltaX).translationY(deltaY)
-                .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
+        ivDetail.animate().scaleX(scaleX).scaleY(scaleY).translationX(deltaX).translationY(deltaY).setDuration(DURATION).setListener(new SimpleAnimatorListener() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                finish();
+                PictureDetailActivity.super.onBackPressed();
             }
         });
-
     }
 
     @Override
@@ -171,5 +208,4 @@ public class PictureDetailActivity extends AutoLayoutActivity {
 
         overridePendingTransition(0, 0);
     }
-
 }

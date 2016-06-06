@@ -56,6 +56,7 @@ public class AppModule {
                 .denyCacheImageMultipleSizesInMemory()
                 .tasksProcessingOrder(QueueProcessingType.LIFO)
                 .discCache(new UnlimitedDiskCache(imgFile))
+                .writeDebugLogs()
                 .build();
             imageLoader.init(config);
 
