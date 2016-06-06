@@ -5,21 +5,17 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <!--<com.horizon.android.widget.gestureimageview.GestureImageView
-        xmlns:gesture-image="http://schemas.polites.com/android"
-        android:id="@+id/image_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        gesture-image:min-scale="0.5"
-        gesture-image:max-scale="4"
-        gesture-image:strict="true"
-        gesture-image:recycle="true"
-        android:layout_centerVertical="true"/>-->
-
     <ImageView
         android:id="@+id/image_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"/>
+
+    <ProgressBar
+        android:id="@+id/progress_load"
+        style="?android:attr/progressBarStyleLargeInverse"
+        android:layout_width="@dimen/title_height"
+        android:layout_centerInParent="true"
+        android:layout_height="@dimen/title_height" />
 
 </RelativeLayout>

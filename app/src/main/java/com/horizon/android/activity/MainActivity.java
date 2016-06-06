@@ -163,8 +163,8 @@ public class MainActivity extends AutoLayoutActivity {
         }
 
         @Override
-        public boolean isViewFromObject(View arg0, Object arg1) {
-            return arg0 == arg1;
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
         }
 
         @Override

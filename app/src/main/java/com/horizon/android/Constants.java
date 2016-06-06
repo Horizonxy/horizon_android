@@ -18,4 +18,7 @@ public class Constants {
 	public final static String BUNDLE_PIC_WIDTH = "bundle_picture_width";
 	public final static String BUNDLE_PIC_HEIGHT = "bundle_picture_height";
 	public final static String BUNDLE_PIC_URL = "bundle_picture_url";
+
+	public final static String BUNDLE_PIC_POS = "bundle_picture_pos";
+	public final static String BUNDLE_PIC_INFOS = "bundle_picture_infos";
 }

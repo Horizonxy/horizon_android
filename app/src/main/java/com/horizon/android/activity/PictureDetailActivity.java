@@ -9,12 +9,14 @@ import android.graphics.ColorMatrixColorFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.util.SimpleAnimatorListener;
 import com.horizon.android.util.SystemStatusManager;
+import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.zhy.autolayout.AutoLayoutActivity;
 import butterknife.Bind;
@@ -27,6 +29,8 @@ public class PictureDetailActivity extends AutoLayoutActivity {
     RelativeLayout rlImageDetail;
     @Bind(R.id.image_detail)
     ImageView imageDetail;
+    @Bind(R.id.progress_load)
+    ProgressBar progressLoad;
 
     PhotoViewAttacher attacher;
 
@@ -66,7 +70,15 @@ public class PictureDetailActivity extends AutoLayoutActivity {
 
         Application.getInstance().getImageLoader().displayImage(url, imageDetail, Application.getInstance().getDefaultOptions(), new SimpleImageLoadingListener() {
             @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                super.onLoadingFailed(imageUri, view, failReason);
+                progressLoad.setVisibility(View.GONE);
+            }
+
+            @Override
             public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                progressLoad.setVisibility(View.GONE);
+
                 int w = loadedImage.getWidth();
                 int h = loadedImage.getHeight();
                 float scale = Application.getInstance().SCREENWIDTH * 1.0f / w;
@@ -82,7 +94,7 @@ public class PictureDetailActivity extends AutoLayoutActivity {
                 int[] location = new int[2];
                 imageDetail.getLocationOnScreen(location);
                 deltaX = left - location[0];
-                deltaY = top - location[1] + (initHeight) / 2;
+                deltaY = top - location[1] + initHeight / 2;
 
                 imageDetail.setPivotX(0);
                 imageDetail.setPivotY(0);
@@ -92,10 +104,7 @@ public class PictureDetailActivity extends AutoLayoutActivity {
                 imageDetail.setTranslationX(deltaX);
                 imageDetail.setTranslationY(deltaY);
 
-                //imageDetail.setAlpha(0.6f);
-
                 imageDetail.animate()
-                        //.alpha(1f)
                         .scaleX(1f).scaleY(1f)
                         .translationX(0).translationY(0)
                         .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
@@ -142,12 +151,9 @@ public class PictureDetailActivity extends AutoLayoutActivity {
         imageDetail.setPivotX(0);
         imageDetail.setPivotY(0);
         imageDetail.setScaleX(1);
-        imageDetail.setScaleY(1);
-
-        //imageDetail.setAlpha(1f);
+        imageDetail.setScaleY(1);;
 
         imageDetail.animate()
-                //.alpha(0.6f)
                 .scaleX(scaleX).scaleY(scaleY)
                 .translationX(deltaX).translationY(deltaY)
                 .setDuration(DURATION).setListener(new SimpleAnimatorListener(){
