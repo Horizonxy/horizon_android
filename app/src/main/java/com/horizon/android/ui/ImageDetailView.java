@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -71,13 +72,14 @@ public class ImageDetailView extends AutoRelativeLayout {
 
     public void exit(SmallPicInfo smallPicInfo, Animator.AnimatorListener listener){
 
-        float scaleX = smallPicInfo.width * 1f / ivDetail.getWidth();
-        float scaleY = smallPicInfo.height * 1f / ivDetail.getHeight();
+        RectF rect = attacher.getDisplayRect();
+        float scaleX = smallPicInfo.width * 1f / Math.min(rect.width(), ivDetail.getWidth());
+        float scaleY = smallPicInfo.height * 1f / Math.min(rect.height(), ivDetail.getHeight());
 
         int[] location = new int[2];
         ivDetail.getLocationOnScreen(location);
-        int deltaX = smallPicInfo.left - location[0];
-        int deltaY = smallPicInfo.top - location[1];
+        int deltaX = (int) (smallPicInfo.left - (location[0] + (ivDetail.getWidth() - rect.width() > 0 ? scaleX * (ivDetail.getWidth() - rect.width()) / 2 : 0)));
+        int deltaY = (int) (smallPicInfo.top - (location[1] + (ivDetail.getHeight() - rect.height() > 0 ? scaleY * (ivDetail.getHeight() - rect.height()) / 2 : 0)));
 
         ivDetail.setPivotX(0);
         ivDetail.setPivotY(0);

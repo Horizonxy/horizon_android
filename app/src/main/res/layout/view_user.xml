@@ -2,47 +2,61 @@
 <com.horizon.android.ui.UserView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
-	<RelativeLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="@dimen/title_height"
-	    android:background="@color/main" >
-	    
-	    <ImageView
-	        android:id="@+id/btn_left"
-	        android:layout_width="@dimen/title_height"
-	        android:layout_height="@dimen/title_height"
-	        android:padding="@dimen/top_ico_margin"
-			style="@style/repple_out_backguound"
-	        android:src="@mipmap/back" />
-	    
-	    <ImageView 
-	        android:id="@+id/btn_right1"
-	        android:layout_width="@dimen/title_height"
-	        android:layout_height="@dimen/title_height"
-	        android:layout_alignParentRight="true"
-	        android:padding="@dimen/top_ico_margin"
-			style="@style/repple_out_backguound"
-	        android:src="@mipmap/share" />
-	    
-	    <TextView
-	        android:id="@+id/tv_title"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:layout_toRightOf="@id/btn_left"
-	        android:layout_toLeftOf="@id/btn_right1"
-	        android:textColor="@color/white"
-	        android:gravity="center_vertical"
-	        android:text="个人中心"
-	        android:textSize="@dimen/large_size" />
-	    
-	</RelativeLayout>
+    android:orientation="vertical">
 
-	<android.support.v7.widget.RecyclerView
-		android:id="@+id/pic_list"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:scrollbars="none"/>
-    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/main">
+
+        <ImageView
+            android:id="@+id/btn_left"
+            style="@style/repple_out_backguound"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:padding="@dimen/top_ico_margin"
+            android:src="@mipmap/back" />
+
+        <ImageView
+            android:id="@+id/btn_right1"
+            style="@style/repple_out_backguound"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/top_ico_margin"
+            android:src="@mipmap/share" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/btn_right1"
+            android:layout_toRightOf="@id/btn_left"
+            android:gravity="center_vertical"
+            android:text="个人中心"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_size" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_recycler_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_height"
+                android:text="Recycler Image"
+                android:textAllCaps="false"
+                android:textSize="@dimen/normal_size" />
+        </LinearLayout>
+    </ScrollView>
+
 </com.horizon.android.ui.UserView>
