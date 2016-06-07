@@ -2,8 +2,8 @@ package com.horizon.android.presenter;
 
 import com.horizon.android.model.bean.HistoryVo;
 import com.horizon.android.model.interfaces.HistoryTodayInterface;
+import com.horizon.android.simple.SimpleSubscriber;
 import com.horizon.android.util.JuheResult;
-import com.horizon.android.util.SimpleSubscriber;
 import com.horizon.android.view.HistoryTodayView;
 
 import java.util.List;

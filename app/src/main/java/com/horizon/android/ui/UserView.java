@@ -3,6 +3,7 @@ package com.horizon.android.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.support.v7.widget.GridLayoutManager;
@@ -19,18 +20,20 @@ import com.horizon.android.activity.PicturesDetailActivity;
 import com.horizon.android.adapter.recyclerview.BaseAdapterHelper;
 import com.horizon.android.adapter.recyclerview.QuickAdapter;
 import com.horizon.android.util.SmallPicInfo;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UserView extends AutoLinearLayout /*implements View.OnClickListener*/ {
+public class UserView extends AutoLinearLayout {
 
 	@Bind(R.id.pic_list)
 	RecyclerView  picList;
@@ -47,7 +50,7 @@ public class UserView extends AutoLinearLayout /*implements View.OnClickListener
 
 	private ColorMatrixColorFilter colorFilter;
 
-	private List<SmallPicInfo> picInfos;
+	private Map<Integer, SmallPicInfo> picInfos;
 
 	public UserView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -56,7 +59,7 @@ public class UserView extends AutoLinearLayout /*implements View.OnClickListener
 	}
 
 	private void init() {
-		picInfos = new ArrayList<SmallPicInfo>();
+		picInfos = new HashMap<Integer, SmallPicInfo>();
 	}
 
 	@Override
@@ -72,30 +75,45 @@ public class UserView extends AutoLinearLayout /*implements View.OnClickListener
 //		picList.addItemDecoration(new DividerGridItemDecoration(getContext()));
 		picList.setAdapter(new QuickAdapter<String>(getContext(), R.layout.item_iamge, data = Arrays.asList(images)) {
 			@Override
-			public void onBindData(BaseAdapterHelper holder, final int position) {
-				final ImageView image = holder.getView(R.id.item_image);
+			public void onBindData(BaseAdapterHelper holder, int position) {
+				ImageView image = holder.getView(R.id.item_image);
 				image.setColorFilter(colorFilter);
-				Application.getInstance().getImageLoader().displayImage(data.get(position), image, Application.getInstance().getDefaultOptions());
-
-				holder.setImageBuilder(R.id.item_image, data.get(position), Application.getInstance().getDefaultOptions());
-//				holder.setOnClickListener(R.id.item_image, UserView.this);
-
+				Application.getInstance().getImageLoader().displayImage(data.get(position), image, Application.getInstance().getDefaultOptions(), new ImageLoadListener(image, position));
 				holder.setOnClickListener(R.id.item_image, new OnItemClickListener(position));
-				image.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-					@Override
-					public void onGlobalLayout() {
-						image.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-
-						int[] screenLocation = new int[2];
-						image.getLocationOnScreen(screenLocation);
-						SmallPicInfo info = new SmallPicInfo(data.get(position), screenLocation[0], screenLocation[1], image.getWidth(), image.getHeight(), position, null);
-						picInfos.add(info);
-					}
-				});
-
 				holder.setTag(R.id.item_image, data.get(position));
 			}
 		});
+	}
+
+	class ImageLoadListener extends SimpleImageLoadingListener {
+
+		public ImageLoadListener(ImageView image, int position) {
+			this.image = image;
+			this.position = position;
+		}
+
+		private ImageView image;
+		private int position;
+
+		@Override
+		public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+			image.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+				@Override
+				public void onGlobalLayout() {
+					image.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+
+					int[] screenLocation = new int[2];
+					image.getLocationOnScreen(screenLocation);
+
+					image.setDrawingCacheEnabled(true);
+					Bitmap bmp = image.getDrawingCache();
+					SmallPicInfo info = new SmallPicInfo(data.get(position), screenLocation[0], screenLocation[1], image.getWidth(), image.getHeight(), position, Bitmap.createBitmap(bmp));
+					picInfos.put(position, info);
+					image.setDrawingCacheEnabled(false);
+				}
+			});
+		}
+
 	}
 
 	@OnClick(R.id.btn_right1)
@@ -107,23 +125,6 @@ public class UserView extends AutoLinearLayout /*implements View.OnClickListener
 	void leftClick(){
 
 	}
-
-//	@Override
-//	public void onClick(View v) {
-//		int[] screenLocation = new int[2];
-//		v.getLocationOnScreen(screenLocation);
-//
-//		String url = (String) v.getTag();
-//
-//		Intent intent = new Intent(getContext(), PictureDetailActivity.class);
-//		intent.putExtra(Constants.BUNDLE_PIC_URL, url);
-//		intent.putExtra(Constants.BUNDLE_PIC_LEFT, screenLocation[0]);
-//		intent.putExtra(Constants.BUNDLE_PIC_TOP, screenLocation[1]);
-//		intent.putExtra(Constants.BUNDLE_PIC_WIDTH, v.getWidth());
-//		intent.putExtra(Constants.BUNDLE_PIC_HEIGHT, v.getHeight());
-//		getContext().startActivity(intent);
-//		((Activity)getContext()).overridePendingTransition(0, 0);
-//	}
 
 	class OnItemClickListener implements View.OnClickListener {
 

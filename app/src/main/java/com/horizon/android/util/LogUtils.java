@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.horizon.android.util.log;
+package com.horizon.android.util;
 
 import android.text.TextUtils;
 import android.util.Log;

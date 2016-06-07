@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 
 import com.horizon.android.Constants;
 import com.horizon.android.R;
-import com.horizon.android.util.log.LogUtils;
+import com.horizon.android.util.LogUtils;
 import com.horizon.android.web.WebChromeClient;
 import com.horizon.android.web.WebView;
 import com.horizon.android.web.WebViewClient;

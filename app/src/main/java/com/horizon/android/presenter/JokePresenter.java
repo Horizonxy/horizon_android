@@ -2,9 +2,9 @@ package com.horizon.android.presenter;
 
 import com.horizon.android.model.bean.JokeVo;
 import com.horizon.android.model.interfaces.JokeInterface;
+import com.horizon.android.simple.SimpleSubscriber;
 import com.horizon.android.util.JuheResult;
-import com.horizon.android.util.SimpleSubscriber;
-import com.horizon.android.util.log.LogUtils;
+import com.horizon.android.util.LogUtils;
 import com.horizon.android.view.JokeView;
 
 import rx.Subscription;

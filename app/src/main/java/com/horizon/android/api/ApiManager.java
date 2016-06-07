@@ -5,7 +5,7 @@ import com.horizon.android.model.bean.HistoryVo;
 import com.horizon.android.model.bean.JokeVo;
 import com.horizon.android.model.bean.NewsVo;
 import com.horizon.android.util.JuheResult;
-import com.horizon.android.util.log.LogUtils;
+import com.horizon.android.util.LogUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

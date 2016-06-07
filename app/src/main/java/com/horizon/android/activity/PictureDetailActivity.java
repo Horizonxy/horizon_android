@@ -13,11 +13,10 @@ import android.widget.RelativeLayout;
 import com.horizon.android.Application;
 import com.horizon.android.Constants;
 import com.horizon.android.R;
+import com.horizon.android.simple.SimpleAnimatorListener;
 import com.horizon.android.util.DisplayUtils;
-import com.horizon.android.util.SimpleAnimatorListener;
 import com.horizon.android.util.SmallPicInfo;
 import com.horizon.android.util.SystemStatusManager;
-import com.horizon.android.util.log.LogUtils;
 import com.nostra13.universalimageloader.cache.disc.DiskCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -129,6 +128,11 @@ public class PictureDetailActivity extends Activity {
 
                     @Override
                     public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                        progressLoad.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onLoadingCancelled(String imageUri, View view) {
                         progressLoad.setVisibility(View.GONE);
                     }
                 });

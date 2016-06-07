@@ -1,4 +1,4 @@
-package com.horizon.android.util;
+package com.horizon.android.simple;
 
 import rx.Subscriber;
 

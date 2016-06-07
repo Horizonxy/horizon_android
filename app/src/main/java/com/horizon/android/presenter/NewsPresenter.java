@@ -3,8 +3,8 @@ package com.horizon.android.presenter;
 
 import com.horizon.android.model.bean.NewsVo;
 import com.horizon.android.model.interfaces.NewsInterface;
+import com.horizon.android.simple.SimpleSubscriber;
 import com.horizon.android.util.JuheResult;
-import com.horizon.android.util.SimpleSubscriber;
 import com.horizon.android.view.NewsView;
 
 import java.util.List;
