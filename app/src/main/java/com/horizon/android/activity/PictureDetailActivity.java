@@ -187,7 +187,7 @@ public class PictureDetailActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        rlRoot.animate().alpha(0f).setDuration(DURATION);
+        rlRoot.animate().alpha(0.2f).setDuration(DURATION);
 
         float scaleX = smallPicInfo.width * 1f / ivDetail.getWidth();
         float scaleY = smallPicInfo.height * 1f / ivDetail.getHeight();

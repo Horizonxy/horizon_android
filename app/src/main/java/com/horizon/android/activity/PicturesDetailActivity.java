@@ -1,6 +1,6 @@
 package com.horizon.android.activity;
 
-import android.animation.ObjectAnimator;
+import android.animation.Animator;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.horizon.android.Constants;
 import com.horizon.android.R;
+import com.horizon.android.simple.SimpleAnimatorListener;
 import com.horizon.android.ui.ImageDetailView;
 import com.horizon.android.util.SmallPicInfo;
 import com.horizon.android.util.SystemStatusManager;
@@ -48,9 +49,7 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
         setContentView(R.layout.activity_pictures_detail);
         ButterKnife.bind(this);
 
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(flPictures, "alpha", 0f, 1.0f);
-        alpha.setDuration(DURATION);
-        alpha.start();
+        flPictures.animate().alpha(1f).setDuration(DURATION);
 
         final HashMap<Integer, SmallPicInfo> picInfos = (HashMap<Integer, SmallPicInfo>) getIntent().getSerializableExtra(Constants.BUNDLE_PIC_INFOS);
         pos = getIntent().getIntExtra(Constants.BUNDLE_PIC_POS, 0);
@@ -96,7 +95,15 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        flPictures.animate().alpha(0.2f).setDuration(DURATION);
+
+        int current = vpPictures.getCurrentItem();
+        adapter.getItemView(current).exit(adapter.getItemInfo(current), new SimpleAnimatorListener(){
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                PicturesDetailActivity.super.onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -130,6 +137,14 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
             }
             container.addView(item);
             return item;
+        }
+
+        private SmallPicInfo getItemInfo(int pos){
+            return picInfos.get(pos);
+        }
+
+        private ImageDetailView getItemView(int pos){
+            return itemViews.get(pos);
         }
 
         @Override

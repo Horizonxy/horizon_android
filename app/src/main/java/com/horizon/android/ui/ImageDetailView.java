@@ -69,6 +69,26 @@ public class ImageDetailView extends AutoRelativeLayout {
         }
     }
 
+    public void exit(SmallPicInfo smallPicInfo, Animator.AnimatorListener listener){
+
+        float scaleX = smallPicInfo.width * 1f / ivDetail.getWidth();
+        float scaleY = smallPicInfo.height * 1f / ivDetail.getHeight();
+
+        int[] location = new int[2];
+        ivDetail.getLocationOnScreen(location);
+        int deltaX = smallPicInfo.left - location[0];
+        int deltaY = smallPicInfo.top - location[1];
+
+        ivDetail.setPivotX(0);
+        ivDetail.setPivotY(0);
+        ivDetail.setScaleX(1f);
+        ivDetail.setScaleY(1f);
+        ivDetail.setTranslationX(0);
+        ivDetail.setTranslationY(0);
+
+        ivDetail.animate().scaleX(scaleX).scaleY(scaleY).translationX(deltaX).translationY(deltaY).setDuration(DURATION).setListener(listener);
+    }
+
     private void loadOnNetwork(final SmallPicInfo smallPicInfo, boolean trans){
         RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) ivDetail.getLayoutParams();
         lp.width = smallPicInfo.width;
