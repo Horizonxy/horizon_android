@@ -152,4 +152,5 @@ public class NativeImageLoader {
     public interface NativeImageLoadListener{
         public void onImageLoad(String path, Bitmap bitmap);
     }
+
 }
