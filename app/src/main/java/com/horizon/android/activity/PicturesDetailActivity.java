@@ -7,14 +7,17 @@ import android.support.v4.view.ViewPager;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.horizon.android.Constants;
 import com.horizon.android.R;
 import com.horizon.android.ui.ImageDetailView;
 import com.horizon.android.util.SmallPicInfo;
 import com.horizon.android.util.SystemStatusManager;
-import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoLayoutActivity;
+import com.zhy.autolayout.AutoLinearLayout;
+import com.zhy.autolayout.AutoRelativeLayout;
 
 import java.util.HashMap;
 
@@ -26,12 +29,16 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
     @Bind(R.id.vp_pictures)
     ViewPager vpPictures;
     @Bind(R.id.fl_pictures)
-    AutoFrameLayout flPictures;
+    AutoRelativeLayout flPictures;
 
     private final static long DURATION = 250;
     private int pos;
 
     private PictureAdapter adapter;
+
+    @Bind(R.id.indicator)
+    LinearLayout indicator;
+    SparseArray<ImageView> indicatorViews;
 
 
     @Override
@@ -45,11 +52,45 @@ public class PicturesDetailActivity extends AutoLayoutActivity {
         alpha.setDuration(DURATION);
         alpha.start();
 
-        HashMap<Integer, SmallPicInfo> picInfos = (HashMap<Integer, SmallPicInfo>) getIntent().getSerializableExtra(Constants.BUNDLE_PIC_INFOS);
+        final HashMap<Integer, SmallPicInfo> picInfos = (HashMap<Integer, SmallPicInfo>) getIntent().getSerializableExtra(Constants.BUNDLE_PIC_INFOS);
         pos = getIntent().getIntExtra(Constants.BUNDLE_PIC_POS, 0);
 
         vpPictures.setAdapter(adapter = new PictureAdapter(picInfos));
+        if(picInfos.size() == 1){
+            indicator.setVisibility(View.GONE);
+        } else {
+            indicatorViews = new SparseArray<ImageView>();
+            AutoLinearLayout.LayoutParams lp = new AutoLinearLayout.LayoutParams(6, 6);
+            lp.leftMargin = 5;
+            lp.rightMargin = 5;
+            for (int i = 0; i < picInfos.size(); i++){
+                ImageView item = new ImageView(this);
+                item.setBackgroundColor(getResources().getColor(R.color.transparent));
+                item.setImageResource(R.mipmap.ic_page_indicator);
+                item.setLayoutParams(lp);
+                indicatorViews.put(i, item);
+                indicator.addView(item);
+            }
+            vpPictures.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
+                @Override
+                public void onPageSelected(int position) {
+                    for (int i = 0; i < picInfos.size(); i++){
+                        ImageView item = indicatorViews.get(i);
+                        if(i == position){
+                            item.setImageResource(R.mipmap.ic_page_indicator_focused);
+                        } else {
+                            item.setImageResource(R.mipmap.ic_page_indicator);
+                        }
+                    }
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int state) {}
+            });
+        }
         vpPictures.setCurrentItem(pos);
     }
 

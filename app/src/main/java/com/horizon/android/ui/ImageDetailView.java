@@ -15,10 +15,13 @@ import com.horizon.android.R;
 import com.horizon.android.simple.SimpleAnimatorListener;
 import com.horizon.android.util.DisplayUtils;
 import com.horizon.android.util.SmallPicInfo;
+import com.nostra13.universalimageloader.cache.disc.DiskCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.zhy.autolayout.AutoRelativeLayout;
+
+import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,7 +37,7 @@ public class ImageDetailView extends AutoRelativeLayout {
     private DisplayImageOptions options;
     private PhotoViewAttacher attacher;
     private int screenWidth, screenHeight;
-    private static final int DURATION = 10000;
+    private static final int DURATION = 250;
 
     public ImageDetailView(Context context) {
         this(context, null);
@@ -56,14 +59,14 @@ public class ImageDetailView extends AutoRelativeLayout {
     }
 
     public void loadImage(SmallPicInfo smallPicInfo, boolean trans) {
-//        DiskCache diskCache = Application.getInstance().getImageLoader().getDiskCache();
-//        File file = diskCache.get(smallPicInfo.url);
-//        if (file != null && file.exists()) {
-//            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-//            loadOnCache(smallPicInfo, bitmap, trans);
-//        } else {
+        DiskCache diskCache = Application.getInstance().getImageLoader().getDiskCache();
+        File file = diskCache.get(smallPicInfo.url);
+        if (file != null && file.exists()) {
+            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+            loadOnCache(smallPicInfo, bitmap, trans);
+        } else {
             loadOnNetwork(smallPicInfo, trans);
-//        }
+        }
     }
 
     private void loadOnNetwork(final SmallPicInfo smallPicInfo, boolean trans){
