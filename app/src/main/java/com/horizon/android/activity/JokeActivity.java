@@ -17,10 +17,10 @@ import com.horizon.android.view.JokeView;
 import com.horizon.android.widget.AutoLoadListView;
 import com.horizon.android.widget.InitializeListView;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -106,11 +106,10 @@ public class JokeActivity extends BaseActivity implements JokeView {
         lvJoke.onComplete();
 
         if(pageNo == 1){
-            try {
-                dbDao.deleteAll(CommonCacheVo.class);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            Map<String, Object> deleteMap = new HashMap<String, Object>();
+            deleteMap.put(CommonCacheVo.ATY, ATY);
+            deleteMap.put(CommonCacheVo.DATA_TYPE, DATA_TYPE);
+            dbDao.deleteByColumns(deleteMap);
         }
 
         CommonCacheVo cacheVo = new CommonCacheVo();

@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 
 import com.horizon.android.R;
 import com.horizon.android.activity.RecycleViewImageForDetailActivity;
+import com.horizon.android.activity.csdn.CsdnMainActivity;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import butterknife.ButterKnife;
@@ -23,6 +24,11 @@ public class UserView extends AutoLinearLayout {
 		super.onFinishInflate();
 		ButterKnife.bind(this);
 
+	}
+
+	@OnClick(R.id.btn_csdn)
+	void csdnClick(){
+		getContext().startActivity(new Intent(getContext(), CsdnMainActivity.class));
 	}
 
 	@OnClick(R.id.btn_recycler_image)
