@@ -225,6 +225,10 @@ public class AutoLoadListView extends ListView {
 		this.mAutoLoadListener = mAutoLoadListener;
 	}
 
+	public void setAutoScrollListener(OnAutoScrollListener mAutoScrollListener){
+		this.mAutoScrollListener = mAutoScrollListener;
+	}
+
 	/**
 	 * 滑动监听
 	 * @author 蒋先明
@@ -234,7 +238,7 @@ public class AutoLoadListView extends ListView {
         public void onScrollStateChanged(AbsListView view, int scrollState);
         public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount);
 	}
-	
+
 	/**
 	 * 创建footer view
 	 * @author 蒋先明

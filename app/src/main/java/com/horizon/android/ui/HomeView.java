@@ -19,7 +19,6 @@ import com.horizon.android.activity.ListViewActivity;
 import com.horizon.android.activity.PullToZoomListActivity;
 import com.horizon.android.activity.PullToZoomScrollActivity;
 import com.horizon.android.activity.RectViewPagerIndicatorActivity;
-import com.horizon.android.activity.ScrollViewActivity;
 import com.horizon.android.activity.StatusLayoutActivity;
 import com.horizon.android.activity.TriangleViewPagerIndicatorActivity;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -112,11 +111,6 @@ public class HomeView extends AutoLinearLayout {
 	@OnClick(R.id.btn_collection_lise)
 	void clipClick(){
 		mCxt.startActivity(new Intent(mCxt, ClipChildActivity.class));
-	}
-
-	@OnClick(R.id.btn_scroll_view)
-	void scrollviewClick(){
-		mCxt.startActivity(new Intent(mCxt, ScrollViewActivity.class));
 	}
 
 	@OnClick(R.id.btn_layout_status)

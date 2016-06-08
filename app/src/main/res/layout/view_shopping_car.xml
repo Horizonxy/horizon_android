@@ -39,7 +39,7 @@
 	    
 	</RelativeLayout>
 
-	<com.horizon.android.widget.ScrollView
+	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:scrollbars="none"
@@ -130,6 +130,6 @@
 				android:textSize="@dimen/normal_size" />
 
 		</LinearLayout>
-	</com.horizon.android.widget.ScrollView>
+	</ScrollView>
     
 </com.horizon.android.ui.ShoppingCarView>
