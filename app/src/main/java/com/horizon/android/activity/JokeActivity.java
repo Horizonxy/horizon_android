@@ -84,7 +84,7 @@ public class JokeActivity extends BaseActivity implements JokeView {
                     //加载缓存
                     daoMap.put(CommonCacheVo.DATA_PAGE_NO, pageNo);
                     List<CommonCacheVo> commonlist = dbDao.findByColumns(daoMap);
-                    if(!commonlist.isEmpty()){
+                    if(commonlist != null && !commonlist.isEmpty()){
                         List<JokeVo.JokeData> list = GsonUtils.getList(commonlist.get(0).getData(), JokeVo.JokeData.class);
                         data.addAll(list);
 

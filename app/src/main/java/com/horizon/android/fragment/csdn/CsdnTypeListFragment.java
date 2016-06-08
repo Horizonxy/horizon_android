@@ -121,17 +121,20 @@ public class CsdnTypeListFragment extends Fragment {
 
         @Override
         protected Integer doInBackground(Void... params) {
-            getNewsList();
-            return 0;
+            return getNewsList();
         }
 
         @Override
         protected void onPostExecute(Integer integer) {
-            mListView.onComplete();
+            if (integer.intValue() == -1) {
+                mListView.onFinish();
+            } else {
+                mListView.onComplete();
+            }
         }
     }
 
-    private void getNewsList() {
+    private int getNewsList() {
         try {
             if(mPageNo == 1){
                 mData.clear();
@@ -139,8 +142,10 @@ public class CsdnTypeListFragment extends Fragment {
 
             if(NetUtils.isNetworkConnected(getContext())) {
                 List<NewsItem> list = mNewsItemBiz.getNewsItems(mType, mPageNo);
-                if (list != null) {
+                if (list != null && !list.isEmpty()) {
                     mData.addAll(list);
+                } else if(mPageNo > 1) {
+                    return -1;
                 }
 
                 if (mPageNo == 1) {
@@ -159,18 +164,21 @@ public class CsdnTypeListFragment extends Fragment {
             } else {
                 mCahceMap.put(CommonCacheVo.DATA_PAGE_NO, mPageNo);
                 List<CommonCacheVo> cacheList = mCommonDao.findByColumns(mCahceMap);
-                if(cacheList !=  null && cacheList.size() > 0){
+                if(cacheList != null && !cacheList.isEmpty()){
                     CommonCacheVo cache = cacheList.get(0);
                     List<NewsItem> list = GsonUtils.getList(cache.getData(), NewsItem.class);
-                    if (list != null) {
+                    if (!list.isEmpty()) {
                         mData.addAll(list);
                     }
+                } else if(mPageNo > 1) {
+                    return -1;
                 }
             }
             mPageNo++;
         } catch (CommonException e) {
             e.printStackTrace();
         }
+        return 0;
     }
 
 }
