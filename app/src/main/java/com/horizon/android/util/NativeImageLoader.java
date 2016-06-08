@@ -52,7 +52,7 @@ public class NativeImageLoader {
         return loadNativeImage(path, 0, 0, listener);
     }
 
-    public Bitmap loadNativeImage(final String path, final int width, int height, final NativeImageLoadListener listener){
+    public Bitmap loadNativeImage(final String path, final int width, final int height, final NativeImageLoadListener listener){
         Bitmap bmp = getBitmapFromCache(path);
         if(bmp != null && listener != null){
             listener.onImageLoad(path, bmp);
@@ -71,7 +71,7 @@ public class NativeImageLoader {
             mImageLoadThreads.execute(new Runnable() {
                 @Override
                 public void run() {
-                    Bitmap mBitmap = decodeThumbBitmapForFile(path, width, width);
+                    Bitmap mBitmap = decodeThumbBitmapForFile(path, width, height);
                     Message msg = mHander.obtainMessage();
                     msg.obj = mBitmap;
                     mHander.sendMessage(msg);
@@ -123,7 +123,7 @@ public class NativeImageLoader {
         //假如Bitmap的宽度或高度大于我们设定图片的View的宽高，则计算缩放比例
         if(bitmapWidth > viewWidth || bitmapHeight > viewWidth){
             int widthScale = Math.round((float) bitmapWidth / (float) viewWidth);
-            int heightScale = Math.round((float) bitmapHeight / (float) viewWidth);
+            int heightScale = Math.round((float) bitmapHeight / (float) viewHeight);
 
             //为了保证图片不缩放变形，我们取宽高比例最小的那个
             inSampleSize = widthScale < heightScale ? widthScale : heightScale;
@@ -152,4 +152,5 @@ public class NativeImageLoader {
     public interface NativeImageLoadListener{
         public void onImageLoad(String path, Bitmap bitmap);
     }
+
 }
