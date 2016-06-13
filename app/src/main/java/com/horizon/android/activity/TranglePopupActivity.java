@@ -25,6 +25,7 @@ public class TranglePopupActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trangle_popup);
+        setTitle("Trangle Popup");
 
         btnOpen.setOnClickListener(clickListener);
 
